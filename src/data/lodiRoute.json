@@ -1,0 +1,783 @@
+{
+  "schemaVersion": 1,
+  "routeId": "lodi-demo",
+  "routeName": "Lodi Route Review",
+  "stops": [
+    {
+      "id": "way-320145162",
+      "name": "Skydive Lodi Parachute Center",
+      "lat": 38.1998502,
+      "lng": -121.2641278,
+      "sequence": 1
+    },
+    {
+      "id": "node-9177238817",
+      "name": "Peirano Estate",
+      "lat": 38.1816077,
+      "lng": -121.2631049,
+      "sequence": 2
+    },
+    {
+      "id": "way-269756359",
+      "name": "Acampo Post Office",
+      "lat": 38.1749191,
+      "lng": -121.2786372,
+      "sequence": 3
+    },
+    {
+      "id": "node-358767853",
+      "name": "Houston Elementary School",
+      "lat": 38.1740844,
+      "lng": -121.2610584,
+      "sequence": 4
+    },
+    {
+      "id": "way-319783524",
+      "name": "Woodbridge Golf & Country Club",
+      "lat": 38.161995,
+      "lng": -121.3063685,
+      "sequence": 5
+    },
+    {
+      "id": "node-9816331243",
+      "name": "Woodbridge Winery",
+      "lat": 38.1598577,
+      "lng": -121.2448194,
+      "sequence": 6
+    },
+    {
+      "id": "node-3251320447",
+      "name": "Lodi Lodge",
+      "lat": 38.1561543,
+      "lng": -121.3011713,
+      "sequence": 7
+    },
+    {
+      "id": "way-1169369724",
+      "name": "The Exchange 1874",
+      "lat": 38.1548786,
+      "lng": -121.3009417,
+      "sequence": 8
+    },
+    {
+      "id": "way-1169369723",
+      "name": "Woodbridge Florist",
+      "lat": 38.1548404,
+      "lng": -121.3004001,
+      "sequence": 9
+    },
+    {
+      "id": "way-1169369727",
+      "name": "Woodbridge Crossing",
+      "lat": 38.1544662,
+      "lng": -121.3011003,
+      "sequence": 10
+    },
+    {
+      "id": "way-1169369728",
+      "name": "Woodbridge Post Office",
+      "lat": 38.154435,
+      "lng": -121.3017212,
+      "sequence": 11
+    },
+    {
+      "id": "node-12419059010",
+      "name": "Hair Mill & Co.",
+      "lat": 38.1542267,
+      "lng": -121.3010118,
+      "sequence": 12
+    },
+    {
+      "id": "way-983818408",
+      "name": "Woodbridge Uncorked",
+      "lat": 38.1541617,
+      "lng": -121.3011016,
+      "sequence": 13
+    },
+    {
+      "id": "node-12419059009",
+      "name": "Dry Creek Liquor",
+      "lat": 38.1538686,
+      "lng": -121.3014411,
+      "sequence": 14
+    },
+    {
+      "id": "node-12419059008",
+      "name": "Pi Bar",
+      "lat": 38.1537848,
+      "lng": -121.3012676,
+      "sequence": 15
+    },
+    {
+      "id": "node-3251320448",
+      "name": "Masonic Lodge",
+      "lat": 38.15367,
+      "lng": -121.3019666,
+      "sequence": 16
+    },
+    {
+      "id": "way-1169371012",
+      "name": "Wells Fargo",
+      "lat": 38.1535819,
+      "lng": -121.3013666,
+      "sequence": 17
+    },
+    {
+      "id": "way-1169371010",
+      "name": "Arco",
+      "lat": 38.1531019,
+      "lng": -121.3007526,
+      "sequence": 18
+    },
+    {
+      "id": "node-12419059007",
+      "name": "Oakwood Animal Hospital",
+      "lat": 38.1530319,
+      "lng": -121.3016164,
+      "sequence": 19
+    },
+    {
+      "id": "way-319789059",
+      "name": "ampm",
+      "lat": 38.1528658,
+      "lng": -121.3005581,
+      "sequence": 20
+    },
+    {
+      "id": "node-358779260",
+      "name": "Woodbridge Middle School",
+      "lat": 38.1501961,
+      "lng": -121.3043925,
+      "sequence": 21
+    },
+    {
+      "id": "way-142507795",
+      "name": "Lodi Lake Park",
+      "lat": 38.1500493,
+      "lng": -121.2887905,
+      "sequence": 22
+    },
+    {
+      "id": "node-5371047174",
+      "name": "Amphitheater",
+      "lat": 38.1496993,
+      "lng": -121.2961929,
+      "sequence": 23
+    },
+    {
+      "id": "way-930713982",
+      "name": "Wine and Roses",
+      "lat": 38.1469146,
+      "lng": -121.307058,
+      "sequence": 24
+    },
+    {
+      "id": "way-184370339",
+      "name": "Lakewood Elementary School",
+      "lat": 38.1465755,
+      "lng": -121.2874061,
+      "sequence": 25
+    },
+    {
+      "id": "node-3254630943",
+      "name": "Wine and Roses",
+      "lat": 38.1464315,
+      "lng": -121.3073423,
+      "sequence": 26
+    },
+    {
+      "id": "way-154635228",
+      "name": "Wine and Roses",
+      "lat": 38.1464135,
+      "lng": -121.3073619,
+      "sequence": 27
+    },
+    {
+      "id": "way-518688735",
+      "name": "Bozant Katzakian Park",
+      "lat": 38.1462229,
+      "lng": -121.3092015,
+      "sequence": 28
+    },
+    {
+      "id": "node-358769609",
+      "name": "Lodi Municipal Lake Park",
+      "lat": 38.1460295,
+      "lng": -121.2952257,
+      "sequence": 29
+    },
+    {
+      "id": "node-13520288001",
+      "name": "Maison Lodi",
+      "lat": 38.1459766,
+      "lng": -121.3075792,
+      "sequence": 30
+    },
+    {
+      "id": "node-10012568655",
+      "name": "76",
+      "lat": 38.1454146,
+      "lng": -121.2720158,
+      "sequence": 31
+    },
+    {
+      "id": "way-1342369033",
+      "name": "Shell",
+      "lat": 38.145386,
+      "lng": -121.3049226,
+      "sequence": 32
+    },
+    {
+      "id": "node-12281831742",
+      "name": "Diener Precision Pumps USA",
+      "lat": 38.1451194,
+      "lng": -121.2557091,
+      "sequence": 33
+    },
+    {
+      "id": "way-1305170246",
+      "name": "Snowhite Drive In",
+      "lat": 38.1451142,
+      "lng": -121.2949976,
+      "sequence": 34
+    },
+    {
+      "id": "node-13454398953",
+      "name": "Tech Bros Auto Repair",
+      "lat": 38.1439343,
+      "lng": -121.272398,
+      "sequence": 35
+    },
+    {
+      "id": "node-358837188",
+      "name": "Childrens Center",
+      "lat": 38.1432519,
+      "lng": -121.2660584,
+      "sequence": 36
+    },
+    {
+      "id": "node-358798479",
+      "name": "Lawrence Elementary School",
+      "lat": 38.1429742,
+      "lng": -121.2663362,
+      "sequence": 37
+    },
+    {
+      "id": "node-358837458",
+      "name": "Victor Elementary School",
+      "lat": 38.1426967,
+      "lng": -121.2049459,
+      "sequence": 38
+    },
+    {
+      "id": "way-556823300",
+      "name": "Candycane Park",
+      "lat": 38.1418515,
+      "lng": -121.2897254,
+      "sequence": 39
+    },
+    {
+      "id": "way-1314704368",
+      "name": "Van Buskirk Park",
+      "lat": 38.1414432,
+      "lng": -121.2758754,
+      "sequence": 40
+    },
+    {
+      "id": "way-556811930",
+      "name": "Lodi Stadium",
+      "lat": 38.1409961,
+      "lng": -121.2672113,
+      "sequence": 41
+    },
+    {
+      "id": "node-5370805798",
+      "name": "Amphitheater",
+      "lat": 38.1400167,
+      "lng": -121.2639274,
+      "sequence": 42
+    },
+    {
+      "id": "node-358837342",
+      "name": "Zupo Field",
+      "lat": 38.1396409,
+      "lng": -121.2663362,
+      "sequence": 43
+    },
+    {
+      "id": "node-12417339970",
+      "name": "Lakewood Meats",
+      "lat": 38.1393001,
+      "lng": -121.2879659,
+      "sequence": 44
+    },
+    {
+      "id": "node-12417339969",
+      "name": "Lakewood Nails",
+      "lat": 38.139243,
+      "lng": -121.2879613,
+      "sequence": 45
+    },
+    {
+      "id": "node-9164247013",
+      "name": "Lodi Cyclery",
+      "lat": 38.1391982,
+      "lng": -121.2879604,
+      "sequence": 46
+    },
+    {
+      "id": "way-556813494",
+      "name": "Lodi Grape Festival Grounds",
+      "lat": 38.1391901,
+      "lng": -121.2641968,
+      "sequence": 47
+    },
+    {
+      "id": "node-12417339968",
+      "name": "Little Caesars",
+      "lat": 38.13913,
+      "lng": -121.2879566,
+      "sequence": 48
+    },
+    {
+      "id": "node-12419050107",
+      "name": "Lodi Laundromat",
+      "lat": 38.1390509,
+      "lng": -121.2879509,
+      "sequence": 49
+    },
+    {
+      "id": "way-556810568",
+      "name": "Lawrence Park",
+      "lat": 38.1390385,
+      "lng": -121.2666227,
+      "sequence": 50
+    },
+    {
+      "id": "way-1342369011",
+      "name": "Fosters Freeze",
+      "lat": 38.1390296,
+      "lng": -121.288742,
+      "sequence": 51
+    },
+    {
+      "id": "node-358778420",
+      "name": "George Washington Elementary School",
+      "lat": 38.1388076,
+      "lng": -121.2849476,
+      "sequence": 52
+    },
+    {
+      "id": "node-14132170153",
+      "name": "Corner Scone Bakery",
+      "lat": 38.1387584,
+      "lng": -121.2803222,
+      "sequence": 53
+    },
+    {
+      "id": "way-1342251747",
+      "name": "Arco",
+      "lat": 38.1387156,
+      "lng": -121.2880727,
+      "sequence": 54
+    },
+    {
+      "id": "way-1355840219",
+      "name": "American Legion Memorial Building",
+      "lat": 38.1387057,
+      "lng": -121.2672356,
+      "sequence": 55
+    },
+    {
+      "id": "node-12419050113",
+      "name": "Village Donuts",
+      "lat": 38.138684,
+      "lng": -121.2888776,
+      "sequence": 56
+    },
+    {
+      "id": "node-12419050112",
+      "name": "Subway",
+      "lat": 38.1386291,
+      "lng": -121.288879,
+      "sequence": 57
+    },
+    {
+      "id": "node-14136364575",
+      "name": "Know Place",
+      "lat": 38.1386134,
+      "lng": -121.2061793,
+      "sequence": 58
+    },
+    {
+      "id": "node-358837338",
+      "name": "Washington Development Center",
+      "lat": 38.1385298,
+      "lng": -121.285781,
+      "sequence": 59
+    },
+    {
+      "id": "node-14132170154",
+      "name": "The Hidden Tea Room",
+      "lat": 38.1384366,
+      "lng": -121.2800272,
+      "sequence": 60
+    },
+    {
+      "id": "way-1355840224",
+      "name": "Eagles Lodge",
+      "lat": 38.1383468,
+      "lng": -121.268465,
+      "sequence": 61
+    },
+    {
+      "id": "node-14132170155",
+      "name": "California Al's",
+      "lat": 38.1383345,
+      "lng": -121.2807471,
+      "sequence": 62
+    },
+    {
+      "id": "node-358837265",
+      "name": "First Baptist Church",
+      "lat": 38.1383065,
+      "lng": -121.2990984,
+      "sequence": 63
+    },
+    {
+      "id": "node-14132170158",
+      "name": "Quik Stop",
+      "lat": 38.1382794,
+      "lng": -121.2751976,
+      "sequence": 64
+    },
+    {
+      "id": "way-1342251745",
+      "name": "Chevron",
+      "lat": 38.1381963,
+      "lng": -121.2880785,
+      "sequence": 65
+    },
+    {
+      "id": "way-1553277189",
+      "name": "Lodi Bowling Bar & Lounge",
+      "lat": 38.1381664,
+      "lng": -121.2716499,
+      "sequence": 66
+    },
+    {
+      "id": "node-14132170159",
+      "name": "Quik Stop",
+      "lat": 38.13812,
+      "lng": -121.2749644,
+      "sequence": 67
+    },
+    {
+      "id": "way-1342251744",
+      "name": "Chevron",
+      "lat": 38.1380267,
+      "lng": -121.2879655,
+      "sequence": 68
+    },
+    {
+      "id": "node-14132170156",
+      "name": "Guantonios",
+      "lat": 38.1378782,
+      "lng": -121.2808415,
+      "sequence": 69
+    },
+    {
+      "id": "node-14136371325",
+      "name": "Victor Market",
+      "lat": 38.1377149,
+      "lng": -121.2055676,
+      "sequence": 70
+    },
+    {
+      "id": "node-14131993654",
+      "name": "Trail Coffee Roasters",
+      "lat": 38.1376675,
+      "lng": -121.2736624,
+      "sequence": 71
+    },
+    {
+      "id": "node-660913752",
+      "name": "Lodi Fire Station 4",
+      "lat": 38.1376448,
+      "lng": -121.3061344,
+      "sequence": 72
+    },
+    {
+      "id": "node-13912698701",
+      "name": "Victor Post Office",
+      "lat": 38.1376309,
+      "lng": -121.2065512,
+      "sequence": 73
+    },
+    {
+      "id": "node-14131993653",
+      "name": "Papapavlo’s",
+      "lat": 38.1376285,
+      "lng": -121.2739639,
+      "sequence": 74
+    },
+    {
+      "id": "node-10012568645",
+      "name": "Burger King",
+      "lat": 38.1376239,
+      "lng": -121.2603847,
+      "sequence": 75
+    },
+    {
+      "id": "node-10012568646",
+      "name": "Chevron",
+      "lat": 38.1375735,
+      "lng": -121.2594701,
+      "sequence": 76
+    },
+    {
+      "id": "node-14133667116",
+      "name": "Paul's Safe Lock & Key",
+      "lat": 38.1375596,
+      "lng": -121.2752698,
+      "sequence": 77
+    },
+    {
+      "id": "node-14133667115",
+      "name": "First Toast",
+      "lat": 38.1375229,
+      "lng": -121.273674,
+      "sequence": 78
+    },
+    {
+      "id": "node-14131981962",
+      "name": "Habanero Hots Restaurante & Salsa Co.",
+      "lat": 38.1372556,
+      "lng": -121.2541068,
+      "sequence": 79
+    },
+    {
+      "id": "node-14136328490",
+      "name": "The Water Hole",
+      "lat": 38.1372441,
+      "lng": -121.2524515,
+      "sequence": 80
+    },
+    {
+      "id": "way-1343064042",
+      "name": "Lodi Library",
+      "lat": 38.1370736,
+      "lng": -121.275453,
+      "sequence": 81
+    },
+    {
+      "id": "way-105021566",
+      "name": "Lodi Park And Ride",
+      "lat": 38.1370685,
+      "lng": -121.2569994,
+      "sequence": 82
+    },
+    {
+      "id": "node-14124054246",
+      "name": "Grape Escape Inn",
+      "lat": 38.1370372,
+      "lng": -121.2774813,
+      "sequence": 83
+    },
+    {
+      "id": "way-970223426",
+      "name": "Five Window Beer Company",
+      "lat": 38.1368845,
+      "lng": -121.272604,
+      "sequence": 84
+    },
+    {
+      "id": "node-14136305049",
+      "name": "La Mexicana Restaurant",
+      "lat": 38.1368416,
+      "lng": -121.2610502,
+      "sequence": 85
+    },
+    {
+      "id": "way-249818772",
+      "name": "Peterson Park",
+      "lat": 38.1368248,
+      "lng": -121.3135745,
+      "sequence": 86
+    },
+    {
+      "id": "node-14132157110",
+      "name": "Collins Family Funeral Home",
+      "lat": 38.1364223,
+      "lng": -121.2738432,
+      "sequence": 87
+    },
+    {
+      "id": "node-12419050145",
+      "name": "Umpqua Bank",
+      "lat": 38.1364205,
+      "lng": -121.2887408,
+      "sequence": 88
+    },
+    {
+      "id": "node-13360338529",
+      "name": "Fuego Prime",
+      "lat": 38.1362305,
+      "lng": -121.2723303,
+      "sequence": 89
+    },
+    {
+      "id": "node-14132361102",
+      "name": "Willow Tree",
+      "lat": 38.1361902,
+      "lng": -121.2733651,
+      "sequence": 90
+    },
+    {
+      "id": "node-14136305048",
+      "name": "Express Donuts",
+      "lat": 38.1360116,
+      "lng": -121.2610336,
+      "sequence": 91
+    },
+    {
+      "id": "node-14132361112",
+      "name": "Rooted In Lodi",
+      "lat": 38.1359624,
+      "lng": -121.2733846,
+      "sequence": 92
+    },
+    {
+      "id": "node-14132157111",
+      "name": "Moo Moo’s Burger Barn",
+      "lat": 38.1359567,
+      "lng": -121.2737547,
+      "sequence": 93
+    },
+    {
+      "id": "way-1553280172",
+      "name": "Econo Lodge Inn & Suites",
+      "lat": 38.1358737,
+      "lng": -121.2600924,
+      "sequence": 94
+    },
+    {
+      "id": "way-1013493359",
+      "name": "Traveler's Hotel",
+      "lat": 38.1358561,
+      "lng": -121.2732832,
+      "sequence": 95
+    },
+    {
+      "id": "node-14132361101",
+      "name": "Tom's Used Books",
+      "lat": 38.1358519,
+      "lng": -121.27339,
+      "sequence": 96
+    },
+    {
+      "id": "way-738598881",
+      "name": "Lodi Stadium 12",
+      "lat": 38.1357943,
+      "lng": -121.2742665,
+      "sequence": 97
+    },
+    {
+      "id": "way-556811142",
+      "name": "Hale Park",
+      "lat": 38.1357922,
+      "lng": -121.2685798,
+      "sequence": 98
+    },
+    {
+      "id": "node-660915217",
+      "name": "Lodi Police Department",
+      "lat": 38.1357696,
+      "lng": -121.2757004,
+      "sequence": 99
+    },
+    {
+      "id": "node-14132157112",
+      "name": "Cold Stone Creamery",
+      "lat": 38.13559,
+      "lng": -121.274034,
+      "sequence": 100
+    }
+  ],
+  "route": {
+    "coordinates": [
+      [
+        -121.293,
+        38.145
+      ],
+      [
+        -121.282,
+        38.145
+      ],
+      [
+        -121.27,
+        38.145
+      ],
+      [
+        -121.257,
+        38.145
+      ],
+      [
+        -121.252,
+        38.137
+      ],
+      [
+        -121.264,
+        38.137
+      ],
+      [
+        -121.278,
+        38.137
+      ],
+      [
+        -121.29,
+        38.137
+      ],
+      [
+        -121.29,
+        38.128
+      ],
+      [
+        -121.278,
+        38.128
+      ],
+      [
+        -121.264,
+        38.128
+      ],
+      [
+        -121.252,
+        38.128
+      ],
+      [
+        -121.252,
+        38.118
+      ],
+      [
+        -121.265,
+        38.118
+      ],
+      [
+        -121.279,
+        38.118
+      ],
+      [
+        -121.291,
+        38.118
+      ],
+      [
+        -121.293,
+        38.128
+      ],
+      [
+        -121.293,
+        38.145
+      ]
+    ]
+  }
+}

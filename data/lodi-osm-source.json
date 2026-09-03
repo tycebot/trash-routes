@@ -1,0 +1,6104 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.11 87bfad18",
+  "osm3s": {
+    "timestamp_osm_base": "2026-09-03T09:05:34Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+
+{
+  "type": "node",
+  "id": 358760850,
+  "lat": 38.1238083,
+  "lon": -121.2152238,
+  "tags": {
+    "amenity": "school",
+    "ele": "21",
+    "gnis:feature_id": "218171",
+    "name": "Alpine School"
+  }
+},
+{
+  "type": "node",
+  "id": 358763466,
+  "lat": 38.1043642,
+  "lon": -121.2585580,
+  "tags": {
+    "ele": "16",
+    "gnis:feature_id": "220941",
+    "leisure": "park",
+    "name": "Cherokee Memorial Park"
+  }
+},
+{
+  "type": "node",
+  "id": 358765083,
+  "lat": 38.1311799,
+  "lon": -121.2814387,
+  "tags": {
+    "amenity": "school",
+    "ele": "15",
+    "gnis:feature_id": "222868",
+    "name": "Liberty High School"
+  }
+},
+{
+  "type": "node",
+  "id": 358766437,
+  "lat": 38.1282523,
+  "lon": -121.2624471,
+  "tags": {
+    "amenity": "school",
+    "ele": "16",
+    "gnis:feature_id": "224067",
+    "name": "Heritage Elementary School"
+  }
+},
+{
+  "type": "node",
+  "id": 358767388,
+  "lat": 38.1006843,
+  "lon": -121.3114527,
+  "tags": {
+    "amenity": "school",
+    "ele": "9",
+    "gnis:feature_id": "225169",
+    "name": "Henderson Elementary School"
+  }
+},
+{
+  "type": "node",
+  "id": 358767853,
+  "lat": 38.1740844,
+  "lon": -121.2610584,
+  "tags": {
+    "amenity": "school",
+    "ele": "18",
+    "gnis:feature_id": "225693",
+    "name": "Houston Elementary School"
+  }
+},
+{
+  "type": "node",
+  "id": 358768911,
+  "lat": 38.1160303,
+  "lon": -121.3430043,
+  "tags": {
+    "amenity": "school",
+    "ele": "9",
+    "gnis:feature_id": "226755",
+    "name": "Lafayette School"
+  }
+},
+{
+  "type": "node",
+  "id": 358769389,
+  "lat": 38.1335300,
+  "lon": -121.2610582,
+  "tags": {
+    "amenity": "school",
+    "ele": "16",
+    "gnis:feature_id": "227147",
+    "name": "Lodi Adult School"
+  }
+},
+{
+  "type": "node",
+  "id": 358769565,
+  "lat": 38.0846426,
+  "lon": -121.2527245,
+  "tags": {
+    "amenity": "school",
+    "ele": "14",
+    "gnis:feature_id": "227427",
+    "name": "Live Oak Elementary School"
+  }
+},
+{
+  "type": "node",
+  "id": 358769604,
+  "lat": 38.1185304,
+  "lon": -121.2624471,
+  "tags": {
+    "amenity": "school",
+    "ele": "16",
+    "gnis:feature_id": "227461",
+    "name": "Lodi Academy High School"
+  }
+},
+{
+  "type": "node",
+  "id": 358769609,
+  "lat": 38.1460295,
+  "lon": -121.2952257,
+  "tags": {
+    "ele": "14",
+    "gnis:feature_id": "227463",
+    "leisure": "park",
+    "name": "Lodi Municipal Lake Park"
+  }
+},
+{
+  "type": "node",
+  "id": 358771581,
+  "lat": 38.1168802,
+  "lon": -121.2833418,
+  "tags": {
+    "amenity": "school",
+    "ele": "13",
+    "gnis:feature_id": "229542",
+    "name": "Leroy Nichols Elementary School"
+  }
+},
+{
+  "type": "node",
+  "id": 358774098,
+  "lat": 38.1313078,
+  "lon": -121.2760585,
+  "tags": {
+    "amenity": "school",
+    "ele": "15",
+    "gnis:feature_id": "232133",
+    "name": "Saint Annes Academy"
+  }
+},
+{
+  "type": "node",
+  "id": 358778155,
+  "lat": 38.1246413,
+  "lon": -121.2952256,
+  "tags": {
+    "ele": "12",
+    "gnis:feature_id": "237095",
+    "leisure": "park",
+    "name": "Vinewood Park"
+  }
+},
+{
+  "type": "node",
+  "id": 358778159,
+  "lat": 38.1260301,
+  "lon": -121.2938367,
+  "tags": {
+    "amenity": "school",
+    "ele": "12",
+    "gnis:feature_id": "237096",
+    "name": "Vinewood Elementary School"
+  }
+},
+{
+  "type": "node",
+  "id": 358778420,
+  "lat": 38.1388076,
+  "lon": -121.2849476,
+  "tags": {
+    "amenity": "school",
+    "ele": "15",
+    "gnis:feature_id": "237305",
+    "name": "George Washington Elementary School"
+  }
+},
+{
+  "type": "node",
+  "id": 358779260,
+  "lat": 38.1501961,
+  "lon": -121.3043925,
+  "tags": {
+    "amenity": "school",
+    "ele": "13",
+    "gnis:feature_id": "238164",
+    "name": "Woodbridge Middle School"
+  }
+},
+{
+  "type": "node",
+  "id": 358798479,
+  "lat": 38.1429742,
+  "lon": -121.2663362,
+  "tags": {
+    "amenity": "school",
+    "ele": "17",
+    "gnis:feature_id": "262372",
+    "name": "Lawrence Elementary School"
+  }
+},
+{
+  "type": "node",
+  "id": 358837184,
+  "lat": 38.1251969,
+  "lon": -121.2874476,
+  "tags": {
+    "amenity": "place_of_worship",
+    "ele": "13",
+    "gnis:feature_id": "1827198",
+    "name": "Bethel Open Bible Church",
+    "religion": "christian"
+  }
+},
+{
+  "type": "node",
+  "id": 358837185,
+  "lat": 38.1301968,
+  "lon": -121.2677250,
+  "tags": {
+    "amenity": "place_of_worship",
+    "ele": "16",
+    "gnis:feature_id": "1827199",
+    "name": "Calvary Bible Church",
+    "religion": "christian"
+  }
+},
+{
+  "type": "node",
+  "id": 358837186,
+  "lat": 38.1260302,
+  "lon": -121.2655027,
+  "tags": {
+    "amenity": "place_of_worship",
+    "ele": "16",
+    "gnis:feature_id": "1827202",
+    "name": "Central Seventh Day Adventist Church",
+    "religion": "christian"
+  }
+},
+{
+  "type": "node",
+  "id": 358837188,
+  "lat": 38.1432519,
+  "lon": -121.2660584,
+  "tags": {
+    "amenity": "school",
+    "ele": "17",
+    "gnis:feature_id": "1827203",
+    "name": "Childrens Center"
+  }
+},
+{
+  "type": "node",
+  "id": 358837189,
+  "lat": 38.1288079,
+  "lon": -121.2649472,
+  "tags": {
+    "amenity": "place_of_worship",
+    "ele": "16",
+    "gnis:feature_id": "1827204",
+    "name": "Church of Christ",
+    "religion": "christian"
+  }
+},
+{
+  "type": "node",
+  "id": 358837191,
+  "lat": 38.1285301,
+  "lon": -121.2677250,
+  "tags": {
+    "amenity": "place_of_worship",
+    "ele": "15",
+    "gnis:feature_id": "1827206",
+    "name": "Church of God",
+    "religion": "christian"
+  }
+},
+{
+  "type": "node",
+  "id": 358837192,
+  "lat": 38.1232525,
+  "lon": -121.2677250,
+  "tags": {
+    "amenity": "place_of_worship",
+    "ele": "15",
+    "gnis:feature_id": "1827207",
+    "name": "Church of God",
+    "religion": "christian"
+  }
+},
+{
+  "type": "node",
+  "id": 358837197,
+  "lat": 38.1279747,
+  "lon": -121.2630026,
+  "tags": {
+    "amenity": "place_of_worship",
+    "ele": "16",
+    "gnis:feature_id": "1827208",
+    "name": "Church of the Nazarene",
+    "religion": "christian"
+  }
+},
+{
+  "type": "node",
+  "id": 358837222,
+  "lat": 38.1238081,
+  "lon": -121.2655027,
+  "tags": {
+    "addr:city": "lodi",
+    "addr:housenumber": "825",
+    "addr:postcode": "95240",
+    "addr:state": "CA",
+    "addr:street": "S Central ave",
+    "amenity": "place_of_worship",
+    "building": "mosque",
+    "ele": "15",
+    "gnis:feature_id": "1827211",
+    "name": "Masjid Ya Rasool Allah",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 358837233,
+  "lat": 38.1299190,
+  "lon": -121.2655027,
+  "tags": {
+    "amenity": "place_of_worship",
+    "denomination": "lutheran",
+    "ele": "16",
+    "gnis:feature_id": "1827212",
+    "name": "Emanuel American Lutheran Church",
+    "religion": "christian"
+  }
+},
+{
+  "type": "node",
+  "id": 358837246,
+  "lat": 38.1315856,
+  "lon": -121.2682806,
+  "tags": {
+    "amenity": "place_of_worship",
+    "ele": "16",
+    "gnis:feature_id": "1827214",
+    "name": "First Assembly of God Church",
+    "religion": "christian"
+  }
+},
+{
+  "type": "node",
+  "id": 358837265,
+  "lat": 38.1383065,
+  "lon": -121.2990984,
+  "tags": {
+    "addr:city": "Lodi",
+    "addr:housenumber": "267",
+    "addr:postcode": "95242",
+    "addr:state": "CA",
+    "addr:street": "North Mills Avenue",
+    "amenity": "place_of_worship",
+    "denomination": "baptist",
+    "ele": "16",
+    "gnis:feature_id": "1827215",
+    "name": "First Baptist Church",
+    "phone": "+1 209-334-1332",
+    "religion": "christian",
+    "website": "https://www.fbclodi.org/"
+  }
+},
+{
+  "type": "node",
+  "id": 358837305,
+  "lat": 38.1296412,
+  "lon": -121.2674472,
+  "tags": {
+    "amenity": "place_of_worship",
+    "ele": "16",
+    "gnis:feature_id": "1827218",
+    "name": "First Pentecostal Church of Lodi",
+    "religion": "christian"
+  }
+},
+{
+  "type": "node",
+  "id": 358837317,
+  "lat": 38.1301967,
+  "lon": -121.3027258,
+  "tags": {
+    "amenity": "place_of_worship",
+    "denomination": "baptist",
+    "ele": "12",
+    "gnis:feature_id": "1827223",
+    "name": "Lodi Avenue Baptist Church",
+    "religion": "christian"
+  }
+},
+{
+  "type": "node",
+  "id": 358837320,
+  "lat": 38.1321411,
+  "lon": -121.2735585,
+  "tags": {
+    "amenity": "post_office",
+    "check_date": "2026-06-05",
+    "ele": "15",
+    "gnis:feature_id": "1827229",
+    "name": "Lodi Post Office",
+    "operator": "United States Postal Service",
+    "operator:short": "USPS",
+    "operator:type": "public",
+    "operator:wikidata": "Q668687",
+    "website": "https://tools.usps.com/locations/details/1370782"
+  }
+},
+{
+  "type": "node",
+  "id": 358837324,
+  "lat": 38.1301968,
+  "lon": -121.2721695,
+  "tags": {
+    "ele": "15",
+    "gnis:feature_id": "1827232",
+    "leisure": "park",
+    "name": "Maple Square"
+  }
+},
+{
+  "type": "node",
+  "id": 358837325,
+  "lat": 38.1290857,
+  "lon": -121.2630026,
+  "tags": {
+    "amenity": "place_of_worship",
+    "ele": "16",
+    "gnis:feature_id": "1827234",
+    "name": "Mennonite Brethren Church",
+    "religion": "christian"
+  }
+},
+{
+  "type": "node",
+  "id": 358837327,
+  "lat": 38.1299190,
+  "lon": -121.2630026,
+  "tags": {
+    "amenity": "place_of_worship",
+    "ele": "16",
+    "gnis:feature_id": "1827236",
+    "name": "Revival Center"
+  }
+},
+{
+  "type": "node",
+  "id": 358837328,
+  "lat": 38.1321411,
+  "lon": -121.2757807,
+  "tags": {
+    "amenity": "place_of_worship",
+    "denomination": "catholic",
+    "ele": "15",
+    "gnis:feature_id": "1827237",
+    "name": "Saint Annes Roman Catholic Church",
+    "religion": "christian"
+  }
+},
+{
+  "type": "node",
+  "id": 358837330,
+  "lat": 38.1215554,
+  "lon": -121.3077347,
+  "tags": {
+    "amenity": "place_of_worship",
+    "ele": "15",
+    "gnis:feature_id": "1827238",
+    "name": "Saint John the Baptist Episcopal Church",
+    "religion": "christian"
+  }
+},
+{
+  "type": "node",
+  "id": 358837331,
+  "lat": 38.1338077,
+  "lon": -121.3055036,
+  "tags": {
+    "amenity": "school",
+    "ele": "13",
+    "gnis:feature_id": "1827239",
+    "name": "Saint Peter School"
+  }
+},
+{
+  "type": "node",
+  "id": 358837334,
+  "lat": 38.1354744,
+  "lon": -121.2657805,
+  "tags": {
+    "amenity": "place_of_worship",
+    "ele": "16",
+    "gnis:feature_id": "1827241",
+    "name": "Salem Evangelical Church",
+    "religion": "christian"
+  }
+},
+{
+  "type": "node",
+  "id": 358837335,
+  "lat": 38.1213082,
+  "lon": -121.2632804,
+  "tags": {
+    "amenity": "school",
+    "ele": "16",
+    "gnis:feature_id": "1827242",
+    "name": "Seventh Day Adventist Elementary School"
+  }
+},
+{
+  "type": "node",
+  "id": 358837336,
+  "lat": 38.1249859,
+  "lon": -121.3086352,
+  "tags": {
+    "addr:city": "Lodi",
+    "addr:housenumber": "801",
+    "addr:postcode": "95242",
+    "addr:state": "CA",
+    "addr:street": "South Lower Sacramento Road",
+    "amenity": "place_of_worship",
+    "denomination": "baptist",
+    "gnis:feature_id": "1827243",
+    "name": "Temple Baptist Church",
+    "phone": "+1 209-369-1948",
+    "religion": "christian",
+    "website": "http://tbclodi.com/"
+  }
+},
+{
+  "type": "node",
+  "id": 358837338,
+  "lat": 38.1385298,
+  "lon": -121.2857810,
+  "tags": {
+    "amenity": "school",
+    "ele": "14",
+    "gnis:feature_id": "1827244",
+    "name": "Washington Development Center"
+  }
+},
+{
+  "type": "node",
+  "id": 358837342,
+  "lat": 38.1396409,
+  "lon": -121.2663362,
+  "tags": {
+    "ele": "16",
+    "gnis:feature_id": "1827247",
+    "leisure": "park",
+    "name": "Zupo Field"
+  }
+},
+{
+  "type": "node",
+  "id": 358837356,
+  "lat": 38.0865870,
+  "lon": -121.2543912,
+  "tags": {
+    "amenity": "school",
+    "ele": "14",
+    "gnis:feature_id": "1827257",
+    "name": "Dorothy J Mahin School"
+  }
+},
+{
+  "type": "node",
+  "id": 358837371,
+  "lat": 38.1226970,
+  "lon": -121.2555025,
+  "tags": {
+    "ele": "17",
+    "gnis:feature_id": "1827271",
+    "leisure": "park",
+    "name": "Pixley Park"
+  }
+},
+{
+  "type": "node",
+  "id": 358837458,
+  "lat": 38.1426967,
+  "lon": -121.2049459,
+  "tags": {
+    "amenity": "school",
+    "ele": "24",
+    "gnis:feature_id": "1827336",
+    "name": "Victor Elementary School"
+  }
+},
+{
+  "type": "node",
+  "id": 358860994,
+  "lat": 38.1033360,
+  "lon": -121.3017570,
+  "tags": {
+    "amenity": "school",
+    "ele": "10",
+    "gnis:feature_id": "2504739",
+    "name": "Ellerth E. Larson Elementary School"
+  }
+},
+{
+  "type": "node",
+  "id": 368166682,
+  "lat": 38.1346410,
+  "lon": -121.2771697,
+  "tags": {
+    "addr:state": "CA",
+    "ele": "15",
+    "gnis:feature_id": "1827231",
+    "name": "Lodi Womens Club",
+    "office": "association",
+    "source": "USGS Geonames"
+  }
+},
+{
+  "type": "node",
+  "id": 368167864,
+  "lat": 38.1352584,
+  "lon": -121.2756254,
+  "tags": {
+    "addr:city": "Lodi",
+    "addr:housenumber": "210",
+    "addr:postcode": "95240",
+    "addr:state": "CA",
+    "addr:street": "Elm Street",
+    "amenity": "fire_station",
+    "ele": "15",
+    "gnis:feature_id": "1827201",
+    "name": "Lodi Central Fire Station",
+    "source": "USGS Geonames"
+  }
+},
+{
+  "type": "node",
+  "id": 659909869,
+  "lat": 38.1073048,
+  "lon": -121.2794680,
+  "tags": {
+    "amenity": "place_of_worship",
+    "name": "Century Assembly Church",
+    "religion": "christian"
+  }
+},
+{
+  "type": "node",
+  "id": 659909879,
+  "lat": 38.1077565,
+  "lon": -121.2874239,
+  "tags": {
+    "addr:city": "Lodi",
+    "addr:housenumber": "1260",
+    "addr:postcode": "95240",
+    "addr:street": "West Century Boulevard",
+    "alt_name": "Lodi English Oaks Adventist Church",
+    "amenity": "place_of_worship",
+    "denomination": "seventh_day_adventist",
+    "name": "Lodi-English Oaks Seventh-day Adventist Church",
+    "phone": "+1-209-369-1021",
+    "religion": "christian",
+    "website": "https://englishoaks.org/"
+  }
+},
+{
+  "type": "node",
+  "id": 659909882,
+  "lat": 38.1079211,
+  "lon": -121.2915866,
+  "tags": {
+    "amenity": "place_of_worship",
+    "denomination": "mormon",
+    "name": "The Church of Jesus Christ of Latter-day Saints",
+    "religion": "christian"
+  }
+},
+{
+  "type": "node",
+  "id": 660913752,
+  "lat": 38.1376448,
+  "lon": -121.3061344,
+  "tags": {
+    "amenity": "fire_station",
+    "name": "Lodi Fire Station 4"
+  }
+},
+{
+  "type": "node",
+  "id": 660915217,
+  "lat": 38.1357696,
+  "lon": -121.2757004,
+  "tags": {
+    "amenity": "police",
+    "name": "Lodi Police Department"
+  }
+},
+{
+  "type": "node",
+  "id": 660942657,
+  "lat": 38.1062513,
+  "lon": -121.2701183,
+  "tags": {
+    "amenity": "parking",
+    "name": "Salas Park"
+  }
+},
+{
+  "type": "node",
+  "id": 660946004,
+  "lat": 38.1140855,
+  "lon": -121.2811715,
+  "tags": {
+    "name": "S-MART Foods",
+    "shop": "supermarket"
+  }
+},
+{
+  "type": "node",
+  "id": 660946005,
+  "lat": 38.1140053,
+  "lon": -121.3057430,
+  "tags": {
+    "brand": "Food 4 Less",
+    "brand:wikidata": "Q5465282",
+    "name": "Food 4 Less",
+    "shop": "supermarket",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 660946007,
+  "lat": 38.1347341,
+  "lon": -121.2718026,
+  "tags": {
+    "amenity": "parking",
+    "name": "Downtown Parking Garage",
+    "operator": "City Of Lodi",
+    "parking": "multi-storey"
+  }
+},
+{
+  "type": "node",
+  "id": 3251320447,
+  "lat": 38.1561543,
+  "lon": -121.3011713,
+  "tags": {
+    "name": "Lodi Lodge",
+    "tourism": "motel"
+  }
+},
+{
+  "type": "node",
+  "id": 3251320448,
+  "lat": 38.1536700,
+  "lon": -121.3019666,
+  "tags": {
+    "club": "freemasonry",
+    "leisure": "club",
+    "name": "Masonic Lodge"
+  }
+},
+{
+  "type": "node",
+  "id": 3254630943,
+  "lat": 38.1464315,
+  "lon": -121.3073423,
+  "tags": {
+    "name": "Wine and Roses",
+    "tourism": "hotel",
+    "website": "https://winerose.com/"
+  }
+},
+{
+  "type": "node",
+  "id": 4322802485,
+  "lat": 38.1189378,
+  "lon": -121.2813447,
+  "tags": {
+    "addr:city": "Lodi",
+    "addr:housenumber": "613",
+    "addr:postcode": "95240",
+    "addr:state": "CA",
+    "addr:street": "Ribier Avenue",
+    "name": "Balloons Unlimited",
+    "office": "company",
+    "phone": "+1 209 3686401",
+    "website": "https://balloonsunlimitedlodi.com/"
+  }
+},
+{
+  "type": "node",
+  "id": 4477469495,
+  "lat": 38.1314148,
+  "lon": -121.2740478,
+  "tags": {
+    "addr:housenumber": "203 S School St",
+    "addr:postcode": "95240",
+    "addr:street": "South School Street",
+    "amenity": "restaurant",
+    "cuisine": "american",
+    "name": "Dancing Fox Winery & Brewery",
+    "opening_hours": "Tu-Th 11:00-21:00; Fr 11:00-22:00; Su 09:00-15:00; Sa 09:00-22:00"
+  }
+},
+{
+  "type": "node",
+  "id": 5315600811,
+  "lat": 38.1132889,
+  "lon": -121.3028971,
+  "tags": {
+    "addr:full": "1601 S Lower Sacramento Rd",
+    "brand": "Hobby Lobby",
+    "brand:wikidata": "Q5874938",
+    "name": "Hobby Lobby",
+    "shop": "craft",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 5370762797,
+  "lat": 38.1457870,
+  "lon": -121.2957811,
+  "tags": {
+    "amenity": "boat_rental",
+    "name": "Lodi Boat House",
+    "operator": "headwaters kayak"
+  }
+},
+{
+  "type": "node",
+  "id": 5370781185,
+  "lat": 38.1327391,
+  "lon": -121.2812957,
+  "tags": {
+    "amenity": "theatre",
+    "name": "Amphitheater"
+  }
+},
+{
+  "type": "node",
+  "id": 5370805798,
+  "lat": 38.1400167,
+  "lon": -121.2639274,
+  "tags": {
+    "amenity": "theatre",
+    "name": "Amphitheater",
+    "theatre:type": "open_air"
+  }
+},
+{
+  "type": "node",
+  "id": 5371047174,
+  "lat": 38.1496993,
+  "lon": -121.2961929,
+  "tags": {
+    "amenity": "theatre",
+    "name": "Amphitheater"
+  }
+},
+{
+  "type": "node",
+  "id": 5570674662,
+  "lat": 38.1135975,
+  "lon": -121.3069855,
+  "tags": {
+    "amenity": "restaurant",
+    "brand": "Blaze Pizza",
+    "brand:wikidata": "Q23016666",
+    "cuisine": "pizza",
+    "name": "Blaze Pizza"
+  }
+},
+{
+  "type": "node",
+  "id": 5570674663,
+  "lat": 38.1138699,
+  "lon": -121.3069830,
+  "tags": {
+    "addr:state": "CA",
+    "amenity": "restaurant",
+    "brand": "Buffalo Wild Wings",
+    "brand:wikidata": "Q509255",
+    "cuisine": "wings",
+    "name": "Buffalo Wild Wings",
+    "short_name": "BW3"
+  }
+},
+{
+  "type": "node",
+  "id": 5570674664,
+  "lat": 38.1149873,
+  "lon": -121.3084073,
+  "tags": {
+    "addr:city": "Lodi",
+    "addr:housenumber": "2624",
+    "addr:postcode": "95242",
+    "addr:state": "CA",
+    "addr:street": "West Kettleman Lane",
+    "amenity": "fast_food",
+    "branch": "Kettleman & Lower Sacramento",
+    "brand": "Panda Express",
+    "brand:wikidata": "Q1358690",
+    "cuisine": "chinese",
+    "name": "Panda Express",
+    "opening_hours": "09:00-22:30",
+    "phone": "+1 209-368-2170",
+    "takeaway": "yes",
+    "website": "https://www.pandaexpress.com/locations/ca/lodi/905"
+  }
+},
+{
+  "type": "node",
+  "id": 5570674665,
+  "lat": 38.1149842,
+  "lon": -121.3087470,
+  "tags": {
+    "addr:city": "Lodi",
+    "addr:housenumber": "2624",
+    "addr:postcode": "95242",
+    "addr:state": "CA",
+    "addr:street": "West Kettleman Lane",
+    "addr:unit": "110",
+    "alt_name": "Jamba Juice",
+    "amenity": "fast_food",
+    "branch": "Sunwest Village",
+    "brand": "Jamba",
+    "brand:wikidata": "Q3088784",
+    "cuisine": "juice",
+    "name": "Jamba",
+    "opening_hours": "Mo-Sa 07:00-21:00; Su 08:00-21:00",
+    "phone": "+1 209-368-2037",
+    "takeaway": "yes",
+    "website": "https://locations.jamba.com/ca/lodi/2624-w-kettleman-ln"
+  }
+},
+{
+  "type": "node",
+  "id": 5570674666,
+  "lat": 38.1150094,
+  "lon": -121.3078745,
+  "tags": {
+    "brand": "T-Mobile",
+    "brand:wikidata": "Q3511885",
+    "name": "T-Mobile",
+    "shop": "mobile_phone",
+    "website": "https://www.t-mobile.com/stores/bd/t-mobile-lodi-ca-95242-2scf"
+  }
+},
+{
+  "type": "node",
+  "id": 5570782677,
+  "lat": 38.0833959,
+  "lon": -121.2742630,
+  "tags": {
+    "leisure": "pitch",
+    "name": "Micke Grove Disc Golf Course"
+  }
+},
+{
+  "type": "node",
+  "id": 6959370289,
+  "lat": 38.1131148,
+  "lon": -121.3072777,
+  "tags": {
+    "addr:city": "Lodi",
+    "addr:housenumber": "1613",
+    "addr:postcode": "95242",
+    "addr:state": "CA",
+    "addr:street": "Lower Sacramento Road",
+    "air_conditioning": "yes",
+    "amenity": "fast_food",
+    "brand": "McDonald's",
+    "brand:wikidata": "Q38076",
+    "cuisine": "burger",
+    "drive_through": "yes",
+    "internet_access": "wlan",
+    "name": "McDonald's",
+    "opening_hours": "06:00-23:00",
+    "phone": "+1 209-426-5853",
+    "takeaway": "yes",
+    "website": "https://www.mcdonalds.com/us/en-us/location/36681.html",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 7524933488,
+  "lat": 38.1004185,
+  "lon": -121.2631554,
+  "tags": {
+    "addr:city": "Lodi",
+    "addr:housenumber": "2680",
+    "addr:postcode": "95240-6848",
+    "addr:state": "CA",
+    "addr:street": "Reynolds Ranch Parkway",
+    "branch": "Lodi",
+    "brand": "Costco",
+    "brand:wikidata": "Q715583",
+    "name": "Costco",
+    "opening_hours": "Mo-Fr 09:00-20:30; Sa-Su 09:00-19:00",
+    "phone": "+1 209-366-7300",
+    "ref": "1091",
+    "shop": "wholesale",
+    "website": "https://www.costco.com/warehouse-locations/lodi-ca-1091.html"
+  }
+},
+{
+  "type": "node",
+  "id": 7524933489,
+  "lat": 38.0997653,
+  "lon": -121.2615416,
+  "tags": {
+    "amenity": "fuel",
+    "brand": "Costco Gasoline",
+    "brand:wikidata": "Q715583",
+    "name": "Costco Gasoline",
+    "website": "https://www.costco.com/warehouse-locations/lodi-ca-1091.html"
+  }
+},
+{
+  "type": "node",
+  "id": 7524933490,
+  "lat": 38.0990396,
+  "lon": -121.2614493,
+  "tags": {
+    "addr:city": "Lodi",
+    "addr:housenumber": "2760",
+    "addr:postcode": "95240",
+    "addr:state": "CA",
+    "addr:street": "Reynolds Ranch Parkway",
+    "brand": "Dick's Sporting Goods",
+    "brand:wikidata": "Q5272601",
+    "name": "Dick's Sporting Goods",
+    "opening_hours": "Mo-Fr 10:00-20:00; Sa 09:00-21:00; Su 10:00-19:00",
+    "phone": "+1 209-368-2328",
+    "ref": "1297",
+    "shop": "sports",
+    "website": "https://stores.dickssportinggoods.com/ca/lodi/1297/"
+  }
+},
+{
+  "type": "node",
+  "id": 7524933491,
+  "lat": 38.0997283,
+  "lon": -121.2659883,
+  "tags": {
+    "amenity": "fast_food",
+    "brand": "Five Guys",
+    "brand:wikidata": "Q1131810",
+    "cuisine": "burger",
+    "name": "Five Guys",
+    "official_name": "Five Guys Burgers and Fries",
+    "takeaway": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 7524933492,
+  "lat": 38.0997120,
+  "lon": -121.2653237,
+  "tags": {
+    "addr:city": "Lodi",
+    "addr:housenumber": "2660",
+    "addr:postcode": "95240",
+    "addr:state": "CA",
+    "addr:street": "Reynolds Ranch Parkway",
+    "branch": "Lodi",
+    "brand": "Mattress Firm",
+    "brand:wikidata": "Q6791878",
+    "contact:sms": "+1 209-618-2812",
+    "delivery": "yes",
+    "name": "Mattress Firm",
+    "phone": "+1 209-369-5812",
+    "ref": "18241",
+    "shop": "bed",
+    "website": "https://www.mattressfirm.com/en-us/stores/ca/lodi/504025/"
+  }
+},
+{
+  "type": "node",
+  "id": 7524933493,
+  "lat": 38.0997445,
+  "lon": -121.2657431,
+  "tags": {
+    "addr:city": "Lodi",
+    "addr:housenumber": "2640",
+    "addr:postcode": "95240",
+    "addr:state": "CA",
+    "addr:street": "Reynolds Ranch Parkway",
+    "addr:unit": "100",
+    "amenity": "fast_food",
+    "branch": "Lodi Reynolds Ranch Parkway",
+    "brand": "Wingstop",
+    "brand:wikidata": "Q8025339",
+    "cuisine": "wings",
+    "name": "Wingstop",
+    "phone": "+1 209-339-9464",
+    "takeaway": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 7524933494,
+  "lat": 38.0997391,
+  "lon": -121.2658737,
+  "tags": {
+    "brand": "Supercuts",
+    "brand:wikidata": "Q7643239",
+    "name": "Supercuts",
+    "shop": "hairdresser"
+  }
+},
+{
+  "type": "node",
+  "id": 7524933495,
+  "lat": 38.1004009,
+  "lon": -121.2659952,
+  "tags": {
+    "addr:city": "Lodi",
+    "addr:housenumber": "2620",
+    "addr:postcode": "95240",
+    "addr:state": "CA",
+    "addr:street": "Reynolds Ranch Parkway",
+    "amenity": "cafe",
+    "branch": "Highway 99 & Harney",
+    "brand": "Starbucks",
+    "brand:wikidata": "Q37158",
+    "cuisine": "coffee_shop",
+    "name": "Starbucks",
+    "official_name": "Starbucks Coffee",
+    "phone": "+1 209-365-1872",
+    "ref": "1005764",
+    "takeaway": "yes",
+    "website": "https://www.starbucks.com/store-locator/store/1005764/hwy-99-harney-2620-reynolds-ranch-pkwy-lodi-ca-952406894-us"
+  }
+},
+{
+  "type": "node",
+  "id": 7524933496,
+  "lat": 38.1004027,
+  "lon": -121.2658829,
+  "tags": {
+    "addr:city": "Lodi",
+    "addr:housenumber": "2620",
+    "addr:postcode": "95240",
+    "addr:state": "CA",
+    "addr:street": "Reynolds Ranch Parkway",
+    "addr:unit": "120",
+    "amenity": "fast_food",
+    "brand": "Subway",
+    "brand:wikidata": "Q244457",
+    "cuisine": "sandwich",
+    "name": "Subway",
+    "opening_hours": "08:00-21:00",
+    "phone": "+1 209-333-3386",
+    "takeaway": "yes",
+    "website": "https://restaurants.subway.com/united-states/ca/lodi/2620-reynolds-ranch-parkway"
+  }
+},
+{
+  "type": "node",
+  "id": 7524933497,
+  "lat": 38.1003991,
+  "lon": -121.2657680,
+  "tags": {
+    "alt_name": "Verizon Wireless",
+    "brand": "Verizon",
+    "brand:wikidata": "Q919641",
+    "name": "Verizon",
+    "operator": "Victra",
+    "operator:website": "https://victra.com/stores/ca-lodi-reynolds/",
+    "operator:wikidata": "Q118402656",
+    "shop": "mobile_phone"
+  }
+},
+{
+  "type": "node",
+  "id": 7524933498,
+  "lat": 38.1007182,
+  "lon": -121.2660196,
+  "tags": {
+    "addr:city": "Lodi",
+    "addr:housenumber": "2600",
+    "addr:postcode": "95240",
+    "addr:state": "CA",
+    "addr:street": "Reynolds Ranch Parkway",
+    "addr:unit": "A",
+    "amenity": "fast_food",
+    "brand": "Burger King",
+    "brand:wikidata": "Q177054",
+    "cuisine": "burger",
+    "delivery": "yes",
+    "drive_through": "yes",
+    "internet_access": "wlan",
+    "name": "Burger King",
+    "opening_hours": "Mo-Sa 06:00-22:00; Su 07:00-22:00",
+    "phone": "+1 209-367-1519",
+    "ref": "25081",
+    "takeaway": "yes",
+    "website": "https://www.bk.com/store-locator/store/restaurant_81400"
+  }
+},
+{
+  "type": "node",
+  "id": 7524933500,
+  "lat": 38.1018939,
+  "lon": -121.2689989,
+  "tags": {
+    "brand": "ampm",
+    "brand:wikidata": "Q306960",
+    "name": "ampm",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 7524933501,
+  "lat": 38.1016242,
+  "lon": -121.2690089,
+  "tags": {
+    "amenity": "fuel",
+    "brand": "Arco",
+    "brand:wikidata": "Q304769",
+    "name": "Arco"
+  }
+},
+{
+  "type": "node",
+  "id": 7524933502,
+  "lat": 38.1001257,
+  "lon": -121.2685596,
+  "tags": {
+    "addr:city": "Lodi",
+    "addr:housenumber": "250",
+    "addr:postcode": "95240",
+    "addr:state": "CA",
+    "addr:street": "East Harney Lane",
+    "branch": "Lodi",
+    "brand": "Sprouts Farmers Market",
+    "brand:wikidata": "Q7581369",
+    "name": "Sprouts Farmers Market",
+    "opening_hours": "Mo-Su 07:00-22:00",
+    "phone": "+1 209-371-6656",
+    "shop": "supermarket",
+    "short_name": "Sprouts",
+    "website": "https://www.sprouts.com/store/ca/lodi/lodi/"
+  }
+},
+{
+  "type": "node",
+  "id": 7524933503,
+  "lat": 38.1000966,
+  "lon": -121.2680034,
+  "tags": {
+    "addr:city": "Lodi",
+    "addr:housenumber": "260",
+    "addr:postcode": "95240",
+    "addr:state": "CA",
+    "addr:street": "East Harney Lane",
+    "brand": "PetSmart",
+    "brand:wikidata": "Q3307147",
+    "name": "PetSmart",
+    "opening_hours": "Mo-Sa 09:00-20:00; Su 10:00-19:00",
+    "phone": "+1 209-371-0215",
+    "ref": "3117",
+    "shop": "pet",
+    "website": "https://www.petsmart.com/stores/us/ca/lodi-store3117.html"
+  }
+},
+{
+  "type": "node",
+  "id": 7524954672,
+  "lat": 38.1132953,
+  "lon": -121.3032829,
+  "tags": {
+    "addr:city": "Lodi",
+    "addr:housenumber": "2350",
+    "addr:postcode": "95242",
+    "addr:state": "CA",
+    "addr:street": "West Kettleman Lane",
+    "addr:unit": "120",
+    "branch": "Lodi",
+    "brand": "Petco",
+    "brand:wikidata": "Q7171798",
+    "name": "Petco",
+    "opening_hours": "Mo-Sa 09:00-20:00; Su 10:00-19:00",
+    "phone": "+1 209-263-6107",
+    "ref": "1291",
+    "shop": "pet",
+    "website": "https://stores.petco.com/ca/lodi/pet-supplies-lodi-ca-1291.html",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 7524954673,
+  "lat": 38.1133333,
+  "lon": -121.3037657,
+  "tags": {
+    "brand": "Party City",
+    "brand:wikidata": "Q7140896",
+    "name": "Party City",
+    "shop": "party",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 7524954675,
+  "lat": 38.1151735,
+  "lon": -121.3060670,
+  "tags": {
+    "amenity": "fuel",
+    "brand": "Shell",
+    "brand:wikidata": "Q110716465",
+    "name": "Shell",
+    "self_service": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 7524954676,
+  "lat": 38.1149752,
+  "lon": -121.3059590,
+  "tags": {
+    "brand": "Shell",
+    "brand:wikidata": "Q110716465",
+    "name": "Shell",
+    "shop": "convenience",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 7524954677,
+  "lat": 38.1150680,
+  "lon": -121.3056540,
+  "tags": {
+    "amenity": "restaurant",
+    "bar": "yes",
+    "brand": "Applebee's Neighborhood Grill & Bar",
+    "brand:wikidata": "Q621532",
+    "cuisine": "american",
+    "name": "Applebee's",
+    "official_name": "Applebee's Neighborhood Grill & Bar",
+    "phone": "+1 209-369-6657",
+    "takeaway": "yes",
+    "website": "https://restaurants.applebees.com/en-us/ca/lodi/2442-w-kettleman-lane-76061",
+    "website:menu": "https://www.applebees.com/en/menu?StoreNumber=76061&action=viewmenu",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 7524954678,
+  "lat": 38.1150174,
+  "lon": -121.3045114,
+  "tags": {
+    "brand": "BevMo!",
+    "brand:wikidata": "Q4899308",
+    "name": "BevMo!",
+    "shop": "alcohol"
+  }
+},
+{
+  "type": "node",
+  "id": 7524954680,
+  "lat": 38.1143167,
+  "lon": -121.3026760,
+  "tags": {
+    "alt_name": "Sally Beauty Supply",
+    "brand": "Sally Beauty",
+    "brand:wikidata": "Q7405065",
+    "name": "Sally Beauty",
+    "shop": "hairdresser_supply"
+  }
+},
+{
+  "type": "node",
+  "id": 7524954681,
+  "lat": 38.1140065,
+  "lon": -121.3061328,
+  "tags": {
+    "addr:city": "Lodi",
+    "addr:housenumber": "2434",
+    "addr:postcode": "95242",
+    "addr:state": "CA",
+    "addr:street": "West Kettleman Lane",
+    "air_conditioning": "yes",
+    "amenity": "fast_food",
+    "brand": "Subway",
+    "brand:wikidata": "Q244457",
+    "cuisine": "sandwich",
+    "drive_through": "no",
+    "name": "Subway",
+    "opening_hours": "08:00-21:00",
+    "phone": "+1 209-333-1887",
+    "takeaway": "yes",
+    "website": "https://restaurants.subway.com/united-states/ca/lodi/2434-w-kettleman-lane",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 7524954682,
+  "lat": 38.1144982,
+  "lon": -121.3070327,
+  "tags": {
+    "addr:city": "Lodi",
+    "addr:housenumber": "1423",
+    "addr:postcode": "95242",
+    "addr:state": "CA",
+    "addr:street": "South Lower Sacramento Road",
+    "alt_name": "Ulta Skin Bar",
+    "beauty": "skin_care",
+    "brand": "Ulta Beauty",
+    "brand:wikidata": "Q7880076",
+    "name": "Ulta Beauty",
+    "opening_hours": "Mo-We 10:00-20:00; Th-Sa 10:00-21:00; Su 11:00-18:00",
+    "payment:american_express": "yes",
+    "payment:cash": "yes",
+    "payment:contactless": "yes",
+    "payment:debit_cards": "yes",
+    "payment:discover_card": "yes",
+    "payment:mastercard": "yes",
+    "payment:visa": "yes",
+    "phone": "+1 209-368-2115",
+    "ref": "1152",
+    "shop": "beauty",
+    "website": "https://www.ulta.com/stores/lodi-ca-1152"
+  }
+},
+{
+  "type": "node",
+  "id": 7524954683,
+  "lat": 38.1150020,
+  "lon": -121.3085490,
+  "tags": {
+    "brand": "Fantastic Sams",
+    "brand:wikidata": "Q5434222",
+    "name": "Fantastic Sams",
+    "official_name": "Fantastic Sams Cut & Color",
+    "shop": "hairdresser"
+  }
+},
+{
+  "type": "node",
+  "id": 7524954684,
+  "lat": 38.1149224,
+  "lon": -121.3092642,
+  "tags": {
+    "addr:city": "Lodi",
+    "addr:housenumber": "2712",
+    "addr:postcode": "95242",
+    "addr:state": "CA",
+    "addr:street": "West Kettleman Lane",
+    "alt_name": "Kentucky Fried Chicken",
+    "amenity": "fast_food",
+    "brand": "KFC",
+    "brand:wikidata": "Q524757",
+    "cuisine": "chicken",
+    "name": "KFC",
+    "takeaway": "yes",
+    "website": "https://locations.kfc.com/ca/lodi/2712-w-kettleman-lane"
+  }
+},
+{
+  "type": "node",
+  "id": 7524975478,
+  "lat": 38.1158835,
+  "lon": -121.3092711,
+  "tags": {
+    "amenity": "restaurant",
+    "brand": "Round Table Pizza",
+    "brand:wikidata": "Q7371139",
+    "cuisine": "pizza",
+    "name": "Round Table Pizza"
+  }
+},
+{
+  "type": "node",
+  "id": 7524975479,
+  "lat": 38.1161601,
+  "lon": -121.3092682,
+  "tags": {
+    "brand": "American Automobile Association",
+    "brand:wikidata": "Q463436",
+    "name": "AAA Insurance",
+    "office": "insurance",
+    "short_name": "AAA"
+  }
+},
+{
+  "type": "node",
+  "id": 7524975480,
+  "lat": 38.1170313,
+  "lon": -121.3071153,
+  "tags": {
+    "addr:city": "Lodi",
+    "addr:housenumber": "2533",
+    "addr:postcode": "95242",
+    "addr:state": "CA",
+    "addr:street": "West Kettleman Lane",
+    "addr:unit": "404",
+    "amenity": "fast_food",
+    "brand": "Panera Bread",
+    "brand:wikidata": "Q7130852",
+    "cuisine": "sandwich;bakery",
+    "name": "Panera Bread",
+    "opening_hours": "Mo-Sa 06:00-21:00; Su 07:00-21:00",
+    "phone": "+1 209-367-1322",
+    "short_name": "Panera",
+    "takeaway": "yes",
+    "website": "https://locations.panerabread.com/ca/lodi/2533-w-kettleman-ln.html"
+  }
+},
+{
+  "type": "node",
+  "id": 7524975481,
+  "lat": 38.1171160,
+  "lon": -121.3076341,
+  "tags": {
+    "amenity": "bank",
+    "name": "F&M Bank"
+  }
+},
+{
+  "type": "node",
+  "id": 7524996885,
+  "lat": 38.1146348,
+  "lon": -121.3105028,
+  "tags": {
+    "amenity": "fuel",
+    "brand": "Chevron",
+    "brand:wikidata": "Q319642",
+    "name": "Chevron"
+  }
+},
+{
+  "type": "node",
+  "id": 7524996886,
+  "lat": 38.1150935,
+  "lon": -121.3105089,
+  "tags": {
+    "brand": "ExtraMile",
+    "brand:wikidata": "Q64224605",
+    "name": "ExtraMile",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 7525068629,
+  "lat": 38.1140235,
+  "lon": -121.3077230,
+  "tags": {
+    "alt_name": "Verizon Wireless",
+    "brand": "Verizon",
+    "brand:wikidata": "Q919641",
+    "name": "Verizon",
+    "operator": "Victra",
+    "operator:website": "https://victra.com/stores/ca-lodi/",
+    "operator:wikidata": "Q118402656",
+    "shop": "mobile_phone"
+  }
+},
+{
+  "type": "node",
+  "id": 7525424064,
+  "lat": 38.1143299,
+  "lon": -121.2781407,
+  "tags": {
+    "addr:city": "Lodi",
+    "addr:housenumber": "340",
+    "addr:postcode": "95240",
+    "addr:state": "CA",
+    "addr:street": "West Kettleman Lane",
+    "brand": "Ross",
+    "brand:wikidata": "Q3442791",
+    "name": "Ross",
+    "official_name": "Ross Dress for Less",
+    "opening_hours": "Mo-Th 09:00-21:30; Fr-Sa 09:00-22:30; Su 09:00-22:00",
+    "phone": "+1 209-369-1386",
+    "ref": "477",
+    "shop": "department_store"
+  }
+},
+{
+  "type": "node",
+  "id": 7525424065,
+  "lat": 38.1143587,
+  "lon": -121.2773234,
+  "tags": {
+    "brand": "Dollar Tree",
+    "brand:wikidata": "Q5289230",
+    "name": "Dollar Tree",
+    "shop": "variety_store"
+  }
+},
+{
+  "type": "node",
+  "id": 7525424066,
+  "lat": 38.1151690,
+  "lon": -121.2769752,
+  "tags": {
+    "addr:city": "Lodi",
+    "addr:housenumber": "224",
+    "addr:postcode": "95240",
+    "addr:state": "CA",
+    "addr:street": "West Kettleman Lane",
+    "amenity": "fast_food",
+    "brand": "El Pollo Loco",
+    "brand:wikidata": "Q2353849",
+    "craft": "caterer",
+    "cuisine": "mexican",
+    "drive_through": "yes",
+    "internet_access": "wlan",
+    "name": "El Pollo Loco",
+    "opening_hours": "Mo-Su 09:00-23:00",
+    "operator": "Norcal Chicken Inc.",
+    "phone": "+1-209-369-5923",
+    "ref": "3783",
+    "takeaway": "yes",
+    "website": "https://restaurants.elpolloloco.com/ca/lodi/224-w-kettleman-ln"
+  }
+},
+{
+  "type": "node",
+  "id": 7525424067,
+  "lat": 38.1143474,
+  "lon": -121.2776961,
+  "tags": {
+    "brand": "Rent-A-Center",
+    "brand:wikidata": "Q7313497",
+    "name": "Rent-A-Center",
+    "shop": "furniture"
+  }
+},
+{
+  "type": "node",
+  "id": 7525424068,
+  "lat": 38.1149538,
+  "lon": -121.2795628,
+  "tags": {
+    "addr:city": "Lodi",
+    "addr:housenumber": "514",
+    "addr:postcode": "95240",
+    "addr:state": "CA",
+    "addr:street": "West Kettleman Lane",
+    "addr:unit": "100",
+    "amenity": "cafe",
+    "branch": "Kettleman & Hutchins St",
+    "brand": "Starbucks",
+    "brand:wikidata": "Q37158",
+    "cuisine": "coffee_shop",
+    "name": "Starbucks",
+    "official_name": "Starbucks Coffee",
+    "phone": "+1 209-331-3322",
+    "ref": "1019069",
+    "takeaway": "yes",
+    "website": "https://www.starbucks.com/store-locator/store/1019069/kettleman-hutchins-st-514-w-kettleman-lane-suite-100-lodi-ca-952406039-u"
+  }
+},
+{
+  "type": "node",
+  "id": 7525424069,
+  "lat": 38.1141735,
+  "lon": -121.2801355,
+  "tags": {
+    "addr:city": "Lodi",
+    "addr:housenumber": "530",
+    "addr:postcode": "95240",
+    "addr:state": "CA",
+    "addr:street": "West Kettleman Lane",
+    "branch": "Lodi",
+    "brand": "Kohl's",
+    "brand:wikidata": "Q967265",
+    "name": "Kohl's",
+    "opening_hours": "Mo-Sa 09:00-21:00; Su 09:00-20:00",
+    "phone": "+1 209-334-0213",
+    "ref": "1366",
+    "shop": "department_store",
+    "website": "https://www.kohls.com/stores/ca/lodi-1366.shtml"
+  }
+},
+{
+  "type": "node",
+  "id": 7525424070,
+  "lat": 38.1150237,
+  "lon": -121.2818524,
+  "tags": {
+    "addr:city": "Lodi",
+    "addr:housenumber": "616",
+    "addr:postcode": "95240-6050",
+    "addr:state": "CA",
+    "addr:street": "West Kettleman Lane",
+    "amenity": "fast_food",
+    "brand": "Burger King",
+    "brand:wikidata": "Q177054",
+    "cuisine": "burger",
+    "delivery": "yes",
+    "drive_through": "yes",
+    "internet_access": "wlan",
+    "name": "Burger King",
+    "opening_hours": "06:00-22:00",
+    "phone": "+1 209-333-0452",
+    "ref": "3890",
+    "takeaway": "yes",
+    "website": "https://www.bk.com/store-locator/store/restaurant_2157"
+  }
+},
+{
+  "type": "node",
+  "id": 7525424071,
+  "lat": 38.1149756,
+  "lon": -121.2826324,
+  "tags": {
+    "amenity": "bank",
+    "brand": "Bank of America",
+    "brand:wikidata": "Q487907",
+    "name": "Bank of America",
+    "website": "https://locators.bankofamerica.com/ca/lodi/financial-centers-lodi-11502.html"
+  }
+},
+{
+  "type": "node",
+  "id": 7525424072,
+  "lat": 38.1150496,
+  "lon": -121.2835394,
+  "tags": {
+    "addr:city": "Lodi",
+    "addr:housenumber": "820",
+    "addr:postcode": "95240",
+    "addr:state": "CA",
+    "addr:street": "West Kettleman Lane",
+    "amenity": "fast_food",
+    "brand": "Carl's Jr.",
+    "brand:wikidata": "Q1043486",
+    "cuisine": "burger",
+    "name": "Carl's Jr.",
+    "phone": "+1 209-333-1288",
+    "ref": "1100319",
+    "takeaway": "yes",
+    "website": "https://locations.carlsjr.com/ca/lodi/820-w.-kettleman-lane"
+  }
+},
+{
+  "type": "node",
+  "id": 7525424073,
+  "lat": 38.1139959,
+  "lon": -121.2846812,
+  "tags": {
+    "brand": "CVS Pharmacy",
+    "brand:website": "https://www.cvs.com/",
+    "brand:wikidata": "Q2078880",
+    "name": "CVS Pharmacy",
+    "shop": "chemist",
+    "short_name": "CVS",
+    "website": "https://www.cvs.com/store-locator/lodi-ca-pharmacies/1000-w-kettleman-ln-lodi-ca-95240/storeid=9243"
+  }
+},
+{
+  "type": "node",
+  "id": 7525424074,
+  "lat": 38.1141213,
+  "lon": -121.2833093,
+  "tags": {
+    "brand": "Goodwill",
+    "brand:wikidata": "Q5583655",
+    "name": "Goodwill",
+    "shop": "charity"
+  }
+},
+{
+  "type": "node",
+  "id": 7525424075,
+  "lat": 38.1141150,
+  "lon": -121.2824463,
+  "tags": {
+    "alt_name": "Mountain Mike's Pizza",
+    "amenity": "restaurant",
+    "brand": "Mountain Mike's",
+    "brand:wikidata": "Q6925120",
+    "cuisine": "pizza",
+    "name": "Mountain Mike's",
+    "takeaway": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 7526628334,
+  "lat": 38.1150881,
+  "lon": -121.2877641,
+  "tags": {
+    "addr:city": "Lodi",
+    "addr:housenumber": "1230",
+    "addr:postcode": "95240",
+    "addr:state": "CA",
+    "addr:street": "West Kettleman Lane",
+    "amenity": "restaurant",
+    "brand": "IHOP",
+    "brand:wikidata": "Q1185675",
+    "check_date": "2024-09-15",
+    "cuisine": "breakfast;pancake",
+    "name": "IHOP",
+    "opening_hours": "Mo-Th,Su 07:00-22:00; Fr,Sa 07:00-24:00",
+    "phone": "+1 209-369-1361",
+    "source": "official website",
+    "website": "https://restaurants.ihop.com/en-us/ca/lodi/breakfast-1230-w-kettleman-lane-1748"
+  }
+},
+{
+  "type": "node",
+  "id": 7526628335,
+  "lat": 38.1151898,
+  "lon": -121.2784405,
+  "tags": {
+    "amenity": "fuel",
+    "name": "Kwik Serv"
+  }
+},
+{
+  "type": "node",
+  "id": 7526628344,
+  "lat": 38.1150008,
+  "lon": -121.2780707,
+  "tags": {
+    "amenity": "restaurant",
+    "name": "Golden Ox"
+  }
+},
+{
+  "type": "node",
+  "id": 7526815188,
+  "lat": 38.1289472,
+  "lon": -121.3085952,
+  "tags": {
+    "brand": "Raley's",
+    "brand:wikidata": "Q7286970",
+    "name": "Raley's",
+    "shop": "supermarket"
+  }
+},
+{
+  "type": "node",
+  "id": 7526815189,
+  "lat": 38.1295444,
+  "lon": -121.3085665,
+  "tags": {
+    "brand": "Great Clips",
+    "brand:wikidata": "Q5598967",
+    "name": "Great Clips",
+    "shop": "hairdresser"
+  }
+},
+{
+  "type": "node",
+  "id": 7527005013,
+  "lat": 38.1314636,
+  "lon": -121.2602220,
+  "tags": {
+    "amenity": "fast_food",
+    "brand": "Wienerschnitzel",
+    "brand:wikidata": "Q324679",
+    "cuisine": "hot_dog",
+    "name": "Wienerschnitzel",
+    "takeaway": "yes",
+    "website": "https://www.wienerschnitzel.com/location/264-south-cherokee-east-lodi-lodi-220-s-cherokee-lane-lodi-ca-95240/"
+  }
+},
+{
+  "type": "node",
+  "id": 7527005014,
+  "lat": 38.1312891,
+  "lon": -121.2590668,
+  "tags": {
+    "brand": "Les Schwab Tire Center",
+    "brand:wikidata": "Q6529977",
+    "name": "Les Schwab Tire Center",
+    "shop": "tyres"
+  }
+},
+{
+  "type": "node",
+  "id": 7527005053,
+  "lat": 38.1303487,
+  "lon": -121.2592244,
+  "tags": {
+    "addr:city": "Lodi",
+    "addr:housenumber": "360",
+    "addr:postcode": "95240",
+    "addr:state": "CA",
+    "addr:street": "South Cherokee Lane",
+    "brand": "Tractor Supply Company",
+    "brand:wikidata": "Q15109925",
+    "name": "Tractor Supply Company",
+    "opening_hours": "Mo-Sa 08:00-21:00; Su 09:00-19:00",
+    "phone": "+1 209-369-5528",
+    "ref": "1857",
+    "shop": "country_store"
+  }
+},
+{
+  "type": "node",
+  "id": 7527005054,
+  "lat": 38.1298770,
+  "lon": -121.2601327,
+  "tags": {
+    "brand": "O'Reilly Auto Parts",
+    "brand:wikidata": "Q7071951",
+    "name": "O'Reilly Auto Parts",
+    "shop": "car_parts",
+    "website": "https://locations.oreillyauto.com/ca/lodi/autoparts-2765.html",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 7527005055,
+  "lat": 38.1289628,
+  "lon": -121.2586636,
+  "tags": {
+    "brand": "Grocery Outlet",
+    "brand:wikidata": "Q5609934",
+    "name": "Grocery Outlet",
+    "official_name": "Grocery Outlet Bargain Market",
+    "shop": "supermarket",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 7527005056,
+  "lat": 38.1300231,
+  "lon": -121.2586383,
+  "tags": {
+    "addr:city": "Lodi",
+    "addr:housenumber": "380",
+    "addr:postcode": "95240",
+    "addr:state": "CA",
+    "addr:street": "South Cherokee Lane",
+    "brand": "Big Lots",
+    "brand:wikidata": "Q4905973",
+    "name": "Big Lots",
+    "opening_hours": "Mo-Sa 09:00-21:00; Su 10:00-21:00",
+    "phone": "+1 209-368-6859",
+    "shop": "department_store",
+    "website": "https://local.biglots.com/ca/lodi/380-s-cherokee-ln"
+  }
+},
+{
+  "type": "node",
+  "id": 7527005057,
+  "lat": 38.1291970,
+  "lon": -121.2586375,
+  "tags": {
+    "brand": "dd's Discounts",
+    "brand:wikidata": "Q83743863",
+    "name": "dd's Discounts",
+    "shop": "department_store"
+  }
+},
+{
+  "type": "node",
+  "id": 7527005058,
+  "lat": 38.1285292,
+  "lon": -121.2586825,
+  "tags": {
+    "brand": "Planet Fitness",
+    "brand:wikidata": "Q7201095",
+    "leisure": "fitness_centre",
+    "name": "Planet Fitness"
+  }
+},
+{
+  "type": "node",
+  "id": 7527005059,
+  "lat": 38.1296817,
+  "lon": -121.2586787,
+  "tags": {
+    "brand": "Dollar Tree",
+    "brand:wikidata": "Q5289230",
+    "check_date": "2024-07-11",
+    "check_date:opening_hours": "2024-07-11",
+    "name": "Dollar Tree",
+    "opening_hours": "Mo-Sa 08:00-21:00; Su 11:00-19:00",
+    "shop": "variety_store",
+    "website": "https://www.dollartree.com/locations/ca/lodi/6120/"
+  }
+},
+{
+  "type": "node",
+  "id": 7527005063,
+  "lat": 38.1305694,
+  "lon": -121.2602193,
+  "tags": {
+    "alt_name": "Western Dental & Orthodontics",
+    "amenity": "dentist",
+    "brand": "Western Dental",
+    "brand:wikidata": "Q64211989",
+    "healthcare": "dentist",
+    "name": "Western Dental"
+  }
+},
+{
+  "type": "node",
+  "id": 7527267411,
+  "lat": 38.1292462,
+  "lon": -121.2802507,
+  "tags": {
+    "brand": "Rite Aid",
+    "brand:wikidata": "Q3433273",
+    "check_date": "2024-06-19",
+    "check_date:opening_hours": "2024-06-19",
+    "name": "Rite Aid",
+    "opening_hours": "Mo-Fr 08:00-22:00; Sa-Su 09:00-21:00",
+    "shop": "chemist",
+    "website": "https://www.riteaid.com/locations/ca/lodi/520-west-lodi-avenue.html"
+  }
+},
+{
+  "type": "node",
+  "id": 7527267412,
+  "lat": 38.1298053,
+  "lon": -121.2816417,
+  "tags": {
+    "addr:city": "Lodi",
+    "addr:housenumber": "608",
+    "addr:postcode": "95240",
+    "addr:state": "CA",
+    "addr:street": "West Lodi Avenue",
+    "amenity": "fast_food",
+    "brand": "Taco Bell",
+    "brand:wikidata": "Q752941",
+    "cuisine": "tex-mex",
+    "name": "Taco Bell",
+    "opening_hours": "Mo-Th 07:00-01:00; Fr-Sa 07:00-02:00; Su 07:00-01:00",
+    "phone": "+1 209-369-6656",
+    "takeaway": "yes",
+    "website": "https://locations.tacobell.com/ca/lodi/608-w-lodi-ave.html"
+  }
+},
+{
+  "type": "node",
+  "id": 7527267413,
+  "lat": 38.1298196,
+  "lon": -121.2793760,
+  "tags": {
+    "addr:city": "Lodi",
+    "addr:housenumber": "305",
+    "addr:postcode": "95240",
+    "addr:state": "CA",
+    "addr:street": "South Hutchins",
+    "amenity": "fast_food",
+    "brand": "Domino's",
+    "brand:wikidata": "Q839466",
+    "cuisine": "pizza",
+    "name": "Domino's",
+    "opening_hours": "Mo-Th 10:00-24:00; Fr-Sa 10:00-01:00; Su 10:00-24:00",
+    "phone": "+1 209-625-1234",
+    "ref": "8588",
+    "takeaway": "yes",
+    "website": "https://pizza.dominos.com/california/lodi/305-s-hutchins"
+  }
+},
+{
+  "type": "node",
+  "id": 7527267414,
+  "lat": 38.1292776,
+  "lon": -121.2816030,
+  "tags": {
+    "amenity": "fast_food",
+    "brand": "Subway",
+    "brand:wikidata": "Q244457",
+    "cuisine": "sandwich",
+    "fixme:atp": "no ATP match, check if still exists",
+    "name": "Subway",
+    "takeaway": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 7527267415,
+  "lat": 38.1292798,
+  "lon": -121.2816808,
+  "tags": {
+    "brand": "Metro by T-Mobile",
+    "brand:wikidata": "Q1925685",
+    "name": "Metro by T-Mobile",
+    "shop": "mobile_phone",
+    "website": "https://www.metrobyt-mobile.com/stores/bd/metro-by-t-mobile-lodi-ca-10232927/"
+  }
+},
+{
+  "type": "node",
+  "id": 7527267416,
+  "lat": 38.1292889,
+  "lon": -121.2819085,
+  "tags": {
+    "amenity": "restaurant",
+    "cuisine": "chinese",
+    "name": "Sky Wok"
+  }
+},
+{
+  "type": "node",
+  "id": 7527267417,
+  "lat": 38.1292671,
+  "lon": -121.2811234,
+  "tags": {
+    "name": "S-mart Foods",
+    "shop": "supermarket"
+  }
+},
+{
+  "type": "node",
+  "id": 7527267418,
+  "lat": 38.1293888,
+  "lon": -121.2788551,
+  "tags": {
+    "name": "MIkes Automotive",
+    "shop": "car_repair"
+  }
+},
+{
+  "type": "node",
+  "id": 7527267419,
+  "lat": 38.1294033,
+  "lon": -121.2786297,
+  "tags": {
+    "brand": "O'Reilly Auto Parts",
+    "brand:wikidata": "Q7071951",
+    "name": "O'Reilly Auto Parts",
+    "shop": "car_parts",
+    "website": "https://locations.oreillyauto.com/ca/lodi/autoparts-3477.html"
+  }
+},
+{
+  "type": "node",
+  "id": 7527267420,
+  "lat": 38.1299679,
+  "lon": -121.2750568,
+  "tags": {
+    "amenity": "bank",
+    "brand": "Wells Fargo",
+    "brand:wikidata": "Q744149",
+    "name": "Wells Fargo"
+  }
+},
+{
+  "type": "node",
+  "id": 7527267421,
+  "lat": 38.1296394,
+  "lon": -121.2745653,
+  "tags": {
+    "brand": "CVS Pharmacy",
+    "brand:website": "https://www.cvs.com/",
+    "brand:wikidata": "Q2078880",
+    "name": "CVS Pharmacy",
+    "shop": "chemist",
+    "short_name": "CVS",
+    "website": "https://www.cvs.com/store-locator/lodi-ca-pharmacies/100-w-lodi-ave-lodi-ca-95240/storeid=9261"
+  }
+},
+{
+  "type": "node",
+  "id": 7527267422,
+  "lat": 38.1299911,
+  "lon": -121.2758660,
+  "tags": {
+    "addr:city": "Lodi",
+    "addr:housenumber": "200",
+    "addr:postcode": "95240-3519",
+    "addr:state": "CA",
+    "addr:street": "West Lodi Avenue",
+    "amenity": "fast_food",
+    "brand": "McDonald's",
+    "brand:wikidata": "Q38076",
+    "cuisine": "burger",
+    "drive_through": "yes",
+    "internet_access": "wlan",
+    "name": "McDonald's",
+    "opening_hours": "06:00-23:00",
+    "phone": "+1 209-426-5844",
+    "takeaway": "yes",
+    "website": "https://www.mcdonalds.com/us/en-us/location/3580.html"
+  }
+},
+{
+  "type": "node",
+  "id": 9164247013,
+  "lat": 38.1391982,
+  "lon": -121.2879604,
+  "tags": {
+    "addr:city": "Lodi",
+    "addr:housenumber": "312",
+    "addr:postcode": "95242",
+    "addr:state": "CA",
+    "addr:street": "North Ham Lane",
+    "name": "Lodi Cyclery",
+    "shop": "bicycle"
+  }
+},
+{
+  "type": "node",
+  "id": 9177238817,
+  "lat": 38.1816077,
+  "lon": -121.2631049,
+  "tags": {
+    "addr:housenumber": "21831",
+    "addr:postcode": "95220",
+    "addr:street": "99 Frontage Road",
+    "email": "info@peirano.com",
+    "name": "Peirano Estate",
+    "opening_hours": "We-Su 11:00-17:00",
+    "phone": "+1-209-369-9463",
+    "shop": "wine",
+    "website": "https://www.peirano.com/"
+  }
+},
+{
+  "type": "node",
+  "id": 9816331243,
+  "lat": 38.1598577,
+  "lon": -121.2448194,
+  "tags": {
+    "name": "Woodbridge Winery",
+    "opening_hours": "Mo-Su 10:30-16:30",
+    "shop": "wine"
+  }
+},
+{
+  "type": "node",
+  "id": 10011718779,
+  "lat": 38.1151636,
+  "lon": -121.3071928,
+  "tags": {
+    "alt_name": "Habit Burger Grill",
+    "amenity": "fast_food",
+    "brand": "The Habit Burger Grill",
+    "brand:wikidata": "Q18158741",
+    "check_date": "2024-09-25",
+    "check_date:opening_hours": "2024-09-25",
+    "cuisine": "burger",
+    "name": "The Habit Burger Grill",
+    "opening_hours": "Mo-Su 10:30-21:30",
+    "phone": "+1 209-280-1660",
+    "short_name": "Habit Burger",
+    "takeaway": "yes",
+    "website": "https://www.habitburger.com/locations/lodi/",
+    "website:orders": "https://order.habitburger.com/store/206/category"
+  }
+},
+{
+  "type": "node",
+  "id": 10011718780,
+  "lat": 38.1151091,
+  "lon": -121.3071913,
+  "tags": {
+    "amenity": "restaurant",
+    "brand": "Ono Hawaiian BBQ",
+    "brand:wikidata": "Q99526964",
+    "cuisine": "barbecue;hawaiian",
+    "name": "Ono Hawaiian BBQ"
+  }
+},
+{
+  "type": "node",
+  "id": 10011718781,
+  "lat": 38.1148844,
+  "lon": -121.3072058,
+  "tags": {
+    "brand": "Stanton Optical",
+    "brand:wikidata": "Q109328668",
+    "name": "Stanton Optical",
+    "shop": "optician"
+  }
+},
+{
+  "type": "node",
+  "id": 10011718782,
+  "lat": 38.1150134,
+  "lon": -121.3081131,
+  "tags": {
+    "addr:city": "Lodi",
+    "addr:housenumber": "2602",
+    "addr:postcode": "95242",
+    "addr:state": "CA",
+    "addr:street": "Kettleman Lane",
+    "amenity": "cafe",
+    "branch": "Lodi",
+    "brand": "Dutch Bros. Coffee",
+    "brand:wikidata": "Q5317253",
+    "cuisine": "coffee_shop",
+    "name": "Dutch Bros. Coffee",
+    "opening_hours": "Mo-Th 05:00-00:00; Fr-Sa 05:00-01:00; Su 05:00-00:00",
+    "ref": "DB327",
+    "takeaway": "only",
+    "website": "https://locations.dutchbros.com/dutch-bros-coffee-3aea667de9b3"
+  }
+},
+{
+  "type": "node",
+  "id": 10011718783,
+  "lat": 38.1150020,
+  "lon": -121.3084844,
+  "tags": {
+    "brand": "Crumbl Cookies",
+    "brand:wikidata": "Q106924414",
+    "name": "Crumbl Cookies",
+    "shop": "pastry",
+    "short_name": "Crumbl"
+  }
+},
+{
+  "type": "node",
+  "id": 10011718785,
+  "lat": 38.1138037,
+  "lon": -121.3069908,
+  "tags": {
+    "brand": "Xfinity",
+    "brand:wikidata": "Q5151002",
+    "name": "Xfinity",
+    "shop": "telecommunication"
+  }
+},
+{
+  "type": "node",
+  "id": 10011718786,
+  "lat": 38.1139804,
+  "lon": -121.3048076,
+  "tags": {
+    "addr:city": "Lodi",
+    "addr:housenumber": "2422",
+    "addr:postcode": "95242",
+    "addr:state": "CA",
+    "addr:street": "West Kettleman Lane",
+    "alt_name": "Burlington Coat Factory",
+    "brand": "Burlington",
+    "brand:wikidata": "Q4999220",
+    "name": "Burlington",
+    "opening_hours": "Mo-Th 09:00-23:00; Fr-Sa 09:00-23:30; Su 09:00-23:00",
+    "phone": "+1 209-269-2780",
+    "ref": "1281",
+    "shop": "department_store",
+    "website": "https://stores.burlington.com/ca/lodi/1281"
+  }
+},
+{
+  "type": "node",
+  "id": 10011745439,
+  "lat": 38.1169284,
+  "lon": -121.3030090,
+  "tags": {
+    "amenity": "charging_station",
+    "brand": "ChargePoint",
+    "brand:wikidata": "Q5176149",
+    "name": "ChargePoint",
+    "operator": "ChargePoint",
+    "operator:wikidata": "Q5176149"
+  }
+},
+{
+  "type": "node",
+  "id": 10011745440,
+  "lat": 38.1158081,
+  "lon": -121.2590905,
+  "tags": {
+    "brand": "ampm",
+    "brand:wikidata": "Q306960",
+    "name": "ampm",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 10011745441,
+  "lat": 38.1160557,
+  "lon": -121.2590641,
+  "tags": {
+    "amenity": "fuel",
+    "brand": "Arco",
+    "brand:wikidata": "Q304769",
+    "name": "Arco",
+    "self_service": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 10011745445,
+  "lat": 38.1314231,
+  "lon": -121.2805785,
+  "tags": {
+    "amenity": "charging_station",
+    "brand": "ChargePoint",
+    "brand:wikidata": "Q5176149",
+    "name": "ChargePoint",
+    "operator": "ChargePoint",
+    "operator:wikidata": "Q5176149"
+  }
+},
+{
+  "type": "node",
+  "id": 10011745447,
+  "lat": 38.1350791,
+  "lon": -121.2772665,
+  "tags": {
+    "amenity": "charging_station",
+    "brand": "ChargePoint",
+    "brand:wikidata": "Q5176149",
+    "name": "ChargePoint",
+    "operator": "ChargePoint",
+    "operator:wikidata": "Q5176149"
+  }
+},
+{
+  "type": "node",
+  "id": 10012556441,
+  "lat": 38.1150911,
+  "lon": -121.2870189,
+  "tags": {
+    "amenity": "bank",
+    "brand": "PNC Bank",
+    "brand:wikidata": "Q38928",
+    "name": "PNC Bank"
+  }
+},
+{
+  "type": "node",
+  "id": 10012556471,
+  "lat": 38.1150633,
+  "lon": -121.2860759,
+  "tags": {
+    "addr:city": "Lodi",
+    "addr:housenumber": "1102",
+    "addr:postcode": "95240",
+    "addr:state": "CA",
+    "addr:street": "West Kettleman Lane",
+    "amenity": "fast_food",
+    "brand": "Jimmy John's",
+    "brand:wikidata": "Q1689380",
+    "cuisine": "sandwich",
+    "name": "Jimmy John's",
+    "official_name": "Jimmy John's Gourmet Sandwiches",
+    "phone": "+1 209-897-9500",
+    "takeaway": "yes",
+    "website": "https://locations.jimmyjohns.com/ca/lodi/sandwiches-4001.html"
+  }
+},
+{
+  "type": "node",
+  "id": 10012556472,
+  "lat": 38.1150418,
+  "lon": -121.2862983,
+  "tags": {
+    "amenity": "bank",
+    "name": "Bank of Stockton"
+  }
+},
+{
+  "type": "node",
+  "id": 10012556541,
+  "lat": 38.1157175,
+  "lon": -121.2885615,
+  "tags": {
+    "amenity": "fuel",
+    "brand": "Chevron",
+    "brand:wikidata": "Q319642",
+    "name": "Chevron"
+  }
+},
+{
+  "type": "node",
+  "id": 10012556542,
+  "lat": 38.1151221,
+  "lon": -121.2886425,
+  "tags": {
+    "brand": "AutoZone",
+    "brand:wikidata": "Q4826087",
+    "name": "AutoZone",
+    "shop": "car_parts",
+    "website": "https://www.autozone.com/locations/ca/lodi/1300-w-kettleman.html"
+  }
+},
+{
+  "type": "node",
+  "id": 10012556545,
+  "lat": 38.1150554,
+  "lon": -121.2903232,
+  "tags": {
+    "amenity": "fast_food",
+    "brand": "Little Caesars",
+    "brand:wikidata": "Q1393809",
+    "cuisine": "pizza",
+    "drive_through": "no",
+    "name": "Little Caesars",
+    "takeaway": "yes",
+    "website": "https://littlecaesars.com/en-us/store/3436/"
+  }
+},
+{
+  "type": "node",
+  "id": 10012556976,
+  "lat": 38.1167274,
+  "lon": -121.2569805,
+  "tags": {
+    "addr:city": "Lodi",
+    "addr:housenumber": "841",
+    "addr:postcode": "95240-6405",
+    "addr:state": "CA",
+    "addr:street": "East Kettleman Lane",
+    "amenity": "fast_food",
+    "brand": "McDonald's",
+    "brand:wikidata": "Q38076",
+    "cuisine": "burger",
+    "drive_through": "yes",
+    "internet_access": "wlan",
+    "name": "McDonald's",
+    "opening_hours": "05:00-23:00",
+    "phone": "+1 209-310-2343",
+    "takeaway": "yes",
+    "website": "https://www.mcdonalds.com/us/en-us/location/10555.html"
+  }
+},
+{
+  "type": "node",
+  "id": 10012556979,
+  "lat": 38.1165394,
+  "lon": -121.2560361,
+  "tags": {
+    "amenity": "fuel",
+    "brand": "76",
+    "brand:wikidata": "Q1658320",
+    "name": "76"
+  }
+},
+{
+  "type": "node",
+  "id": 10012556980,
+  "lat": 38.1166533,
+  "lon": -121.2557497,
+  "tags": {
+    "addr:city": "Lodi",
+    "addr:housenumber": "1111",
+    "addr:postcode": "95240",
+    "addr:state": "CA",
+    "addr:street": "East Kettleman Lane",
+    "atm": "yes",
+    "brand": "7-Eleven",
+    "brand:wikidata": "Q259340",
+    "delivery": "yes",
+    "fast_food": "yes",
+    "fuel:propane": "yes",
+    "name": "7-Eleven",
+    "phone": "+1 209-369-3633",
+    "ref": "39087",
+    "shop": "convenience",
+    "website": "https://www.7-eleven.com/locations/ca/lodi/1111-e-kettleman-lane-39087"
+  }
+},
+{
+  "type": "node",
+  "id": 10012556982,
+  "lat": 38.1172251,
+  "lon": -121.2560231,
+  "tags": {
+    "addr:city": "Lodi",
+    "addr:housenumber": "1364",
+    "addr:postcode": "95240",
+    "addr:state": "CA",
+    "addr:street": "Business Park Drive",
+    "amenity": "fast_food",
+    "brand": "Taco Bell",
+    "brand:wikidata": "Q752941",
+    "cuisine": "tex-mex",
+    "name": "Taco Bell",
+    "opening_hours": "07:00-01:00",
+    "phone": "+1 209-369-8802",
+    "takeaway": "yes",
+    "website": "https://locations.tacobell.com/ca/lodi/1364-business-park-dr.html"
+  }
+},
+{
+  "type": "node",
+  "id": 10012568645,
+  "lat": 38.1376239,
+  "lon": -121.2603847,
+  "tags": {
+    "addr:city": "Lodi",
+    "addr:housenumber": "230",
+    "addr:postcode": "95240-2418",
+    "addr:state": "CA",
+    "addr:street": "North Cherokee Lane",
+    "amenity": "fast_food",
+    "brand": "Burger King",
+    "brand:wikidata": "Q177054",
+    "cuisine": "burger",
+    "delivery": "yes",
+    "drive_through": "yes",
+    "internet_access": "wlan",
+    "name": "Burger King",
+    "opening_hours": "06:00-22:00",
+    "phone": "+1 209-367-0648",
+    "ref": "6409",
+    "takeaway": "yes",
+    "website": "https://www.bk.com/store-locator/store/restaurant_3643"
+  }
+},
+{
+  "type": "node",
+  "id": 10012568646,
+  "lat": 38.1375735,
+  "lon": -121.2594701,
+  "tags": {
+    "amenity": "fuel",
+    "brand": "Chevron",
+    "brand:wikidata": "Q319642",
+    "name": "Chevron"
+  }
+},
+{
+  "type": "node",
+  "id": 10012568655,
+  "lat": 38.1454146,
+  "lon": -121.2720158,
+  "tags": {
+    "amenity": "fuel",
+    "brand": "76",
+    "brand:wikidata": "Q1658320",
+    "name": "76"
+  }
+},
+{
+  "type": "node",
+  "id": 10168206334,
+  "lat": 38.1160186,
+  "lon": -121.2598154,
+  "tags": {
+    "addr:city": "Lodi",
+    "addr:housenumber": "612",
+    "addr:postcode": "95240",
+    "addr:state": "CA",
+    "addr:street": "East Kettleman Lane",
+    "amenity": "fast_food",
+    "brand": "Popeyes",
+    "brand:wikidata": "Q1330910",
+    "cuisine": "chicken",
+    "delivery": "yes",
+    "drive_through": "yes",
+    "indoor_seating": "yes",
+    "name": "Popeyes",
+    "official_name": "Popeyes Louisiana Kitchen",
+    "opening_hours": "Mo-Th 10:00-21:30; Fr-Sa 10:00-22:30; Su 10:00-21:30",
+    "phone": "+1 209-339-1120",
+    "takeaway": "yes",
+    "website": "https://www.popeyes.com/store-locator/store/restaurant_85081"
+  }
+},
+{
+  "type": "node",
+  "id": 10168206337,
+  "lat": 38.1166203,
+  "lon": -121.2588506,
+  "tags": {
+    "addr:city": "Lodi",
+    "addr:housenumber": "801",
+    "addr:postcode": "95240",
+    "addr:state": "CA",
+    "addr:street": "East Kettleman Lane",
+    "amenity": "fast_food",
+    "brand": "Wendy's",
+    "brand:wikidata": "Q550258",
+    "cuisine": "burger",
+    "drive_through": "yes",
+    "name": "Wendy's",
+    "opening_hours": "Mo-Fr 08:00-20:00; Sa-Su 09:00-20:00",
+    "opening_hours:drive_through": "Mo-Su 06:30-00:00",
+    "phone": "+1 209-368-6202",
+    "takeaway": "yes",
+    "website": "https://locations.wendys.com/united-states/ca/lodi/801-e-kettleman-lane"
+  }
+},
+{
+  "type": "node",
+  "id": 10168206338,
+  "lat": 38.1165598,
+  "lon": -121.2593233,
+  "tags": {
+    "amenity": "restaurant",
+    "brand": "Denny's",
+    "brand:wikidata": "Q1189695",
+    "cuisine": "american",
+    "name": "Denny's",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 10168206339,
+  "lat": 38.1166551,
+  "lon": -121.2597354,
+  "tags": {
+    "amenity": "fuel",
+    "brand": "Chevron",
+    "brand:wikidata": "Q319642",
+    "name": "Chevron",
+    "self_service": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 10168206343,
+  "lat": 38.1158487,
+  "lon": -121.2611105,
+  "tags": {
+    "brand": "Pep Boys",
+    "brand:wikidata": "Q3375007",
+    "name": "Pep Boys",
+    "shop": "car_repair"
+  }
+},
+{
+  "type": "node",
+  "id": 10168206344,
+  "lat": 38.1160007,
+  "lon": -121.2615878,
+  "tags": {
+    "brand": "Jiffy Lube",
+    "brand:wikidata": "Q6192247",
+    "name": "Jiffy Lube",
+    "shop": "car_repair"
+  }
+},
+{
+  "type": "node",
+  "id": 10564400478,
+  "lat": 38.1333834,
+  "lon": -121.2735689,
+  "tags": {
+    "addr:city": "Lodi",
+    "addr:full": "20 S School St",
+    "addr:postcode": "95240",
+    "addr:state": "CA",
+    "clothes": "wedding",
+    "name": "Elizabeth of Lodi",
+    "opening_hours": "Mo-Fr 11:00-17:30, Sa 10:00-16:00",
+    "operator": "Nancy Chambers",
+    "payment:american_express": "yes",
+    "payment:cash": "yes",
+    "payment:discover_card": "yes",
+    "payment:mastercard": "yes",
+    "payment:visa": "yes",
+    "phone": "+1-209-369-9046",
+    "shop": "clothes",
+    "website": "https://theelizabethbridal.net"
+  }
+},
+{
+  "type": "node",
+  "id": 10897729414,
+  "lat": 38.1320420,
+  "lon": -121.2740010,
+  "tags": {
+    "addr:city": "Lodi",
+    "addr:housenumber": "121",
+    "addr:postcode": "95240",
+    "addr:state": "CA",
+    "addr:street": "South School Street",
+    "addr:unit": "A",
+    "air_conditioning": "yes",
+    "amenity": "restaurant",
+    "cuisine": "mexican;tacos",
+    "name": "Tequileros Cantina",
+    "opening_hours": "Su-Th 10:00-22:00; Fr-Sa 10:00-01:00",
+    "payment:cash": "yes",
+    "payment:contactless": "yes",
+    "payment:credit_cards": "yes",
+    "phone": "+1 2096258044",
+    "website": "https://www.tequilerostaqueria.com/"
+  }
+},
+{
+  "type": "node",
+  "id": 10897746118,
+  "lat": 38.1166084,
+  "lon": -121.2600019,
+  "tags": {
+    "addr:city": "Lodi",
+    "addr:housenumber": "601",
+    "addr:postcode": "95240",
+    "addr:state": "CA",
+    "addr:street": "East Kettleman Lane",
+    "amenity": "restaurant",
+    "cuisine": "mexican",
+    "name": "Tequileros Taqueria (Lodi)",
+    "opening_hours": "Mo-Su 10:00-22:00",
+    "phone": "+1-209-715-2583",
+    "website": "https://www.tequilerostaqueria.com/"
+  }
+},
+{
+  "type": "node",
+  "id": 11395703560,
+  "lat": 38.1301840,
+  "lon": -121.2801746,
+  "tags": {
+    "addr:city": "Lodi",
+    "addr:housenumber": "527",
+    "addr:postcode": "95240",
+    "addr:state": "CA",
+    "addr:street": "West Lodi Avenue",
+    "name": "Village Flowers, Gifts & Caskets",
+    "opening_hours": "24/7",
+    "operator": "Donald Gareis",
+    "payment:american_express": "yes",
+    "payment:cash": "yes",
+    "payment:cheque": "yes",
+    "payment:discover_card": "yes",
+    "payment:mastercard": "yes",
+    "payment:visa": "yes",
+    "phone": "+1-209-333-3377",
+    "shop": "florist",
+    "website": "https://flowerslodi.com"
+  }
+},
+{
+  "type": "node",
+  "id": 11854254293,
+  "lat": 38.1290997,
+  "lon": -121.2823675,
+  "tags": {
+    "addr:city": "Lodi",
+    "addr:housenumber": "312",
+    "addr:postcode": "95240",
+    "addr:state": "CA",
+    "addr:street": "S Crescent Ave",
+    "name": "Tax Management Services",
+    "office": "accountant",
+    "opening_hours": "Mo-Fr 09:00-17:00; Sa 10:00-16:00",
+    "payment": "MasterCard  Amex  Cash  Visa  Discover  Checks",
+    "phone": "+1-209-368-2388",
+    "website": "https://taxmanagementservices-ca.com"
+  }
+},
+{
+  "type": "node",
+  "id": 12281831742,
+  "lat": 38.1451194,
+  "lon": -121.2557091,
+  "tags": {
+    "addr:city": "Lodi",
+    "addr:housenumber": "935",
+    "addr:postcode": "95240",
+    "addr:state": "CA",
+    "addr:street": "East Turner Road",
+    "alt_name": "Diener",
+    "email": "info@dpp.us",
+    "level": "1",
+    "name": "Diener Precision Pumps USA",
+    "office": "engineer",
+    "official_name": "Diener Precision Pumps",
+    "opening_hours": "Mo-Fr 08:00-17:00",
+    "phone": "+1 209 365 0405",
+    "short_name": "DPP",
+    "website": "https://dpp.us/"
+  }
+},
+{
+  "type": "node",
+  "id": 12406902054,
+  "lat": 38.1010085,
+  "lon": -121.2677443,
+  "tags": {
+    "amenity": "fast_food",
+    "brand": "McDonald's",
+    "brand:wikidata": "Q38076",
+    "cuisine": "burger",
+    "name": "McDonald's",
+    "takeaway": "yes",
+    "website": "https://www.mcdonalds.com/us/en-us/location/ca/lodi/2611-reynolds-ranch-pkwy/40627.html"
+  }
+},
+{
+  "type": "node",
+  "id": 12417339968,
+  "lat": 38.1391300,
+  "lon": -121.2879566,
+  "tags": {
+    "amenity": "fast_food",
+    "brand": "Little Caesars",
+    "brand:wikidata": "Q1393809",
+    "cuisine": "pizza",
+    "name": "Little Caesars",
+    "takeaway": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 12417339969,
+  "lat": 38.1392430,
+  "lon": -121.2879613,
+  "tags": {
+    "beauty": "nails",
+    "name": "Lakewood Nails",
+    "shop": "beauty"
+  }
+},
+{
+  "type": "node",
+  "id": 12417339970,
+  "lat": 38.1393001,
+  "lon": -121.2879659,
+  "tags": {
+    "name": "Lakewood Meats",
+    "shop": "butcher"
+  }
+},
+{
+  "type": "node",
+  "id": 12419050107,
+  "lat": 38.1390509,
+  "lon": -121.2879509,
+  "tags": {
+    "name": "Lodi Laundromat",
+    "self_service": "yes",
+    "shop": "laundry"
+  }
+},
+{
+  "type": "node",
+  "id": 12419050112,
+  "lat": 38.1386291,
+  "lon": -121.2888790,
+  "tags": {
+    "amenity": "fast_food",
+    "brand": "Subway",
+    "brand:wikidata": "Q244457",
+    "cuisine": "sandwich",
+    "name": "Subway",
+    "takeaway": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 12419050113,
+  "lat": 38.1386840,
+  "lon": -121.2888776,
+  "tags": {
+    "amenity": "fast_food",
+    "cuisine": "donut",
+    "name": "Village Donuts"
+  }
+},
+{
+  "type": "node",
+  "id": 12419050145,
+  "lat": 38.1364205,
+  "lon": -121.2887408,
+  "tags": {
+    "amenity": "bank",
+    "brand": "Umpqua Bank",
+    "brand:wikidata": "Q7881772",
+    "name": "Umpqua Bank"
+  }
+},
+{
+  "type": "node",
+  "id": 12419059007,
+  "lat": 38.1530319,
+  "lon": -121.3016164,
+  "tags": {
+    "addr:city": "Woodbridge",
+    "addr:housenumber": "18815",
+    "addr:postcode": "95258",
+    "addr:state": "CA",
+    "addr:street": "N Lower Sacramento Rd",
+    "amenity": "veterinary",
+    "name": "Oakwood Animal Hospital"
+  }
+},
+{
+  "type": "node",
+  "id": 12419059008,
+  "lat": 38.1537848,
+  "lon": -121.3012676,
+  "tags": {
+    "addr:city": "Woodbridge",
+    "addr:housenumber": "18879",
+    "addr:postcode": "95258",
+    "addr:state": "CA",
+    "addr:street": "N Lower Sacramento Rd",
+    "amenity": "restaurant",
+    "cuisine": "pizza",
+    "name": "Pi Bar"
+  }
+},
+{
+  "type": "node",
+  "id": 12419059009,
+  "lat": 38.1538686,
+  "lon": -121.3014411,
+  "tags": {
+    "addr:city": "Woodbridge",
+    "addr:housenumber": "1060",
+    "addr:postcode": "95258",
+    "addr:state": "CA",
+    "addr:street": "E Augusta St",
+    "name": "Dry Creek Liquor",
+    "shop": "alcohol"
+  }
+},
+{
+  "type": "node",
+  "id": 12419059010,
+  "lat": 38.1542267,
+  "lon": -121.3010118,
+  "tags": {
+    "addr:city": "Woodbridge",
+    "addr:housenumber": "18921",
+    "addr:postcode": "95258",
+    "addr:state": "CA",
+    "addr:street": "N Lower Sacramento Rd",
+    "name": "Hair Mill & Co.",
+    "shop": "hairdresser"
+  }
+},
+{
+  "type": "node",
+  "id": 12421805327,
+  "lat": 38.1293969,
+  "lon": -121.2601490,
+  "tags": {
+    "amenity": "ice_cream",
+    "brand": "Baskin-Robbins",
+    "brand:wikidata": "Q584601",
+    "cuisine": "ice_cream",
+    "name": "Baskin-Robbins"
+  }
+},
+{
+  "type": "node",
+  "id": 12430203002,
+  "lat": 38.1284225,
+  "lon": -121.3085878,
+  "tags": {
+    "addr:city": "Lodi",
+    "addr:housenumber": "315",
+    "addr:postcode": "95242",
+    "addr:state": "CA",
+    "addr:street": "S Lower Sacramento Rd",
+    "name": "Vista Oaks Charter School",
+    "office": "educational_institution"
+  }
+},
+{
+  "type": "node",
+  "id": 12430203003,
+  "lat": 38.1296679,
+  "lon": -121.3085762,
+  "tags": {
+    "addr:city": "Lodi",
+    "addr:housenumber": "307",
+    "addr:postcode": "95242",
+    "addr:state": "CA",
+    "addr:street": "S Lower Sacramento Rd",
+    "addr:unit": "D",
+    "amenity": "restaurant",
+    "cuisine": "sushi",
+    "name": "Sushi Komachi",
+    "phone": "+1-209-334-3131"
+  }
+},
+{
+  "type": "node",
+  "id": 12430203004,
+  "lat": 38.1285530,
+  "lon": -121.3073723,
+  "tags": {
+    "addr:city": "Lodi",
+    "addr:housenumber": "363",
+    "addr:postcode": "95242",
+    "addr:state": "CA",
+    "addr:street": "S Lower Sacramento Rd",
+    "addr:unit": "C",
+    "amenity": "bank",
+    "name": "Central State Credit Union"
+  }
+},
+{
+  "type": "node",
+  "id": 12430203005,
+  "lat": 38.1286823,
+  "lon": -121.3073766,
+  "tags": {
+    "addr:city": "Lodi",
+    "addr:housenumber": "363",
+    "addr:postcode": "95242",
+    "addr:state": "CA",
+    "addr:street": "S Lower Sacramento Rd",
+    "amenity": "prep_school",
+    "name": "Huntington Learning Center Lodi"
+  }
+},
+{
+  "type": "node",
+  "id": 13193590101,
+  "lat": 38.0874026,
+  "lon": -121.2772645,
+  "tags": {
+    "addr:street": "Armstrong Road",
+    "amenity": "place_of_worship",
+    "name": "Deshmesh Darbar of Lodi"
+  }
+},
+{
+  "type": "node",
+  "id": 13360338529,
+  "lat": 38.1362305,
+  "lon": -121.2723303,
+  "tags": {
+    "addr:city": "Lodi",
+    "addr:housenumber": "125",
+    "addr:postcode": "95240",
+    "addr:state": "CA",
+    "addr:street": "North Sacramento Street",
+    "amenity": "restaurant",
+    "check_date:currency:XBT": "2025-12-07",
+    "currency:XBT": "yes",
+    "name": "Fuego Prime",
+    "opening_hours": "Mo-Th 10:00-22:00; Fr 10:00-24:00; Sa 00:00-01:00,10:00-24:00; Su 00:00-01:00,10:00-22:00",
+    "payment:lightning": "yes",
+    "payment:lightning:operator": "square",
+    "payment:onchain": "no",
+    "phone": "+12099443170",
+    "website": "https://fuego-taqueria.com/"
+  }
+},
+{
+  "type": "node",
+  "id": 13454398953,
+  "lat": 38.1439343,
+  "lon": -121.2723980,
+  "tags": {
+    "addr:city": "Lodi",
+    "addr:housenumber": "811",
+    "addr:postcode": "95240-3015",
+    "addr:state": "CA",
+    "addr:street": "North Sacramento Street",
+    "check_date": "2026-01-14",
+    "contact:instagram": "https://www.instagram.com/techbrosautomotive_",
+    "currency:XBT": "yes",
+    "name": "Tech Bros Auto Repair",
+    "opening_hours": "Mo-Fr 09:00-18:00; Sa 09:00-15:00",
+    "payment:lightning": "yes",
+    "payment:lightning:operator": "square",
+    "payment:lightning_contactless": "no",
+    "payment:onchain": "no",
+    "phone": "+1-209-200-8438",
+    "shop": "car_repair"
+  }
+},
+{
+  "type": "node",
+  "id": 13520288001,
+  "lat": 38.1459766,
+  "lon": -121.3075792,
+  "tags": {
+    "addr:housenumber": "2505",
+    "addr:postcode": "95242",
+    "addr:street": "West Turner Road",
+    "name": "Maison Lodi",
+    "opening_hours": "Mo-Fr 06:30-18:00; Sa-Su 07:00-18:00",
+    "phone": "+1-209-625-4004",
+    "shop": "bakery",
+    "website": "https://www.maisonlodi.com/"
+  }
+},
+{
+  "type": "node",
+  "id": 13571362766,
+  "lat": 38.1193371,
+  "lon": -121.2497999,
+  "tags": {
+    "addr:city": "Lodi",
+    "addr:housenumber": "1330",
+    "addr:postcode": "95240-3183",
+    "addr:state": "CA",
+    "addr:street": "Auto Center Road",
+    "check_date": "2026-02-16",
+    "contact:email": "workmail209ja@gmail.com",
+    "contact:facebook": "https://www.facebook.com/people/Go2Upholstery/61553428302982/",
+    "contact:instagram": "https://www.instagram.com/Go2upholstery",
+    "currency:XBT": "yes",
+    "name": "Go2upholstery",
+    "opening_hours": "Mo-Fr 08:00-20:00; Sa 08:00-17:00",
+    "payment:lightning": "yes",
+    "payment:lightning:operator": "square",
+    "payment:lightning_contactless": "no",
+    "payment:onchain": "no",
+    "phone": "+1-209-816-3713",
+    "service:vehicle:upholstery": "yes",
+    "shop": "car_repair"
+  }
+},
+{
+  "type": "node",
+  "id": 13685892407,
+  "lat": 38.1128324,
+  "lon": -121.3094538,
+  "tags": {
+    "amenity": "fast_food",
+    "brand": "Subway",
+    "brand:wikidata": "Q244457",
+    "cuisine": "sandwich",
+    "name": "Subway",
+    "takeaway": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 13912698701,
+  "lat": 38.1376309,
+  "lon": -121.2065512,
+  "tags": {
+    "amenity": "post_office",
+    "check_date": "2026-06-05",
+    "name": "Victor Post Office",
+    "operator": "United States Postal Service",
+    "operator:short": "USPS",
+    "operator:type": "public",
+    "operator:wikidata": "Q668687",
+    "website": "https://tools.usps.com/locations/details/1385929"
+  }
+},
+{
+  "type": "node",
+  "id": 13985821119,
+  "lat": 38.1151281,
+  "lon": -121.2650256,
+  "tags": {
+    "addr:city": "Lodi",
+    "addr:housenumber": "400",
+    "addr:postcode": "95240",
+    "addr:state": "CA",
+    "addr:street": "East Kettleman Lane",
+    "addr:unit": "C-9",
+    "check_date": "2026-07-03",
+    "contact:instagram": "https://www.instagram.com/penthouse_cuts",
+    "currency:XBT": "yes",
+    "hairdresser": "barber",
+    "male": "yes",
+    "name": "Daniel Penaloza at Speakeasy Barbershop",
+    "opening_hours": "Tu-Fr 09:00-18:00; Sa 09:00-16:00; Su 09:00-15:00",
+    "payment:lightning": "yes",
+    "payment:lightning_contactless": "no",
+    "payment:onchain": "no",
+    "phone": "+1-559-479-1818",
+    "shop": "hairdresser",
+    "website": "https://booksy.com/en-us/1332821_danny-p_barber-shop_134737_lodi"
+  }
+},
+{
+  "type": "node",
+  "id": 14124054246,
+  "lat": 38.1370372,
+  "lon": -121.2774813,
+  "tags": {
+    "name": "Grape Escape Inn",
+    "tourism": "guest_house"
+  }
+},
+{
+  "type": "node",
+  "id": 14131458458,
+  "lat": 38.1323668,
+  "lon": -121.2741060,
+  "tags": {
+    "amenity": "cafe",
+    "name": "Brew House Coffee"
+  }
+},
+{
+  "type": "node",
+  "id": 14131458459,
+  "lat": 38.1323642,
+  "lon": -121.2742782,
+  "tags": {
+    "amenity": "nightclub",
+    "bar": "yes",
+    "name": "Blend Ultra Lounge"
+  }
+},
+{
+  "type": "node",
+  "id": 14131458460,
+  "lat": 38.1329049,
+  "lon": -121.2743485,
+  "tags": {
+    "amenity": "restaurant",
+    "name": "The Oxford Kitchen"
+  }
+},
+{
+  "type": "node",
+  "id": 14131458461,
+  "lat": 38.1327864,
+  "lon": -121.2739536,
+  "tags": {
+    "amenity": "restaurant",
+    "bar": "yes",
+    "craft": "brewery",
+    "name": "Lodi Beer Company"
+  }
+},
+{
+  "type": "node",
+  "id": 14131458467,
+  "lat": 38.1321936,
+  "lon": -121.2739977,
+  "tags": {
+    "amenity": "ice_cream",
+    "name": "The Milkshake Shop"
+  }
+},
+{
+  "type": "node",
+  "id": 14131458468,
+  "lat": 38.1325935,
+  "lon": -121.2750086,
+  "tags": {
+    "brand": "Farmers Insurance",
+    "brand:wikidata": "Q1396863",
+    "name": "Farmers Insurance",
+    "office": "insurance"
+  }
+},
+{
+  "type": "node",
+  "id": 14131458469,
+  "lat": 38.1335927,
+  "lon": -121.2754379,
+  "tags": {
+    "name": "Guild Cleaners",
+    "shop": "dry_cleaning"
+  }
+},
+{
+  "type": "node",
+  "id": 14131458470,
+  "lat": 38.1337763,
+  "lon": -121.2753073,
+  "tags": {
+    "amenity": "cafe",
+    "name": "Ruby's Bakery & Cafe",
+    "shop": "bakery"
+  }
+},
+{
+  "type": "node",
+  "id": 14131458471,
+  "lat": 38.1344843,
+  "lon": -121.2746144,
+  "tags": {
+    "alt_name": "F&M Bank",
+    "amenity": "bank",
+    "name": "Farmers & Merchants Bank"
+  }
+},
+{
+  "type": "node",
+  "id": 14131680544,
+  "lat": 38.1337997,
+  "lon": -121.3059553,
+  "tags": {
+    "alt_name": "Saint Peters Lutheran Church",
+    "amenity": "place_of_worship",
+    "denomination": "lutheran",
+    "ele": "16",
+    "gnis:feature_id": "1827240",
+    "name": "Saint Peter Lutheran Church",
+    "religion": "christian"
+  }
+},
+{
+  "type": "node",
+  "id": 14131981962,
+  "lat": 38.1372556,
+  "lon": -121.2541068,
+  "tags": {
+    "amenity": "restaurant",
+    "cuisine": "mexican",
+    "name": "Habanero Hots Restaurante & Salsa Co."
+  }
+},
+{
+  "type": "node",
+  "id": 14131993653,
+  "lat": 38.1376285,
+  "lon": -121.2739639,
+  "tags": {
+    "amenity": "restaurant",
+    "name": "Papapavlo’s"
+  }
+},
+{
+  "type": "node",
+  "id": 14131993654,
+  "lat": 38.1376675,
+  "lon": -121.2736624,
+  "tags": {
+    "amenity": "cafe",
+    "name": "Trail Coffee Roasters"
+  }
+},
+{
+  "type": "node",
+  "id": 14132157110,
+  "lat": 38.1364223,
+  "lon": -121.2738432,
+  "tags": {
+    "name": "Collins Family Funeral Home",
+    "shop": "funeral_directors"
+  }
+},
+{
+  "type": "node",
+  "id": 14132157111,
+  "lat": 38.1359567,
+  "lon": -121.2737547,
+  "tags": {
+    "amenity": "restaurant",
+    "cuisine": "burger",
+    "name": "Moo Moo’s Burger Barn"
+  }
+},
+{
+  "type": "node",
+  "id": 14132157112,
+  "lat": 38.1355900,
+  "lon": -121.2740340,
+  "tags": {
+    "amenity": "ice_cream",
+    "brand": "Cold Stone Creamery",
+    "brand:wikidata": "Q1094923",
+    "name": "Cold Stone Creamery"
+  }
+},
+{
+  "type": "node",
+  "id": 14132157113,
+  "lat": 38.1355374,
+  "lon": -121.2733888,
+  "tags": {
+    "amenity": "restaurant",
+    "cuisine": "italian",
+    "name": "Brick House"
+  }
+},
+{
+  "type": "node",
+  "id": 14132157114,
+  "lat": 38.1352635,
+  "lon": -121.2734203,
+  "tags": {
+    "amenity": "restaurant",
+    "cuisine": "mexican",
+    "name": "Angelo's"
+  }
+},
+{
+  "type": "node",
+  "id": 14132157115,
+  "lat": 38.1347576,
+  "lon": -121.2734773,
+  "tags": {
+    "amenity": "cafe",
+    "name": "the hangout"
+  }
+},
+{
+  "type": "node",
+  "id": 14132157116,
+  "lat": 38.1346540,
+  "lon": -121.2738176,
+  "tags": {
+    "amenity": "cafe",
+    "bar": "yes",
+    "name": "Tandem Bikes and Brews",
+    "shop": "bicycle"
+  }
+},
+{
+  "type": "node",
+  "id": 14132157117,
+  "lat": 38.1340345,
+  "lon": -121.2734980,
+  "tags": {
+    "name": "Thornton House Furniture",
+    "shop": "furniture"
+  }
+},
+{
+  "type": "node",
+  "id": 14132157118,
+  "lat": 38.1337162,
+  "lon": -121.2738702,
+  "tags": {
+    "amenity": "bar",
+    "name": "Garry's Lounge"
+  }
+},
+{
+  "type": "node",
+  "id": 14132157119,
+  "lat": 38.1339430,
+  "lon": -121.2738572,
+  "tags": {
+    "amenity": "ice_cream",
+    "name": "Nieves el Morro"
+  }
+},
+{
+  "type": "node",
+  "id": 14132157120,
+  "lat": 38.1340865,
+  "lon": -121.2738451,
+  "tags": {
+    "name": "The Rabbit Hole Trading Co.",
+    "shop": "second_hand"
+  }
+},
+{
+  "type": "node",
+  "id": 14132157121,
+  "lat": 38.1331322,
+  "lon": -121.2735864,
+  "tags": {
+    "amenity": "restaurant",
+    "name": "Market Tavern"
+  }
+},
+{
+  "type": "node",
+  "id": 14132157122,
+  "lat": 38.1332112,
+  "lon": -121.2739605,
+  "tags": {
+    "name": "Lodi Chamber of Commerce",
+    "office": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 14132157123,
+  "lat": 38.1333488,
+  "lon": -121.2739474,
+  "tags": {
+    "amenity": "bank",
+    "name": "Oak Valley Community Bank"
+  }
+},
+{
+  "type": "node",
+  "id": 14132157124,
+  "lat": 38.1325423,
+  "lon": -121.2739716,
+  "tags": {
+    "name": "Lodi Junction",
+    "shop": "second_hand"
+  }
+},
+{
+  "type": "node",
+  "id": 14132170153,
+  "lat": 38.1387584,
+  "lon": -121.2803222,
+  "tags": {
+    "name": "Corner Scone Bakery",
+    "shop": "bakery"
+  }
+},
+{
+  "type": "node",
+  "id": 14132170154,
+  "lat": 38.1384366,
+  "lon": -121.2800272,
+  "tags": {
+    "amenity": "cafe",
+    "cuisine": "tea",
+    "name": "The Hidden Tea Room"
+  }
+},
+{
+  "type": "node",
+  "id": 14132170155,
+  "lat": 38.1383345,
+  "lon": -121.2807471,
+  "tags": {
+    "amenity": "restaurant",
+    "name": "California Al's"
+  }
+},
+{
+  "type": "node",
+  "id": 14132170156,
+  "lat": 38.1378782,
+  "lon": -121.2808415,
+  "tags": {
+    "amenity": "restaurant",
+    "cuisine": "pizza",
+    "name": "Guantonios"
+  }
+},
+{
+  "type": "node",
+  "id": 14132170158,
+  "lat": 38.1382794,
+  "lon": -121.2751976,
+  "tags": {
+    "brand": "Quik Stop",
+    "brand:wikidata": "Q105141709",
+    "name": "Quik Stop",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 14132170159,
+  "lat": 38.1381200,
+  "lon": -121.2749644,
+  "tags": {
+    "amenity": "fuel",
+    "brand": "Quik Stop",
+    "brand:wikidata": "Q105141709",
+    "name": "Quik Stop"
+  }
+},
+{
+  "type": "node",
+  "id": 14132361101,
+  "lat": 38.1358519,
+  "lon": -121.2733900,
+  "tags": {
+    "name": "Tom's Used Books",
+    "shop": "books"
+  }
+},
+{
+  "type": "node",
+  "id": 14132361102,
+  "lat": 38.1361902,
+  "lon": -121.2733651,
+  "tags": {
+    "clothes": "children",
+    "name": "Willow Tree",
+    "shop": "clothes"
+  }
+},
+{
+  "type": "node",
+  "id": 14132361103,
+  "lat": 38.1350036,
+  "lon": -121.2737823,
+  "tags": {
+    "information": "visitor_centre",
+    "name": "Lodi Visitors Center",
+    "tourism": "information"
+  }
+},
+{
+  "type": "node",
+  "id": 14132361104,
+  "lat": 38.1350316,
+  "lon": -121.2734624,
+  "tags": {
+    "amenity": "pub",
+    "name": "Ollie's",
+    "theme": "irish"
+  }
+},
+{
+  "type": "node",
+  "id": 14132361105,
+  "lat": 38.1350928,
+  "lon": -121.2734592,
+  "tags": {
+    "clothes": "suits",
+    "name": "Tuxedos of Lodi",
+    "shop": "clothes"
+  }
+},
+{
+  "type": "node",
+  "id": 14132361106,
+  "lat": 38.1349390,
+  "lon": -121.2734667,
+  "tags": {
+    "name": "French At Heart",
+    "shop": "gift"
+  }
+},
+{
+  "type": "node",
+  "id": 14132361107,
+  "lat": 38.1348633,
+  "lon": -121.2734732,
+  "tags": {
+    "name": "Secondhand Rose",
+    "shop": "antiques"
+  }
+},
+{
+  "type": "node",
+  "id": 14132361108,
+  "lat": 38.1346006,
+  "lon": -121.2734819,
+  "tags": {
+    "name": "Doghouse Bakery",
+    "shop": "bakery"
+  }
+},
+{
+  "type": "node",
+  "id": 14132361109,
+  "lat": 38.1347179,
+  "lon": -121.2738169,
+  "tags": {
+    "name": "Cheese Central",
+    "shop": "cheese"
+  }
+},
+{
+  "type": "node",
+  "id": 14132361110,
+  "lat": 38.1345845,
+  "lon": -121.2738180,
+  "tags": {
+    "amenity": "bar",
+    "name": "Rooted Lounge"
+  }
+},
+{
+  "type": "node",
+  "id": 14132361111,
+  "lat": 38.1343550,
+  "lon": -121.2738331,
+  "tags": {
+    "name": "Upper Empire",
+    "shop": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 14132361112,
+  "lat": 38.1359624,
+  "lon": -121.2733846,
+  "tags": {
+    "name": "Rooted In Lodi",
+    "shop": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 14133667115,
+  "lat": 38.1375229,
+  "lon": -121.2736740,
+  "tags": {
+    "amenity": "restaurant",
+    "name": "First Toast"
+  }
+},
+{
+  "type": "node",
+  "id": 14133667116,
+  "lat": 38.1375596,
+  "lon": -121.2752698,
+  "tags": {
+    "name": "Paul's Safe Lock & Key",
+    "shop": "locksmith"
+  }
+},
+{
+  "type": "node",
+  "id": 14136305038,
+  "lat": 38.1325333,
+  "lon": -121.2603763,
+  "tags": {
+    "amenity": "restaurant",
+    "cuisine": "american",
+    "name": "Richmaid Restaurant"
+  }
+},
+{
+  "type": "node",
+  "id": 14136305045,
+  "lat": 38.1302082,
+  "lon": -121.2608563,
+  "tags": {
+    "amenity": "restaurant",
+    "name": "Hollywood Cafe"
+  }
+},
+{
+  "type": "node",
+  "id": 14136305047,
+  "lat": 38.1295159,
+  "lon": -121.2601515,
+  "tags": {
+    "amenity": "fast_food",
+    "cuisine": "donut",
+    "name": "J & D Donuts"
+  }
+},
+{
+  "type": "node",
+  "id": 14136305048,
+  "lat": 38.1360116,
+  "lon": -121.2610336,
+  "tags": {
+    "amenity": "fast_food",
+    "cuisine": "donut",
+    "name": "Express Donuts"
+  }
+},
+{
+  "type": "node",
+  "id": 14136305049,
+  "lat": 38.1368416,
+  "lon": -121.2610502,
+  "tags": {
+    "amenity": "restaurant",
+    "cuisine": "mexican",
+    "name": "La Mexicana Restaurant"
+  }
+},
+{
+  "type": "node",
+  "id": 14136305050,
+  "lat": 38.1368806,
+  "lon": -121.2606074,
+  "tags": {
+    "name": "Brickhouse Liquors",
+    "shop": "alcohol"
+  }
+},
+{
+  "type": "node",
+  "id": 14136306780,
+  "lat": 38.1321120,
+  "lon": -121.2740006,
+  "tags": {
+    "amenity": "restaurant",
+    "cuisine": "pizza",
+    "name": "Smack Pie Pizza"
+  }
+},
+{
+  "type": "node",
+  "id": 14136306782,
+  "lat": 38.1323637,
+  "lon": -121.2739812,
+  "tags": {
+    "brand": "Rocky Mountain Chocolate Factory",
+    "brand:wikidata": "Q7355878",
+    "name": "Rocky Mountain Chocolate Factory",
+    "shop": "confectionery"
+  }
+},
+{
+  "type": "node",
+  "id": 14136306783,
+  "lat": 38.1304842,
+  "lon": -121.2735003,
+  "tags": {
+    "amenity": "restaurant",
+    "cuisine": "pizza",
+    "name": "Prime Pizza"
+  }
+},
+{
+  "type": "node",
+  "id": 14136306784,
+  "lat": 38.1301448,
+  "lon": -121.2737583,
+  "tags": {
+    "name": "Lodi Sewing and Vacuum Center",
+    "shop": "vacuum_cleaner"
+  }
+},
+{
+  "type": "node",
+  "id": 14136306785,
+  "lat": 38.1312664,
+  "lon": -121.2737261,
+  "tags": {
+    "name": "New & Again",
+    "shop": "furniture"
+  }
+},
+{
+  "type": "node",
+  "id": 14136306786,
+  "lat": 38.1304778,
+  "lon": -121.2756532,
+  "tags": {
+    "amenity": "ice_cream",
+    "cuisine": "frozen_yogurt",
+    "name": "Honey Treat Yogurt"
+  }
+},
+{
+  "type": "node",
+  "id": 14136306787,
+  "lat": 38.1331331,
+  "lon": -121.2739172,
+  "tags": {
+    "artwork_type": "statue",
+    "name": "Celebrate the Harvest",
+    "tourism": "artwork"
+  }
+},
+{
+  "type": "node",
+  "id": 14136328490,
+  "lat": 38.1372441,
+  "lon": -121.2524515,
+  "tags": {
+    "amenity": "bar",
+    "name": "The Water Hole"
+  }
+},
+{
+  "type": "node",
+  "id": 14136358995,
+  "lat": 38.1165391,
+  "lon": -121.2550384,
+  "tags": {
+    "amenity": "cafe",
+    "brand": "Starbucks",
+    "brand:wikidata": "Q37158",
+    "cuisine": "coffee_shop",
+    "name": "Starbucks",
+    "official_name": "Starbucks Coffee",
+    "takeaway": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 14136364575,
+  "lat": 38.1386134,
+  "lon": -121.2061793,
+  "tags": {
+    "amenity": "bar",
+    "name": "Know Place",
+    "website": "https://www.know-place-online.com/"
+  }
+},
+{
+  "type": "node",
+  "id": 14136365168,
+  "lat": 38.1283334,
+  "lon": -121.2599923,
+  "tags": {
+    "amenity": "cafe",
+    "brand": "Dutch Bros. Coffee",
+    "brand:wikidata": "Q5317253",
+    "cuisine": "coffee_shop",
+    "name": "Dutch Bros. Coffee",
+    "takeaway": "only"
+  }
+},
+{
+  "type": "node",
+  "id": 14136371325,
+  "lat": 38.1377149,
+  "lon": -121.2055676,
+  "tags": {
+    "name": "Victor Market",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "way",
+  "id": 51694967,
+  "center": {
+    "lat": 38.1074296,
+    "lon": -121.2748845
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "Century Park"
+  }
+},
+{
+  "type": "way",
+  "id": 51694968,
+  "center": {
+    "lat": 38.1065622,
+    "lon": -121.2716068
+  },
+  "tags": {
+    "ele": "14",
+    "gnis:feature_id": "1827273",
+    "leisure": "park",
+    "name": "Salas Park"
+  }
+},
+{
+  "type": "way",
+  "id": 51694969,
+  "center": {
+    "lat": 38.1068470,
+    "lon": -121.2891941
+  },
+  "tags": {
+    "ele": "12",
+    "gnis:feature_id": "1827250",
+    "leisure": "park",
+    "name": "Beckman Park"
+  }
+},
+{
+  "type": "way",
+  "id": 51695687,
+  "center": {
+    "lat": 38.1061313,
+    "lon": -121.2839423
+  },
+  "tags": {
+    "ele": "13",
+    "gnis:feature_id": "1827260",
+    "leisure": "park",
+    "name": "English Oaks Commons"
+  }
+},
+{
+  "type": "way",
+  "id": 51695688,
+  "center": {
+    "lat": 38.1100674,
+    "lon": -121.2851440
+  },
+  "tags": {
+    "amenity": "school",
+    "ele": "13",
+    "gnis:feature_id": "1827276",
+    "name": "Tokay High School",
+    "wikidata": "Q7813522"
+  }
+},
+{
+  "type": "way",
+  "id": 51801793,
+  "center": {
+    "lat": 38.1046907,
+    "lon": -121.2818804
+  },
+  "tags": {
+    "amenity": "school",
+    "ele": "13",
+    "gnis:feature_id": "1827249",
+    "name": "Beckman Elementary School"
+  }
+},
+{
+  "type": "way",
+  "id": 51849856,
+  "center": {
+    "lat": 38.1184265,
+    "lon": -121.2896209
+  },
+  "tags": {
+    "access": "yes",
+    "leisure": "park",
+    "name": "Kofu Park"
+  }
+},
+{
+  "type": "way",
+  "id": 51849857,
+  "center": {
+    "lat": 38.1217821,
+    "lon": -121.2906106
+  },
+  "tags": {
+    "addr:full": "945 S. Ham Ln.Lodi, CA 95242",
+    "amenity": "school",
+    "ele": "13",
+    "gnis:feature_id": "227464",
+    "name": "Lodi Middle School"
+  }
+},
+{
+  "type": "way",
+  "id": 105021566,
+  "center": {
+    "lat": 38.1370685,
+    "lon": -121.2569994
+  },
+  "tags": {
+    "access": "fee",
+    "addr:city": "Lodi",
+    "addr:county": "San Joaquin",
+    "addr:postcode": "95240",
+    "addr:street": "S/E Quad Sr 99 / Sr 12 Int",
+    "amenity": "parking",
+    "attribution": "Caltrans",
+    "caltrans:district": "10",
+    "caltrans:pctuse": "0",
+    "capacity": "43",
+    "description": "Park And Ride",
+    "lot_no": "2",
+    "name": "Lodi Park And Ride",
+    "park_ride": "yes",
+    "parking": "surface",
+    "route": "99",
+    "surface": "asphalt"
+  }
+},
+{
+  "type": "way",
+  "id": 141913303,
+  "center": {
+    "lat": 38.1234196,
+    "lon": -121.2798653
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "American Legion Park"
+  }
+},
+{
+  "type": "way",
+  "id": 142507795,
+  "center": {
+    "lat": 38.1500493,
+    "lon": -121.2887905
+  },
+  "tags": {
+    "ele": "13",
+    "gnis:feature_id": "1827227",
+    "leisure": "park",
+    "name": "Lodi Lake Park"
+  }
+},
+{
+  "type": "way",
+  "id": 154635228,
+  "center": {
+    "lat": 38.1464135,
+    "lon": -121.3073619
+  },
+  "tags": {
+    "name": "Wine and Roses",
+    "tourism": "hotel",
+    "website": "https://winerose.com/"
+  }
+},
+{
+  "type": "way",
+  "id": 184366558,
+  "center": {
+    "lat": 38.1064207,
+    "lon": -121.3029349
+  },
+  "tags": {
+    "FMMP_modified": "no",
+    "FMMP_reviewed": "no",
+    "addr:city": "Lodi",
+    "addr:county": "San Joaquin",
+    "addr:housenumber": "14226",
+    "addr:postcode": "95452",
+    "addr:state": "CA",
+    "addr:street": "Lower Sacramento Road",
+    "attribution": "Farmland Mapping and Monitoring Program",
+    "leisure": "park",
+    "name": "DeBenedetti Park",
+    "source": "http://www.consrv.ca.gov/dlrp/fmmp/products/Pages/DownloadGISdata.aspx"
+  }
+},
+{
+  "type": "way",
+  "id": 184370339,
+  "center": {
+    "lat": 38.1465755,
+    "lon": -121.2874061
+  },
+  "tags": {
+    "amenity": "school",
+    "ele": "15",
+    "gnis:feature_id": "226829",
+    "name": "Lakewood Elementary School"
+  }
+},
+{
+  "type": "way",
+  "id": 249818644,
+  "center": {
+    "lat": 38.1329806,
+    "lon": -121.2920286
+  },
+  "tags": {
+    "addr:city": "Lodi",
+    "addr:housename": "Lodi High School",
+    "addr:housenumber": "3",
+    "addr:postcode": "95241",
+    "addr:street": "South Pacific Avenue",
+    "amenity": "school",
+    "ele": "13",
+    "gnis:feature_id": "237444",
+    "name": "Lodi High School",
+    "wikidata": "Q6666413"
+  }
+},
+{
+  "type": "way",
+  "id": 249818772,
+  "center": {
+    "lat": 38.1368248,
+    "lon": -121.3135745
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "Peterson Park"
+  }
+},
+{
+  "type": "way",
+  "id": 252718562,
+  "center": {
+    "lat": 38.1177424,
+    "lon": -121.3057718
+  },
+  "tags": {
+    "addr:city": "Lodi",
+    "addr:housenumber": "2449",
+    "addr:postcode": "95242",
+    "addr:state": "CA",
+    "addr:street": "West Kettleman Lane",
+    "air_conditioning": "yes",
+    "brand": "Safeway",
+    "brand:wikidata": "Q1508234",
+    "building": "yes",
+    "check_date": "2023-06-05",
+    "designation": "Safeway 1648",
+    "name": "Safeway",
+    "note": "No. 1648",
+    "opening_hours": "24/7",
+    "phone": "+1 209-367-7875",
+    "shop": "supermarket",
+    "website": "https://local.safeway.com/safeway/ca/lodi/2449-w-kettleman-ln.html",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 252718564,
+  "center": {
+    "lat": 38.1174539,
+    "lon": -121.3043265
+  },
+  "tags": {
+    "addr:city": "Lodi",
+    "addr:housenumber": "2415",
+    "addr:postcode": "95242",
+    "addr:state": "CA",
+    "addr:street": "West Kettleman Lane",
+    "brand": "Staples",
+    "brand:wikidata": "Q785943",
+    "building": "yes",
+    "name": "Staples",
+    "opening_hours": "Mo-Fr 08:00-21:00; Sa 09:00-21:00; Su 10:00-18:00",
+    "shop": "stationery",
+    "website": "https://stores.staples.com/ca/lodi/2415-west-kettleman-lane",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 252718584,
+  "center": {
+    "lat": 38.1175904,
+    "lon": -121.3033701
+  },
+  "tags": {
+    "addr:city": "Lodi",
+    "addr:housenumber": "2355",
+    "addr:postcode": "95242",
+    "addr:state": "CA",
+    "addr:street": "West Kettleman Lane",
+    "brand": "Target",
+    "brand:wikidata": "Q1046951",
+    "building": "yes",
+    "name": "Target",
+    "opening_hours": "08:00-22:00",
+    "phone": "+1 209-369-9371",
+    "shop": "department_store",
+    "website": "https://www.target.com/sl/lodi/853"
+  }
+},
+{
+  "type": "way",
+  "id": 252718588,
+  "center": {
+    "lat": 38.1176768,
+    "lon": -121.3050328
+  },
+  "tags": {
+    "addr:city": "Lodi",
+    "addr:housenumber": "2429",
+    "addr:postcode": "95242",
+    "addr:state": "CA",
+    "addr:street": "West Kettleman Lane",
+    "brand": "Marshalls",
+    "brand:wikidata": "Q15903261",
+    "building": "yes",
+    "name": "Marshalls",
+    "shop": "department_store"
+  }
+},
+{
+  "type": "way",
+  "id": 252719073,
+  "center": {
+    "lat": 38.1159376,
+    "lon": -121.3049191
+  },
+  "tags": {
+    "addr:city": "Lodi",
+    "addr:housenumber": "2425",
+    "addr:postcode": "95242",
+    "addr:state": "CA",
+    "addr:street": "West Kettleman Lane",
+    "air_conditioning": "yes",
+    "amenity": "fast_food",
+    "brand": "Jack in the Box",
+    "brand:wikidata": "Q1538507",
+    "building": "yes",
+    "cuisine": "burger",
+    "drive_through": "yes",
+    "name": "Jack in the Box",
+    "phone": "+1 209-334-3875",
+    "takeaway": "yes",
+    "website": "https://locations.jackinthebox.com/us/ca/lodi/2425-kettleman-ln",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 252719075,
+  "center": {
+    "lat": 38.1159517,
+    "lon": -121.3039823
+  },
+  "tags": {
+    "addr:city": "Lodi",
+    "addr:housenumber": "2347",
+    "addr:postcode": "95242",
+    "addr:state": "CA",
+    "addr:street": "West Kettleman Lane",
+    "amenity": "restaurant",
+    "brand": "Black Bear Diner",
+    "brand:wikidata": "Q4920343",
+    "building": "yes",
+    "cuisine": "american",
+    "indoor_seating": "yes",
+    "name": "Black Bear Diner",
+    "opening_hours": "Mo-Su 07:00-21:00",
+    "outdoor_seating": "yes",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 252719077,
+  "center": {
+    "lat": 38.1159484,
+    "lon": -121.3045284
+  },
+  "tags": {
+    "addr:city": "Lodi",
+    "addr:housenumber": "2411",
+    "addr:postcode": "95242",
+    "addr:state": "CA",
+    "addr:street": "West Kettleman Lane",
+    "brand": "Big 5 Sporting Goods",
+    "brand:wikidata": "Q4904902",
+    "building": "yes",
+    "name": "Big 5 Sporting Goods",
+    "shop": "sports"
+  }
+},
+{
+  "type": "way",
+  "id": 252719079,
+  "center": {
+    "lat": 38.1159057,
+    "lon": -121.3058441
+  },
+  "tags": {
+    "addr:city": "Lodi",
+    "addr:housenumber": "2431",
+    "addr:postcode": "95242",
+    "addr:state": "CA",
+    "addr:street": "West Kettleman Lane",
+    "addr:unit": "B-4",
+    "air_conditioning": "yes",
+    "amenity": "cafe",
+    "branch": "Kettleman & Lower Sacramento",
+    "brand": "Starbucks",
+    "brand:wikidata": "Q37158",
+    "building": "yes",
+    "cuisine": "coffee_shop",
+    "drive_through": "yes",
+    "name": "Starbucks",
+    "official_name": "Starbucks Coffee",
+    "outdoor_seating": "yes",
+    "phone": "+1 209-366-0457",
+    "ref": "14773",
+    "takeaway": "yes",
+    "website": "https://www.starbucks.com/store-locator/store/14773/kettleman-lower-sacramento-2431-w-kettleman-ln-b-4-lodi-ca-952424121-us",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 269756359,
+  "center": {
+    "lat": 38.1749191,
+    "lon": -121.2786372
+  },
+  "tags": {
+    "amenity": "post_office",
+    "building": "yes",
+    "check_date": "2026-06-05",
+    "name": "Acampo Post Office",
+    "operator": "USPS",
+    "website": "https://tools.usps.com/locations/details/1352302"
+  }
+},
+{
+  "type": "way",
+  "id": 307462524,
+  "center": {
+    "lat": 38.1333129,
+    "lon": -121.2659846
+  },
+  "tags": {
+    "addr:city": "Lodi",
+    "addr:housenumber": "19",
+    "addr:postcode": "95240",
+    "addr:state": "CA",
+    "addr:street": "South Central Avenue",
+    "amenity": "school",
+    "name": "Joe Serna Charter School",
+    "phone": "+1 209-331-7809",
+    "website": "https://joesernajr.lodiusd.net/",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 319783524,
+  "center": {
+    "lat": 38.1619950,
+    "lon": -121.3063685
+  },
+  "tags": {
+    "leisure": "golf_course",
+    "name": "Woodbridge Golf & Country Club"
+  }
+},
+{
+  "type": "way",
+  "id": 319789059,
+  "center": {
+    "lat": 38.1528658,
+    "lon": -121.3005581
+  },
+  "tags": {
+    "brand": "ampm",
+    "brand:wikidata": "Q306960",
+    "building": "yes",
+    "name": "ampm",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "way",
+  "id": 320145162,
+  "center": {
+    "lat": 38.1998502,
+    "lon": -121.2641278
+  },
+  "tags": {
+    "addr:housenumber": "23597",
+    "addr:postcode": "95220",
+    "addr:state": "CA",
+    "addr:street": "99 Frontage Road",
+    "aeroway": "hangar",
+    "building": "yes",
+    "name": "Skydive Lodi Parachute Center",
+    "phone": "+1-209-208-5195",
+    "tourism": "attraction",
+    "website": "https://skydivelodiparachutecenter.com/"
+  }
+},
+{
+  "type": "way",
+  "id": 332362942,
+  "center": {
+    "lat": 38.1354705,
+    "lon": -121.2960996
+  },
+  "tags": {
+    "amenity": "school",
+    "ele": "13",
+    "gnis:feature_id": "231472",
+    "name": "Erma B Reese Elementary School"
+  }
+},
+{
+  "type": "way",
+  "id": 372283258,
+  "center": {
+    "lat": 38.0856719,
+    "lon": -121.2732779
+  },
+  "tags": {
+    "leisure": "playground",
+    "name": "Water Play Area",
+    "playground": "splash_pad",
+    "surface": "asphalt"
+  }
+},
+{
+  "type": "way",
+  "id": 403062418,
+  "center": {
+    "lat": 38.1303927,
+    "lon": -121.2689103
+  },
+  "tags": {
+    "addr:city": "Lodi",
+    "addr:housenumber": "216",
+    "addr:postcode": "95240",
+    "addr:state": "CA",
+    "addr:street": "East Lodi Avenue",
+    "amenity": "fast_food",
+    "brand": "A&W",
+    "brand:wikidata": "Q277641",
+    "building": "yes",
+    "cuisine": "burger",
+    "name": "A&W",
+    "takeaway": "yes",
+    "website": "https://awrestaurants.com/locations/california/lodi/216-e-lodi-avenue/"
+  }
+},
+{
+  "type": "way",
+  "id": 518688735,
+  "center": {
+    "lat": 38.1462229,
+    "lon": -121.3092015
+  },
+  "tags": {
+    "description": "Bozant Katzakian Park",
+    "leisure": "park",
+    "name": "Bozant Katzakian Park"
+  }
+},
+{
+  "type": "way",
+  "id": 556809297,
+  "center": {
+    "lat": 38.1352270,
+    "lon": -121.2798741
+  },
+  "tags": {
+    "ele": "15",
+    "gnis:feature_id": "223180",
+    "leisure": "park",
+    "name": "Emerson Park"
+  }
+},
+{
+  "type": "way",
+  "id": 556809346,
+  "center": {
+    "lat": 38.1353816,
+    "lon": -121.2796154
+  },
+  "tags": {
+    "leisure": "playground",
+    "name": "Emerson Park",
+    "operator": "City Of Lodi"
+  }
+},
+{
+  "type": "way",
+  "id": 556809472,
+  "center": {
+    "lat": 38.1351847,
+    "lon": -121.2795962
+  },
+  "tags": {
+    "amenity": "shelter",
+    "name": "Lodi Lions Picnic Shelter"
+  }
+},
+{
+  "type": "way",
+  "id": 556810568,
+  "center": {
+    "lat": 38.1390385,
+    "lon": -121.2666227
+  },
+  "tags": {
+    "ele": "16",
+    "gnis:feature_id": "1827222",
+    "leisure": "park",
+    "name": "Lawrence Park"
+  }
+},
+{
+  "type": "way",
+  "id": 556810637,
+  "center": {
+    "lat": 38.1347915,
+    "lon": -121.2764823
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "Veterans Plaza"
+  }
+},
+{
+  "type": "way",
+  "id": 556810699,
+  "center": {
+    "lat": 38.1322756,
+    "lon": -121.2804558
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "Hutchin Street Square"
+  }
+},
+{
+  "type": "way",
+  "id": 556811142,
+  "center": {
+    "lat": 38.1357922,
+    "lon": -121.2685798
+  },
+  "tags": {
+    "ele": "16",
+    "gnis:feature_id": "224789",
+    "leisure": "park",
+    "name": "Hale Park"
+  }
+},
+{
+  "type": "way",
+  "id": 556811324,
+  "center": {
+    "lat": 38.1249320,
+    "lon": -121.2949876
+  },
+  "tags": {
+    "leisure": "dog_park",
+    "name": "Vinewood Dog Park"
+  }
+},
+{
+  "type": "way",
+  "id": 556811930,
+  "center": {
+    "lat": 38.1409961,
+    "lon": -121.2672113
+  },
+  "tags": {
+    "leisure": "sports_centre",
+    "name": "Lodi Stadium"
+  }
+},
+{
+  "type": "way",
+  "id": 556813494,
+  "center": {
+    "lat": 38.1391901,
+    "lon": -121.2641968
+  },
+  "tags": {
+    "amenity": "community_centre",
+    "community_centre": "events_venue",
+    "name": "Lodi Grape Festival Grounds"
+  }
+},
+{
+  "type": "way",
+  "id": 556813755,
+  "center": {
+    "lat": 38.1199317,
+    "lon": -121.2689803
+  },
+  "tags": {
+    "leisure": "swimming_pool",
+    "location": "outdoor",
+    "name": "Blakeley Swimming Pool"
+  }
+},
+{
+  "type": "way",
+  "id": 556813857,
+  "center": {
+    "lat": 38.1318102,
+    "lon": -121.2803184
+  },
+  "tags": {
+    "leisure": "swimming_pool",
+    "name": "Hutchins St Sq Pool"
+  }
+},
+{
+  "type": "way",
+  "id": 556814071,
+  "center": {
+    "lat": 38.1181513,
+    "lon": -121.3012562
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "Roget Park"
+  }
+},
+{
+  "type": "way",
+  "id": 556821755,
+  "center": {
+    "lat": 38.1202509,
+    "lon": -121.2685135
+  },
+  "tags": {
+    "access": "yes",
+    "ele": "15",
+    "gnis:feature_id": "219435",
+    "leisure": "park",
+    "name": "Blakely Park"
+  }
+},
+{
+  "type": "way",
+  "id": 556823300,
+  "center": {
+    "lat": 38.1418515,
+    "lon": -121.2897254
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "Candycane Park"
+  }
+},
+{
+  "type": "way",
+  "id": 556823687,
+  "center": {
+    "lat": 38.1332026,
+    "lon": -121.3028134
+  },
+  "tags": {
+    "ele": "13",
+    "gnis:feature_id": "236707",
+    "leisure": "park",
+    "name": "Twin Oaks Park"
+  }
+},
+{
+  "type": "way",
+  "id": 566350252,
+  "center": {
+    "lat": 38.1131087,
+    "lon": -121.3099611
+  },
+  "tags": {
+    "addr:city": "Lodi",
+    "addr:housenumber": "1601",
+    "addr:postcode": "95242",
+    "addr:state": "CA",
+    "addr:street": "South Lower Sacramento Road",
+    "brand": "Walmart",
+    "brand:wikidata": "Q483551",
+    "building": "yes",
+    "name": "Walmart Supercenter",
+    "opening_hours": "06:00-23:00",
+    "payment:app:walmart": "yes",
+    "payment:apple_pay": "no",
+    "payment:google_pay": "no",
+    "payment:samsung_pay": "no",
+    "phone": "+1 209-368-6696",
+    "ref": "1789",
+    "sensory_friendly:accommodation": "dimmed_light;static_screens;no_pa",
+    "sensory_friendly:conditional": "yes @ 08:00-10:00",
+    "shop": "supermarket",
+    "website": "https://www.walmart.com/store/1789-lodi-ca"
+  }
+},
+{
+  "type": "way",
+  "id": 578178961,
+  "center": {
+    "lat": 38.1212282,
+    "lon": -121.2869650
+  },
+  "tags": {
+    "addr:city": "Lodi",
+    "addr:housenumber": "975",
+    "addr:postcode": "95240",
+    "addr:street": "South Fairmont Avenue",
+    "amenity": "hospital",
+    "emergency": "yes",
+    "gnis:feature_id": "1827310",
+    "healthcare": "hospital",
+    "name": "Adventist Health Lodi Memorial",
+    "old_name": "Lodi Memorial Hospital",
+    "opening_hours": "24/7",
+    "operator": "Adventist Health",
+    "operator:type": "private",
+    "operator:wikidata": "Q4686452",
+    "phone": "+1 209 334 3411",
+    "website": "https://www.adventisthealth.org/lodimemorial/"
+  }
+},
+{
+  "type": "way",
+  "id": 582501512,
+  "center": {
+    "lat": 38.0805917,
+    "lon": -121.2735092
+  },
+  "tags": {
+    "leisure": "garden",
+    "name": "Japanese Garden"
+  }
+},
+{
+  "type": "way",
+  "id": 582501516,
+  "center": {
+    "lat": 38.0834224,
+    "lon": -121.2710172
+  },
+  "tags": {
+    "landuse": "commercial",
+    "name": "San Joaquin County Historical Museum",
+    "tourism": "museum"
+  }
+},
+{
+  "type": "way",
+  "id": 582502468,
+  "center": {
+    "lat": 38.0818697,
+    "lon": -121.2724199
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "Micke Grove Regional Park",
+    "wikidata": "Q49525958"
+  }
+},
+{
+  "type": "way",
+  "id": 681483128,
+  "center": {
+    "lat": 38.1332063,
+    "lon": -121.2602897
+  },
+  "tags": {
+    "addr:city": "Lodi",
+    "addr:housenumber": "2",
+    "addr:postcode": "95240",
+    "addr:state": "CA",
+    "addr:street": "Cherokee Lane",
+    "amenity": "fire_station",
+    "building": "yes",
+    "name": "Fire Station 2",
+    "operator": "City of Lodi"
+  }
+},
+{
+  "type": "way",
+  "id": 717873122,
+  "center": {
+    "lat": 38.1172780,
+    "lon": -121.3096286
+  },
+  "tags": {
+    "addr:city": "Lodi",
+    "addr:housenumber": "1389",
+    "addr:postcode": "95242",
+    "addr:state": "CA",
+    "addr:street": "South Lower Sacramento Road",
+    "brand": "Lowe's",
+    "brand:wikidata": "Q1373493",
+    "building": "yes",
+    "name": "Lowe's",
+    "opening_hours": "Mo-Sa 06:00-22:00; Su 07:00-20:00",
+    "phone": "+1 209-339-2600",
+    "ref": "1706",
+    "shop": "doityourself",
+    "start_date": "2004-10-27",
+    "website": "https://www.lowes.com/store/ca-lodi/1706"
+  }
+},
+{
+  "type": "way",
+  "id": 738598881,
+  "center": {
+    "lat": 38.1357943,
+    "lon": -121.2742665
+  },
+  "tags": {
+    "addr:city": "Lodi",
+    "addr:housenumber": "109",
+    "addr:postcode": "95240",
+    "addr:state": "CA",
+    "addr:street": "North School Street",
+    "amenity": "cinema",
+    "building": "yes",
+    "name": "Lodi Stadium 12",
+    "screen": "12",
+    "wheelchair": "yes",
+    "wikidata": "Q44869432"
+  }
+},
+{
+  "type": "way",
+  "id": 753156010,
+  "center": {
+    "lat": 38.1159602,
+    "lon": -121.3060019
+  },
+  "tags": {
+    "addr:city": "Lodi",
+    "addr:housenumber": "2445",
+    "addr:postcode": "95242",
+    "addr:state": "CA",
+    "addr:street": "West Kettleman Lane",
+    "amenity": "bank",
+    "brand": "Chase",
+    "brand:wikidata": "Q524629",
+    "building": "yes",
+    "check_date": "2024-09-17",
+    "check_date:opening_hours": "2024-09-17",
+    "name": "Chase",
+    "opening_hours": "Mo-Fr 09:00-17:00; Sa 09:00-14:00; Su closed",
+    "phone": "+1 209-333-4330",
+    "website": "https://locator.chase.com/ca/lodi/2445-w-kettleman-ln"
+  }
+},
+{
+  "type": "way",
+  "id": 753156011,
+  "center": {
+    "lat": 38.1161568,
+    "lon": -121.3060164
+  },
+  "tags": {
+    "addr:city": "Lodi",
+    "addr:housenumber": "2439",
+    "addr:postcode": "95242",
+    "addr:state": "CA",
+    "addr:street": "West Kettleman Lane",
+    "brand": "AT&T",
+    "brand:wikidata": "Q298594",
+    "building": "yes",
+    "name": "AT&T",
+    "shop": "mobile_phone"
+  }
+},
+{
+  "type": "way",
+  "id": 753156017,
+  "center": {
+    "lat": 38.1167143,
+    "lon": -121.3025206
+  },
+  "tags": {
+    "addr:city": "Lodi",
+    "addr:housenumber": "2310",
+    "addr:postcode": "95242",
+    "addr:state": "CA",
+    "addr:street": "Tienda Drive",
+    "amenity": "fast_food",
+    "brand": "Chipotle",
+    "brand:wikidata": "Q465751",
+    "building": "yes",
+    "cuisine": "mexican",
+    "name": "Chipotle",
+    "official_name": "Chipotle Mexican Grill",
+    "phone": "+1 209-371-0881",
+    "takeaway": "yes",
+    "website": "https://locations.chipotle.com/ca/lodi/2310-tienda-dr"
+  }
+},
+{
+  "type": "way",
+  "id": 753186343,
+  "center": {
+    "lat": 38.1161284,
+    "lon": -121.3101380
+  },
+  "tags": {
+    "addr:city": "Lodi",
+    "addr:housenumber": "2745",
+    "addr:postcode": "95242",
+    "addr:state": "CA",
+    "addr:street": "West Kettleman Lane",
+    "amenity": "restaurant",
+    "brand": "Chili's",
+    "brand:wikidata": "Q1072948",
+    "building": "yes",
+    "cuisine": "tex-mex",
+    "name": "Chili's",
+    "official_name": "Chili's Grill & Bar"
+  }
+},
+{
+  "type": "way",
+  "id": 753195445,
+  "center": {
+    "lat": 38.1159113,
+    "lon": -121.3081644
+  },
+  "tags": {
+    "addr:city": "Lodi",
+    "addr:housenumber": "2625",
+    "addr:postcode": "95242",
+    "addr:state": "CA",
+    "addr:street": "West Kettleman Lane",
+    "amenity": "fast_food",
+    "brand": "In-N-Out Burger",
+    "brand:wikidata": "Q1205312",
+    "building": "yes",
+    "cuisine": "burger",
+    "name": "In-N-Out Burger",
+    "ref": "197",
+    "takeaway": "yes",
+    "website": "https://locations.in-n-out.com/197"
+  }
+},
+{
+  "type": "way",
+  "id": 804517725,
+  "center": {
+    "lat": 38.1150485,
+    "lon": -121.3039811
+  },
+  "tags": {
+    "addr:city": "Lodi",
+    "addr:housenumber": "2380",
+    "addr:postcode": "95242",
+    "addr:state": "CA",
+    "addr:street": "West Kettleman Lane",
+    "amenity": "fast_food",
+    "brand": "Taco Bell",
+    "brand:wikidata": "Q752941",
+    "building": "yes",
+    "cuisine": "tex-mex",
+    "name": "Taco Bell",
+    "opening_hours": "Mo-Th 07:00-01:00; Fr-Sa 07:00-02:00; Su 07:00-01:00",
+    "phone": "+1 209-369-3359",
+    "takeaway": "yes",
+    "website": "https://locations.tacobell.com/ca/lodi/2380-w-kettleman-ln.html"
+  }
+},
+{
+  "type": "way",
+  "id": 804517726,
+  "center": {
+    "lat": 38.1151577,
+    "lon": -121.3025706
+  },
+  "tags": {
+    "amenity": "fast_food",
+    "brand": "Farmer Boys",
+    "brand:wikidata": "Q5435711",
+    "building": "yes",
+    "cuisine": "burger",
+    "name": "Farmer Boys",
+    "takeaway": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 804693827,
+  "center": {
+    "lat": 38.1314757,
+    "lon": -121.3119311
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "Rosegate Park"
+  }
+},
+{
+  "type": "way",
+  "id": 804736260,
+  "center": {
+    "lat": 38.0975537,
+    "lon": -121.2622142
+  },
+  "tags": {
+    "addr:city": "Lodi",
+    "addr:housenumber": "2960",
+    "addr:postcode": "95240",
+    "addr:state": "CA",
+    "addr:street": "Reynolds Ranch Parkway",
+    "alt_name": "Home Depot",
+    "brand": "The Home Depot",
+    "brand:wikidata": "Q864407",
+    "building": "yes",
+    "name": "The Home Depot",
+    "phone": "+1-209-263-6017",
+    "ref": "6660",
+    "shop": "doityourself",
+    "website": "https://www.homedepot.com/l/Lodi-CA/CA/Lodi/95240/6660"
+  }
+},
+{
+  "type": "way",
+  "id": 804751844,
+  "center": {
+    "lat": 38.1298110,
+    "lon": -121.2793550
+  },
+  "tags": {
+    "amenity": "fast_food",
+    "brand": "Domino's",
+    "brand:wikidata": "Q839466",
+    "building": "yes",
+    "cuisine": "pizza",
+    "name": "Domino's",
+    "takeaway": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 829009213,
+  "center": {
+    "lat": 38.0989690,
+    "lon": -121.2678566
+  },
+  "tags": {
+    "addr:city": "Lodi",
+    "addr:housenumber": "262",
+    "addr:postcode": "95240",
+    "addr:state": "CA",
+    "addr:street": "Rocky Lane",
+    "branch": "Lodi",
+    "brand": "Fairfield Inn",
+    "brand:wikidata": "Q5430314",
+    "building": "yes",
+    "name": "Fairfield Inn & Suites Lodi",
+    "official_name": "Fairfield Inn & Suites by Marriott",
+    "phone": "+1 209-268-7500",
+    "ref": "SCKFI",
+    "tourism": "hotel",
+    "website": "https://www.marriott.com/sckfi"
+  }
+},
+{
+  "type": "way",
+  "id": 930603578,
+  "center": {
+    "lat": 38.1265808,
+    "lon": -121.2597926
+  },
+  "tags": {
+    "addr:city": "Lodi",
+    "addr:housenumber": "710",
+    "addr:postcode": "95240",
+    "addr:state": "CA",
+    "addr:street": "South Cherokee Lane",
+    "branch": "Lodi",
+    "brand": "Days Inn",
+    "brand:wikidata": "Q1047239",
+    "building": "yes",
+    "name": "Days Inn & Suites by Wyndham Lodi",
+    "phone": "+1 209-369-8484",
+    "ref": "50917",
+    "tourism": "hotel",
+    "website": "https://www.wyndhamhotels.com/days-inn/lodi-california/days-inn-and-suites-lodi/overview"
+  }
+},
+{
+  "type": "way",
+  "id": 930713982,
+  "center": {
+    "lat": 38.1469146,
+    "lon": -121.3070580
+  },
+  "tags": {
+    "addr:city": "Lodi",
+    "addr:housenumber": "2505",
+    "addr:postcode": "95242",
+    "addr:state": "CA",
+    "addr:street": "W Turner Rd",
+    "building": "yes",
+    "name": "Wine and Roses",
+    "phone": "+1-209-334-6988",
+    "tourism": "hotel",
+    "website": "https://winerose.com/"
+  }
+},
+{
+  "type": "way",
+  "id": 956711894,
+  "center": {
+    "lat": 38.1116723,
+    "lon": -121.2598127
+  },
+  "tags": {
+    "addr:city": "Lodi",
+    "addr:housenumber": "1800",
+    "addr:postcode": "95240",
+    "addr:state": "CA",
+    "addr:street": "S Cherokee Lane",
+    "amenity": "casino",
+    "building": "yes",
+    "name": "Parkwest Casino Lodi"
+  }
+},
+{
+  "type": "way",
+  "id": 956731147,
+  "center": {
+    "lat": 38.1172221,
+    "lon": -121.2495050
+  },
+  "tags": {
+    "addr:city": "Lodi",
+    "addr:housenumber": "1341",
+    "addr:postcode": "95240",
+    "addr:state": "CA",
+    "addr:street": "East Kettleman Lane",
+    "brand": "Holiday Inn Express",
+    "brand:wikidata": "Q5880423",
+    "building": "yes",
+    "name": "Holiday Inn Express",
+    "tourism": "hotel"
+  }
+},
+{
+  "type": "way",
+  "id": 956765580,
+  "center": {
+    "lat": 38.1180365,
+    "lon": -121.2496109
+  },
+  "tags": {
+    "addr:city": "Lodi",
+    "addr:housenumber": "1345",
+    "addr:postcode": "95240",
+    "addr:state": "CA",
+    "addr:street": "East Kettleman Lane",
+    "brand": "Candlewood Suites",
+    "brand:wikidata": "Q5032010",
+    "building": "yes",
+    "name": "Candlewood Suites Lodi",
+    "tourism": "hotel"
+  }
+},
+{
+  "type": "way",
+  "id": 956875643,
+  "center": {
+    "lat": 38.1176783,
+    "lon": -121.2554629
+  },
+  "tags": {
+    "addr:city": "Lodi",
+    "addr:housenumber": "1337",
+    "addr:postcode": "95240",
+    "addr:state": "CA",
+    "addr:street": "Beckman Road",
+    "branch": "Lodi",
+    "brand": "Hampton Inn & Suites",
+    "brand:wikidata": "Q5646230",
+    "building": "yes",
+    "name": "Hampton Inn & Suites Lodi",
+    "official_name": "Hampton Inn & Suites by Hilton",
+    "phone": "+1 209-369-2700",
+    "ref": "SCKLOHX",
+    "tourism": "hotel",
+    "website": "https://www.hilton.com/en/hotels/scklohx-hampton-suites-lodi/"
+  }
+},
+{
+  "type": "way",
+  "id": 970223426,
+  "center": {
+    "lat": 38.1368845,
+    "lon": -121.2726040
+  },
+  "tags": {
+    "amenity": "pub",
+    "building": "yes",
+    "craft": "brewery",
+    "name": "Five Window Beer Company"
+  }
+},
+{
+  "type": "way",
+  "id": 971823884,
+  "center": {
+    "lat": 38.1347580,
+    "lon": -121.2718931
+  },
+  "tags": {
+    "building": "yes",
+    "fee": "yes",
+    "layer": "1",
+    "name": "World of Wonders Science Museum",
+    "opening_hours": "We-Mo 10:00-17:00; Tu off; Jul 04 10:00-13:00; Nov Th[4] off; easter off; Dec 24-25 off",
+    "tourism": "museum",
+    "website": "https://www.wowsciencemuseum.org/"
+  }
+},
+{
+  "type": "way",
+  "id": 971824331,
+  "center": {
+    "lat": 38.1325951,
+    "lon": -121.2719929
+  },
+  "tags": {
+    "amenity": "pub",
+    "building": "yes",
+    "craft": "brewery",
+    "name": "Idol Beer Works"
+  }
+},
+{
+  "type": "way",
+  "id": 983818408,
+  "center": {
+    "lat": 38.1541617,
+    "lon": -121.3011016
+  },
+  "tags": {
+    "addr:city": "Woodbridge",
+    "addr:housenumber": "18911",
+    "addr:postcode": "95258",
+    "addr:state": "CA",
+    "addr:street": "Lower Sacramento Road",
+    "amenity": "bar",
+    "building": "yes",
+    "name": "Woodbridge Uncorked"
+  }
+},
+{
+  "type": "way",
+  "id": 1013467268,
+  "center": {
+    "lat": 38.1328290,
+    "lon": -121.2755088
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "denomination": "methodist",
+    "ele": "15",
+    "gnis:feature_id": "1827217",
+    "name": "First Methodist Church",
+    "religion": "christian"
+  }
+},
+{
+  "type": "way",
+  "id": 1013467325,
+  "center": {
+    "lat": 38.1353443,
+    "lon": -121.2773734
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "ele": "15",
+    "gnis:feature_id": "1827216",
+    "name": "First Church of Christ Scientist",
+    "religion": "christian"
+  }
+},
+{
+  "type": "way",
+  "id": 1013467336,
+  "center": {
+    "lat": 38.1345842,
+    "lon": -121.2759891
+  },
+  "tags": {
+    "addr:state": "CA",
+    "amenity": "townhall",
+    "building": "yes",
+    "ele": "15",
+    "gnis:feature_id": "1827225",
+    "name": "Lodi City Hall",
+    "source": "USGS Geonames"
+  }
+},
+{
+  "type": "way",
+  "id": 1013493359,
+  "center": {
+    "lat": 38.1358561,
+    "lon": -121.2732832
+  },
+  "tags": {
+    "building": "yes",
+    "name": "Traveler's Hotel",
+    "tourism": "hotel"
+  }
+},
+{
+  "type": "way",
+  "id": 1013493371,
+  "center": {
+    "lat": 38.1348097,
+    "lon": -121.2696978
+  },
+  "tags": {
+    "addr:city": "Lodi",
+    "addr:housenumber": "23",
+    "addr:postcode": "95240",
+    "addr:state": "CA",
+    "addr:street": "North Stockton Street",
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "contact:facebook": "https://facebook.com/326949677350631",
+    "denomination": "jodo_shinshu",
+    "email": "office@lodibuddhist.net",
+    "name": "Buddhist Church of Lodi",
+    "name:en": "Buddhist Church of Lodi",
+    "phone": "+1-209-368-5589",
+    "religion": "buddhist",
+    "start_date": "1929",
+    "website": "https://lodibuddhist.org"
+  }
+},
+{
+  "type": "way",
+  "id": 1093186588,
+  "center": {
+    "lat": 38.1150018,
+    "lon": -121.3031938
+  },
+  "tags": {
+    "amenity": "fast_food",
+    "brand": "Raising Cane's",
+    "brand:wikidata": "Q7285144",
+    "building": "yes",
+    "cuisine": "chicken",
+    "name": "Raising Cane's",
+    "official_name": "Raising Cane's Chicken Fingers",
+    "takeaway": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1093276196,
+  "center": {
+    "lat": 38.1150893,
+    "lon": -121.2877694
+  },
+  "tags": {
+    "amenity": "restaurant",
+    "brand": "IHOP",
+    "brand:wikidata": "Q1185675",
+    "building": "yes",
+    "cuisine": "breakfast;pancake",
+    "name": "IHOP"
+  }
+},
+{
+  "type": "way",
+  "id": 1169369723,
+  "center": {
+    "lat": 38.1548404,
+    "lon": -121.3004001
+  },
+  "tags": {
+    "addr:city": "Woodbridge",
+    "addr:housenumber": "18964",
+    "addr:postcode": "95258",
+    "addr:state": "CA",
+    "addr:street": "N Lower Sacramento Rd",
+    "building": "yes",
+    "name": "Woodbridge Florist",
+    "shop": "florist",
+    "source": "microsoft/BuildingFootprints"
+  }
+},
+{
+  "type": "way",
+  "id": 1169369724,
+  "center": {
+    "lat": 38.1548786,
+    "lon": -121.3009417
+  },
+  "tags": {
+    "addr:city": "Woodbridge",
+    "addr:housenumber": "18961",
+    "addr:postcode": "95258",
+    "addr:state": "CA",
+    "addr:street": "N Lower Sacramento Rd",
+    "amenity": "restaurant",
+    "building": "yes",
+    "name": "The Exchange 1874",
+    "source": "microsoft/BuildingFootprints"
+  }
+},
+{
+  "type": "way",
+  "id": 1169369727,
+  "center": {
+    "lat": 38.1544662,
+    "lon": -121.3011003
+  },
+  "tags": {
+    "addr:city": "Woodbridge",
+    "addr:housenumber": "18939",
+    "addr:postcode": "95258",
+    "addr:state": "CA",
+    "addr:street": "N Lower Sacramento Rd",
+    "amenity": "restaurant",
+    "building": "yes",
+    "name": "Woodbridge Crossing",
+    "source": "microsoft/BuildingFootprints"
+  }
+},
+{
+  "type": "way",
+  "id": 1169369728,
+  "center": {
+    "lat": 38.1544350,
+    "lon": -121.3017212
+  },
+  "tags": {
+    "amenity": "post_office",
+    "building": "yes",
+    "check_date": "2026-06-05",
+    "name": "Woodbridge Post Office",
+    "operator": "United States Postal Service",
+    "operator:short": "USPS",
+    "operator:type": "public",
+    "operator:wikidata": "Q668687",
+    "source": "microsoft/BuildingFootprints",
+    "website": "https://tools.usps.com/locations/details/1388161"
+  }
+},
+{
+  "type": "way",
+  "id": 1169371010,
+  "center": {
+    "lat": 38.1531019,
+    "lon": -121.3007526
+  },
+  "tags": {
+    "amenity": "fuel",
+    "brand": "Arco",
+    "brand:wikidata": "Q304769",
+    "building": "yes",
+    "name": "Arco",
+    "source": "microsoft/BuildingFootprints"
+  }
+},
+{
+  "type": "way",
+  "id": 1169371012,
+  "center": {
+    "lat": 38.1535819,
+    "lon": -121.3013666
+  },
+  "tags": {
+    "amenity": "bank",
+    "brand": "Wells Fargo",
+    "brand:wikidata": "Q744149",
+    "building": "yes",
+    "name": "Wells Fargo",
+    "source": "microsoft/BuildingFootprints"
+  }
+},
+{
+  "type": "way",
+  "id": 1187530867,
+  "center": {
+    "lat": 38.1352871,
+    "lon": -121.2596544
+  },
+  "tags": {
+    "amenity": "nightclub",
+    "building": "yes",
+    "name": "El Encanto"
+  }
+},
+{
+  "type": "way",
+  "id": 1297792657,
+  "center": {
+    "lat": 38.1150586,
+    "lon": -121.2835406
+  },
+  "tags": {
+    "amenity": "fast_food",
+    "brand": "Carl's Jr.",
+    "brand:wikidata": "Q1043486",
+    "building": "yes",
+    "cuisine": "burger",
+    "name": "Carl's Jr.",
+    "source": "microsoft/BuildingFootprints",
+    "takeaway": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1298600211,
+  "center": {
+    "lat": 38.1157687,
+    "lon": -121.2890776
+  },
+  "tags": {
+    "amenity": "car_wash",
+    "brand": "Chevron",
+    "brand:wikidata": "Q319642",
+    "building": "yes",
+    "name": "Chevron",
+    "source": "microsoft/BuildingFootprints"
+  }
+},
+{
+  "type": "way",
+  "id": 1305170246,
+  "center": {
+    "lat": 38.1451142,
+    "lon": -121.2949976
+  },
+  "tags": {
+    "addr:city": "Lodi",
+    "addr:housenumber": "1210",
+    "addr:postcode": "95242",
+    "addr:state": "CA",
+    "addr:street": "W Turner Rd",
+    "amenity": "restaurant",
+    "building": "yes",
+    "building:levels": "1",
+    "cuisine": "burger",
+    "name": "Snowhite Drive In",
+    "opening_hours": "Mo-Sa 11:00-20:00; Su 09:00-21:30",
+    "phone": "+1-209-369-5314",
+    "source": "microsoft/BuildingFootprints"
+  }
+},
+{
+  "type": "way",
+  "id": 1314394287,
+  "center": {
+    "lat": 38.1186749,
+    "lon": -121.2514911
+  },
+  "tags": {
+    "addr:city": "Lodi",
+    "addr:housenumber": "1222",
+    "addr:postcode": "95240",
+    "addr:state": "CA",
+    "addr:street": "Pixley Parkway",
+    "building": "yes",
+    "government": "transportation",
+    "name": "DMV Lodi",
+    "office": "government",
+    "operator": "California Department of Motor Vehicles",
+    "operator:short": "California DMV",
+    "operator:wikidata": "Q5020431",
+    "source": "microsoft/BuildingFootprints"
+  }
+},
+{
+  "type": "way",
+  "id": 1314467251,
+  "center": {
+    "lat": 38.1191470,
+    "lon": -121.2690746
+  },
+  "tags": {
+    "addr:city": "lodi",
+    "addr:housenumber": "210",
+    "addr:postcode": "95240",
+    "addr:state": "CA",
+    "addr:street": "Poplar Street",
+    "amenity": "place_of_worship",
+    "building": "mosque",
+    "building:levels": "1",
+    "name": "Lodi Mosque",
+    "religion": "muslim",
+    "source": "microsoft/BuildingFootprints"
+  }
+},
+{
+  "type": "way",
+  "id": 1314704368,
+  "center": {
+    "lat": 38.1414432,
+    "lon": -121.2758754
+  },
+  "tags": {
+    "ele": "16",
+    "gnis:feature_id": "236999",
+    "leisure": "park",
+    "name": "Van Buskirk Park"
+  }
+},
+{
+  "type": "way",
+  "id": 1342251744,
+  "center": {
+    "lat": 38.1380267,
+    "lon": -121.2879655
+  },
+  "tags": {
+    "brand": "Chevron",
+    "brand:wikidata": "Q319642",
+    "building": "yes",
+    "name": "Chevron",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "way",
+  "id": 1342251745,
+  "center": {
+    "lat": 38.1381963,
+    "lon": -121.2880785
+  },
+  "tags": {
+    "amenity": "fuel",
+    "brand": "Chevron",
+    "brand:wikidata": "Q319642",
+    "building": "roof",
+    "name": "Chevron"
+  }
+},
+{
+  "type": "way",
+  "id": 1342251747,
+  "center": {
+    "lat": 38.1387156,
+    "lon": -121.2880727
+  },
+  "tags": {
+    "amenity": "fuel",
+    "brand": "Arco",
+    "brand:wikidata": "Q304769",
+    "building": "yes",
+    "name": "Arco"
+  }
+},
+{
+  "type": "way",
+  "id": 1342369011,
+  "center": {
+    "lat": 38.1390296,
+    "lon": -121.2887420
+  },
+  "tags": {
+    "amenity": "fast_food",
+    "brand": "Fosters Freeze",
+    "brand:wikidata": "Q5473851",
+    "building": "yes",
+    "cuisine": "burger;ice_cream",
+    "name": "Fosters Freeze",
+    "takeaway": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1342369033,
+  "center": {
+    "lat": 38.1453860,
+    "lon": -121.3049226
+  },
+  "tags": {
+    "amenity": "fuel",
+    "brand": "Shell",
+    "brand:wikidata": "Q110716465",
+    "name": "Shell"
+  }
+},
+{
+  "type": "way",
+  "id": 1342369045,
+  "center": {
+    "lat": 38.1303017,
+    "lon": -121.2788468
+  },
+  "tags": {
+    "amenity": "fast_food",
+    "brand": "Jack in the Box",
+    "brand:wikidata": "Q1538507",
+    "building": "yes",
+    "cuisine": "burger",
+    "drive_through": "yes",
+    "name": "Jack in the Box",
+    "takeaway": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1343064042,
+  "center": {
+    "lat": 38.1370736,
+    "lon": -121.2754530
+  },
+  "tags": {
+    "amenity": "library",
+    "building": "yes",
+    "name": "Lodi Library"
+  }
+},
+{
+  "type": "way",
+  "id": 1343412016,
+  "center": {
+    "lat": 38.1297000,
+    "lon": -121.3075797
+  },
+  "tags": {
+    "amenity": "car_wash",
+    "brand": "Speedway",
+    "brand:wikidata": "Q7575683",
+    "building": "yes",
+    "name": "Speedy Wash"
+  }
+},
+{
+  "type": "way",
+  "id": 1343674970,
+  "center": {
+    "lat": 38.1299530,
+    "lon": -121.2750936
+  },
+  "tags": {
+    "amenity": "bank",
+    "brand": "Wells Fargo",
+    "brand:wikidata": "Q744149",
+    "building": "yes",
+    "name": "Wells Fargo"
+  }
+},
+{
+  "type": "way",
+  "id": 1355840219,
+  "center": {
+    "lat": 38.1387057,
+    "lon": -121.2672356
+  },
+  "tags": {
+    "amenity": "events_venue",
+    "building": "yes",
+    "name": "American Legion Memorial Building",
+    "source": "microsoft/BuildingFootprints"
+  }
+},
+{
+  "type": "way",
+  "id": 1355840224,
+  "center": {
+    "lat": 38.1383468,
+    "lon": -121.2684650
+  },
+  "tags": {
+    "alt_name": "Aeries Lodge",
+    "amenity": "social_centre",
+    "brand": "Fraternal Order of Eagles",
+    "brand:short": "FOE",
+    "brand:wikidata": "Q5493810",
+    "building": "yes",
+    "name": "Eagles Lodge",
+    "official_name": "Fraternal Order of Eagles",
+    "source": "microsoft/BuildingFootprints"
+  }
+},
+{
+  "type": "way",
+  "id": 1369679698,
+  "center": {
+    "lat": 38.1192535,
+    "lon": -121.2581656
+  },
+  "tags": {
+    "brand": "Motel 6",
+    "brand:wikidata": "Q2188884",
+    "landuse": "commercial",
+    "name": "Motel 6",
+    "tourism": "motel"
+  }
+},
+{
+  "type": "way",
+  "id": 1369679705,
+  "center": {
+    "lat": 38.1274910,
+    "lon": -121.2587281
+  },
+  "tags": {
+    "brand": "Extra Space Storage",
+    "brand:wikidata": "Q5422162",
+    "name": "Extra Space Storage",
+    "shop": "storage_rental"
+  }
+},
+{
+  "type": "way",
+  "id": 1394438584,
+  "center": {
+    "lat": 38.1080503,
+    "lon": -121.3107698
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "Villa Fiore Park"
+  }
+},
+{
+  "type": "way",
+  "id": 1427518289,
+  "center": {
+    "lat": 38.1135347,
+    "lon": -121.3130040
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "Bob Johnson Park"
+  }
+},
+{
+  "type": "way",
+  "id": 1456892174,
+  "center": {
+    "lat": 38.1277729,
+    "lon": -121.2762407
+  },
+  "tags": {
+    "amenity": "school",
+    "education": "school",
+    "ele": "15",
+    "gnis:feature_id": "229442",
+    "name": "Needham School"
+  }
+},
+{
+  "type": "way",
+  "id": 1551590826,
+  "center": {
+    "lat": 38.0963139,
+    "lon": -121.2660238
+  },
+  "tags": {
+    "addr:city": "Lodi",
+    "addr:housenumber": "2923",
+    "addr:postcode": "95240",
+    "addr:state": "CA",
+    "addr:street": "Reynolds Ranch Parkway",
+    "amenity": "social_facility",
+    "contact:facebook": "https://www.facebook.com/161985654447585",
+    "description": "Independent Senior Living Community",
+    "name": "Revel Lodi",
+    "phone": "+1-209-642-8900",
+    "social_facility": "assisted_living",
+    "social_facility:for": "senior",
+    "website": "https://revelcommunities.com/communities/lodi/"
+  }
+},
+{
+  "type": "way",
+  "id": 1552434333,
+  "center": {
+    "lat": 38.1164982,
+    "lon": -121.2494631
+  },
+  "tags": {
+    "brand": "Tru",
+    "brand:wikidata": "Q24907770",
+    "building": "yes",
+    "name": "Tru",
+    "official_name": "Tru by Hilton",
+    "tourism": "hotel"
+  }
+},
+{
+  "type": "way",
+  "id": 1553277189,
+  "center": {
+    "lat": 38.1381664,
+    "lon": -121.2716499
+  },
+  "tags": {
+    "bar": "yes",
+    "building": "yes",
+    "leisure": "bowling_alley",
+    "name": "Lodi Bowling Bar & Lounge",
+    "sport": "10pin"
+  }
+},
+{
+  "type": "way",
+  "id": 1553280172,
+  "center": {
+    "lat": 38.1358737,
+    "lon": -121.2600924
+  },
+  "tags": {
+    "brand": "Econo Lodge",
+    "brand:wikidata": "Q5333330",
+    "name": "Econo Lodge Inn & Suites",
+    "tourism": "motel"
+  }
+},
+{
+  "type": "way",
+  "id": 1553765004,
+  "center": {
+    "lat": 38.1206821,
+    "lon": -121.2597349
+  },
+  "tags": {
+    "name": "Economy Inn",
+    "tourism": "motel"
+  }
+},
+{
+  "type": "relation",
+  "id": 13073585,
+  "center": {
+    "lat": 38.1227864,
+    "lon": -121.2614875
+  },
+  "tags": {
+    "building": "yes",
+    "name": "Budget Inn",
+    "tourism": "motel",
+    "type": "multipolygon"
+  }
+},
+{
+  "type": "relation",
+  "id": 13073593,
+  "center": {
+    "lat": 38.1249303,
+    "lon": -121.2611718
+  },
+  "tags": {
+    "building": "yes",
+    "name": "Rancho Grande",
+    "tourism": "motel",
+    "type": "multipolygon"
+  }
+}
+
+  ]
+}

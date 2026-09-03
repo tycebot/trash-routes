@@ -1,0 +1,73 @@
+import { readFile } from 'node:fs/promises';
+
+const sourcePath = process.argv[2];
+if (!sourcePath) throw new Error('usage: node scripts/build-lodi-fixture.mjs <overpass.json>');
+
+const source = JSON.parse(await readFile(sourcePath, 'utf8'));
+const PUBLIC_TAGS = ['amenity', 'shop', 'office', 'tourism', 'leisure'];
+const EXCLUDED_OSM_IDS = new Set([
+  // Public business, but its name contains "house" and trips the fixture's residential-name guard.
+  'node-14136305050', // Brickhouse Liquors
+  'node-5370762797', // Lodi Boat House
+]);
+
+const DEMO_ROUTE_COORDINATES = [
+  [-121.2930, 38.1450], [-121.2820, 38.1450], [-121.2700, 38.1450], [-121.2570, 38.1450],
+  [-121.2520, 38.1370], [-121.2640, 38.1370], [-121.2780, 38.1370], [-121.2900, 38.1370],
+  [-121.2900, 38.1280], [-121.2780, 38.1280], [-121.2640, 38.1280], [-121.2520, 38.1280],
+  [-121.2520, 38.1180], [-121.2650, 38.1180], [-121.2790, 38.1180], [-121.2910, 38.1180],
+  [-121.2930, 38.1280], [-121.2930, 38.1450],
+];
+
+const keyFor = (element) => `${element.type}-${element.id}`;
+const normalizeName = (name) => name.trim().replace(/\s+/g, ' ');
+const coordinateOf = (element) => element.type === 'node'
+  ? { lat: element.lat, lng: element.lon }
+  : { lat: element.center?.lat, lng: element.center?.lon };
+
+const candidates = [];
+const seen = new Set();
+for (const element of source.elements ?? []) {
+  const tags = element.tags ?? {};
+  const name = typeof tags.name === 'string' ? normalizeName(tags.name) : '';
+  const { lat, lng } = coordinateOf(element);
+  if (!name || !Number.isFinite(lat) || !Number.isFinite(lng)) continue;
+  if (!PUBLIC_TAGS.some((tag) => typeof tags[tag] === 'string' && tags[tag].trim() !== '')) continue;
+  if (tags.access === 'private' || tags.access === 'no' || tags.amenity === 'parking_entrance') continue;
+  if (tags.place === 'residential' || tags.building === 'house' || tags.building === 'apartments') continue;
+  if (EXCLUDED_OSM_IDS.has(keyFor(element))) continue;
+  const duplicateKey = `${name.toLocaleLowerCase('en-US')}|${lat.toFixed(5)}|${lng.toFixed(5)}`;
+  if (seen.has(duplicateKey)) continue;
+  seen.add(duplicateKey);
+  candidates.push({ element, name, lat, lng });
+}
+
+candidates.sort((a, b) =>
+  b.lat - a.lat ||
+  a.lng - b.lng ||
+  a.element.type.localeCompare(b.element.type) ||
+  Number(a.element.id) - Number(b.element.id),
+);
+
+const selected = candidates.slice(0, 100);
+if (selected.length !== 100) {
+  throw new Error(`expected 100 public POIs, found ${selected.length}`);
+}
+
+const stops = selected.map(({ element, name, lat, lng }, index) => ({
+  id: keyFor(element),
+  name,
+  lat,
+  lng,
+  sequence: index + 1,
+}));
+
+const routeDocument = {
+  schemaVersion: 1,
+  routeId: 'lodi-demo',
+  routeName: 'Lodi Route Review',
+  stops,
+  route: { coordinates: DEMO_ROUTE_COORDINATES },
+};
+
+process.stdout.write(`${JSON.stringify(routeDocument, null, 2)}\n`);
