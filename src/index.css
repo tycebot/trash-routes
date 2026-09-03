@@ -1,0 +1,60 @@
+@import "tailwindcss";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* iPad touch optimization */
+@media (pointer: coarse) {
+  button, label[style] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* Smooth scrolling for stop list */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 2px;
+}
+
+/* Leaflet popup styling */
+.leaflet-popup-content-wrapper {
+  border-radius: 10px !important;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2) !important;
+  padding: 0 !important;
+}
+.leaflet-popup-content {
+  margin: 10px 14px !important;
+  line-height: 1.5 !important;
+}
+.leaflet-popup-tip {
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15) !important;
+}
+
+/* Edit handles should be above the line */
+.edit-handle {
+  z-index: 1000 !important;
+}
+
+/* Make markers always on top */
+.leaflet-marker-icon {
+  z-index: 100 !important;
+}
