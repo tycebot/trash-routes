@@ -1,133 +1,136 @@
-import { useState, useEffect, useCallback } from 'react';
-import { store } from './store';
-import { MapView } from './components/Map';
-import { Toolbar } from './components/Toolbar';
-import { StopList } from './components/StopList';
-import { StatsBar } from './components/StatsBar';
+import { useEffect, useState } from 'react';
+import { RouteOverview } from './components/RouteOverview';
+import { StatusBar } from './components/StatusBar';
+import { TopBar } from './components/TopBar';
+import { LODI_ROUTE } from './data/lodiRoute';
+import { DrawingController, type DrawingSnapshot } from './domain/DrawingController';
+import type { RouteMode } from './domain/routeDocument';
+import { routeMiles, type ScreenGeoPoint } from './domain/routeGeometry';
+import { RouteMap, type MapError, type MapPresentation } from './map/RouteMap';
+import { RouteStore, type StorageAdapter } from './store/RouteStore';
 
-function generateId(): string {
-  return 's' + Date.now() + Math.random().toString(36).slice(2, 6);
+const browserStorage: StorageAdapter = {
+  getItem: (key) => localStorage.getItem(key),
+  setItem: (key, value) => localStorage.setItem(key, value),
+  removeItem: (key) => localStorage.removeItem(key),
+};
+const browserRouteStore = new RouteStore(browserStorage, LODI_ROUTE);
+
+export interface RouteReviewAppProps {
+  store?: RouteStore;
 }
 
-function App() {
-  const [state, setState] = useState(store.get());
+export function RouteReviewApp({ store = browserRouteStore }: RouteReviewAppProps) {
+  const [snapshot, setSnapshot] = useState(() => store.getSnapshot());
+  const [mode, setMode] = useState<RouteMode>('view');
+  const [presentation, setPresentation] = useState<MapPresentation>('2d');
+  const [selectedStopId, setSelectedStopId] = useState<string | null>(null);
+  const [importError, setImportError] = useState<string | null>(null);
+  const [mapError, setMapError] = useState<MapError>(null);
+  const [controller] = useState(() => new DrawingController());
+  const [drawing, setDrawing] = useState<DrawingSnapshot>(() => controller.snapshot());
 
-  useEffect(() => store.subscribe(() => setState(store.get())), []);
+  useEffect(() => store.subscribe(() => setSnapshot(store.getSnapshot())), [store]);
 
-  const handleMapClick = useCallback((lat: number, lng: number) => {
-    if (state.mode !== 'draw') return;
-    const name = prompt('Stop name:');
-    if (!name) return;
-    store.addStop({ id: generateId(), name, lat, lng });
-  }, [state.mode]);
-
-  // In edit mode: clicking on the route line adds a new stop at that point
-  const handleLineClick = useCallback((lat: number, lng: number) => {
-    const name = prompt('New stop name:');
-    if (!name) return;
-    const newStop = { id: generateId(), name, lat, lng };
-    store.addStop(newStop);
-    // Insert at the end of the route (will be appended)
-    // For better UX, we could insert near the clicked position, but that requires
-    // finding the nearest segment — for now append to end
-  }, []);
-
-  const handleRemoveStop = useCallback((id: string) => {
-    store.removeStop(id);
-  }, []);
-
-  const handleReset = useCallback(() => {
-    if (confirm('Reset to default route?')) store.resetRoute();
-  }, []);
-
-  const handleExport = useCallback(() => {
-    const data = store.exportData();
-    const blob = new Blob([data], { type: 'application/json' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = 'trash-routes.json';
-    a.click();
-    URL.revokeObjectURL(url);
-  }, []);
-
-  const handleImport = useCallback((json: string) => {
-    if (store.importData(json)) {
-      alert('Route imported successfully!');
-    } else {
-      alert('Failed to import. Check the file format.');
+  const updateDrawing = (next: DrawingSnapshot) => setDrawing(next);
+  const changeMode = (nextMode: RouteMode) => {
+    updateDrawing(controller.cancel());
+    setSelectedStopId(null);
+    setMode(nextMode);
+  };
+  const startDrawing = () => {
+    setSelectedStopId(null);
+    updateDrawing(controller.start());
+  };
+  const strokeStart = (point: ScreenGeoPoint) => updateDrawing(controller.beginStroke(point));
+  const strokePoint = (point: ScreenGeoPoint) => updateDrawing(controller.appendPoint(point));
+  const strokeEnd = (point: ScreenGeoPoint) => updateDrawing(controller.endStroke(point));
+  const saveDrawing = () => {
+    if (!drawing.geometry) return;
+    if (snapshot.document.route && !window.confirm('Replace the saved route?')) return;
+    store.replaceRoute(drawing.geometry);
+    updateDrawing(controller.cancel());
+    setMode('view');
+  };
+  const importFile = async (file: File) => {
+    const result = store.importJson(await file.text());
+    setImportError(result.ok ? null : result.error);
+    if (result.ok) {
+      updateDrawing(controller.cancel());
+      setSelectedStopId(null);
+      setMode('view');
     }
-  }, []);
+  };
+  const exportRoute = () => {
+    const blob = new Blob([store.exportJson()], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const link = window.document.createElement('a');
+    link.href = url;
+    link.download = `route-review-${snapshot.document.routeId}.json`;
+    link.click();
+    URL.revokeObjectURL(url);
+  };
+  const reset = () => {
+    if (!window.confirm('Reset to the Lodi demonstration route?')) return;
+    store.reset();
+    updateDrawing(controller.cancel());
+    setSelectedStopId(null);
+    setImportError(null);
+    setMode('view');
+  };
+
+  const { document, saveStatus } = snapshot;
+  const selectedStop = document.stops.find((stop) => stop.id === selectedStopId) ?? null;
+  const savedRoute = mode === 'draw' ? null : document.route;
+  const referenceRoute = mode === 'edit' && drawing.active ? document.route : null;
+  const draftRoute = drawing.active ? drawing.geometry : null;
 
   return (
-    <div style={{
-      display: 'flex',
-      flexDirection: 'column',
-      height: '100dvh',
-      width: '100vw',
-      overflow: 'hidden',
-      background: '#0f172a',
-      fontFamily: '-apple-system, BlinkMacSystemFont, system-ui, sans-serif',
-    }}>
-      {/* Header */}
-      <div style={{
-        padding: '12px 16px',
-        background: '#1e293b',
-        borderBottom: '1px solid #334155',
-      }}>
-        <h1 style={{
-          margin: 0,
-          fontSize: '20px',
-          fontWeight: 700,
-          color: 'white',
-          display: 'flex',
-          alignItems: 'center',
-          gap: '8px',
-        }}>
-          <span style={{ fontSize: '24px' }}>🗑️</span>
-          Trash Route Planner
-        </h1>
-      </div>
-
-      {/* Toolbar */}
-      <Toolbar
-        mode={state.mode}
-        onModeChange={(m) => store.setMode(m)}
-        onReset={handleReset}
-        onExport={handleExport}
-        onImport={handleImport}
-        isCustom={state.isCustom}
+    <div className="app-shell">
+      <TopBar
+        routeName={document.routeName}
+        mode={mode}
+        presentation={presentation}
+        onModeChange={changeMode}
+        onPresentationChange={setPresentation}
       />
-
-      {/* Map */}
-      <div style={{ flex: 1, minHeight: 0 }}>
-        <MapView
-          stops={state.stops}
-          routeOrder={state.routeOrder}
-          mode={state.mode}
-          onMapClick={handleMapClick}
-          onLineClick={handleLineClick}
-          onRemoveStop={handleRemoveStop}
+      <main className="map-stage">
+        <RouteMap
+          stops={document.stops}
+          selectedStopId={selectedStopId}
+          savedRoute={savedRoute}
+          referenceRoute={referenceRoute}
+          draftRoute={draftRoute}
+          mode={mode}
+          presentation={presentation}
+          drawingActive={drawing.active}
+          onSelectStop={setSelectedStopId}
+          onStrokeStart={strokeStart}
+          onStrokePoint={strokePoint}
+          onStrokeEnd={strokeEnd}
+          onMapError={setMapError}
         />
-      </div>
-
-      {/* Stop list (visible in draw/edit modes) */}
-      {(state.mode === 'draw' || state.mode === 'edit') && (
-        <StopList
-          stops={state.stops}
-          routeOrder={state.routeOrder}
-          mode={state.mode}
-          onRemove={state.mode === 'draw' ? handleRemoveStop : undefined}
+        <RouteOverview
+          routeName={document.routeName}
+          stopCount={document.stops.length}
+          mode={mode}
+          selectedStop={selectedStop}
+          drawing={drawing}
+          importError={importError}
+          mapError={mapError}
+          onStartDrawing={startDrawing}
+          onUndo={() => updateDrawing(controller.undo())}
+          onClear={() => updateDrawing(controller.clear())}
+          onCancel={() => updateDrawing(controller.cancel())}
+          onSave={saveDrawing}
+          onImport={importFile}
+          onExport={exportRoute}
+          onReset={reset}
         />
-      )}
-
-      {/* Stats bar */}
-      <StatsBar
-        stopCount={store.getStopCount()}
-        distanceMiles={store.getDistanceMiles()}
-      />
+      </main>
+      <StatusBar stopCount={document.stops.length} miles={routeMiles(document.route)} saveStatus={saveStatus} />
     </div>
   );
 }
 
-export default App;
+export default RouteReviewApp;
