@@ -20,7 +20,12 @@ Replace Leaflet with MapLibre GL JS because the approved design requires vector-
 - **Proposed deviation:** MapLibre GL JS with OpenFreeMap vector tiles.
 - **Justification:** This supplies key-free vector rendering, adaptive labels, map pitch, and 3D buildings while preserving a static, backend-free deployment.
 
-No additional runtime, backend, database, container, or service is introduced.
+The web application introduces no backend, database, container, or hosted service. A thin Tauri 2 desktop wrapper is added only for the requested Windows executable.
+
+- **Approved option considered:** Distribute only the static web/PWA build.
+- **Why insufficient:** A static web build cannot satisfy the explicit requirement for a downloadable Windows `.exe`.
+- **Proposed deviation:** Tauri 2 and its Rust build toolchain, built on GitHub Actions Windows runners.
+- **Justification:** Tauri reuses the same frontend and the operating system WebView, producing a substantially smaller desktop package than bundling a second browser runtime with Electron. End users do not need Rust installed.
 
 ## Visual direction
 
@@ -38,7 +43,7 @@ The layout is map-first. A compact top bar contains the app name, route name, mo
 
 ## Map and stop presentation
 
-The default demo is centered on Lodi, California and contains 100 realistic sample stops.
+The default demo is centered on Lodi, California and contains approximately 100 real public points of interest sourced from OpenStreetMap. Prefer named businesses, civic facilities, banks, restaurants, schools, public waste facilities, and other public-facing locations in and immediately around Lodi. Do not use private homes or personal residential data. Store the selected fixture in the repository with source attribution and retrieval date so the demo does not depend on a live search service.
 
 All stops remain visible at every useful zoom level. Labels adapt by zoom:
 
@@ -129,6 +134,17 @@ Persist the current `RouteDocument` in localStorage. Include a schema version an
 
 Export downloads one JSON file. Import accepts the same schema, reports validation errors clearly, and never overwrites valid local data when parsing fails. Reset restores the 100-stop Lodi demonstration route.
 
+## Distribution
+
+Produce two distributions from the same frontend:
+
+1. **Installable web app for iPad:** a static PWA deployed through GitHub Pages with a web app manifest, service worker, standalone display mode, theme metadata, safe-area support, and iPad-sized app icons. The installation flow is Safari → Share → Add to Home Screen. The repository README must state that iPadOS cannot run Windows `.exe` files.
+2. **Windows desktop download:** a Tauri 2 package built on a `windows-latest` GitHub Actions runner and attached to a GitHub Release as a user-launchable `.exe` installer or executable artifact.
+
+Add GitHub Actions workflows for Pages deployment, verified production builds, and tagged Windows releases. Workflows must not require paid map API keys or repository secrets beyond GitHub's standard release/page permissions.
+
+The repository currently has no GitHub remote. Implementation may prepare and verify workflows locally, but publishing requires an engineer-selected GitHub repository and visibility setting.
+
 ## Components and boundaries
 
 - `RouteReviewApp`: application layout and top-level mode transitions.
@@ -188,6 +204,9 @@ Test desktop Chromium and iPad-sized WebKit viewports:
 - Toggle 2D/3D while retaining overlays.
 - Export, reset, and re-import the route.
 - Confirm the static production build runs from a basic HTTP server.
+- Validate the web app manifest and service worker at an iPad-sized WebKit viewport.
+- Validate GitHub Pages base-path asset loading.
+- Validate the Tauri configuration and Windows release workflow structure; the actual `.exe` is produced by a Windows GitHub Actions runner after publication.
 
 ## Acceptance criteria
 
@@ -199,3 +218,6 @@ Test desktop Chromium and iPad-sized WebKit viewports:
 6. Mileage reflects route geometry.
 7. 2D and genuine pitched 3D map modes work on a modern iPad browser.
 8. The app builds into a portable static `dist/` directory.
+9. The project includes a GitHub Pages PWA deployment workflow and clear iPad installation instructions.
+10. The project includes a Tauri Windows release workflow that produces a downloadable `.exe` from a version tag.
+11. The embedded demo uses roughly 100 attributed public OpenStreetMap POIs around Lodi and no private residential dataset.
