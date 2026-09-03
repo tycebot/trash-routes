@@ -2,15 +2,11 @@ import { act, fireEvent, render, screen } from '@testing-library/react';
 import { beforeEach, expect, it, vi } from 'vitest';
 import type { RouteMapProps } from './RouteMap';
 
-const mocks = vi.hoisted(() => ({
-  constructor: vi.fn(),
-  supported: vi.fn(() => true),
-}));
+const mocks = vi.hoisted(() => ({ constructor: vi.fn() }));
 
 vi.mock('maplibre-gl', () => ({
   Map: mocks.constructor,
   NavigationControl: class NavigationControl {},
-  supported: mocks.supported,
 }));
 
 import { RouteMap } from './RouteMap';
@@ -64,7 +60,7 @@ const props: RouteMapProps = {
 
 beforeEach(() => {
   vi.clearAllMocks();
-  mocks.supported.mockReturnValue(true);
+  vi.spyOn(HTMLCanvasElement.prototype, 'getContext').mockReturnValue({} as RenderingContext);
 });
 
 it('changes pitch/bearing and building visibility for 3D', () => {
@@ -91,7 +87,7 @@ it('captures drawing pointers without moving stops', () => {
 });
 
 it('shows a clear unsupported-browser message', () => {
-  mocks.supported.mockReturnValue(false);
+  vi.mocked(HTMLCanvasElement.prototype.getContext).mockReturnValue(null);
   render(<RouteMap {...props} />);
   expect(screen.getByText(/WebGL is unavailable/)).toBeVisible();
   expect(props.onMapError).toHaveBeenCalledWith('unsupported');

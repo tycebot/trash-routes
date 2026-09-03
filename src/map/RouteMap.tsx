@@ -29,8 +29,6 @@ export interface RouteMapProps {
 const ROUTE_KINDS: RouteLayerKind[] = ['saved', 'reference', 'draft'];
 
 function mapSupported(): boolean {
-  const legacySupported = (maplibregl as unknown as { supported?: () => boolean }).supported;
-  if (legacySupported) return legacySupported();
   try {
     const canvas = document.createElement('canvas');
     return Boolean(canvas.getContext('webgl2') ?? canvas.getContext('webgl'));
