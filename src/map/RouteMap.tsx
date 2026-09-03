@@ -2,6 +2,7 @@ import { useEffect, useRef, useState, type PointerEvent as ReactPointerEvent } f
 import * as maplibregl from 'maplibre-gl';
 import type { GeoJSONSource, Map as MapLibreMap, MapLayerMouseEvent } from 'maplibre-gl';
 import 'maplibre-gl/dist/maplibre-gl.css';
+import mapLibreWorkerUrl from 'maplibre-gl/dist/maplibre-gl-worker.mjs?worker&url';
 import type { RouteGeometry, RouteMode, TrashStop } from '../domain/routeDocument';
 import type { ScreenGeoPoint } from '../domain/routeGeometry';
 import { routeLayerDefinitions, routeToGeoJson, type RouteLayerKind } from './RouteLayer';
@@ -25,6 +26,8 @@ export interface RouteMapProps {
   onStrokeEnd(point: ScreenGeoPoint): void;
   onMapError(error: MapError): void;
 }
+
+maplibregl.setWorkerUrl(mapLibreWorkerUrl);
 
 const ROUTE_KINDS: RouteLayerKind[] = ['saved', 'reference', 'draft'];
 
@@ -80,17 +83,24 @@ export function RouteMap(props: RouteMapProps) {
 
     map.on('load', () => {
       try {
+        const current = propsRef.current;
+        const routes = {
+          saved: current.savedRoute,
+          reference: current.referenceRoute,
+          draft: current.draftRoute,
+        };
         if (map.getLayer('natural_earth')) map.setPaintProperty('natural_earth', 'raster-saturation', -0.15);
         for (const kind of ROUTE_KINDS) {
           const sourceId = `${kind}-route`;
-          if (!map.getSource(sourceId)) map.addSource(sourceId, { type: 'geojson', data: routeToGeoJson(null) });
+          if (!map.getSource(sourceId)) map.addSource(sourceId, { type: 'geojson', data: routeToGeoJson(routes[kind]) });
           for (const layer of routeLayerDefinitions(kind)) if (!map.getLayer(layer.id)) map.addLayer(layer);
         }
-        if (!map.getSource('stops')) map.addSource('stops', { type: 'geojson', data: stopsToGeoJson([], null) });
+        if (!map.getSource('stops')) {
+          map.addSource('stops', { type: 'geojson', data: stopsToGeoJson(current.stops, current.selectedStopId) });
+        }
         for (const layer of Object.values(STOP_LAYER_DEFINITIONS)) {
           if (!map.getLayer(layer.id)) map.addLayer(layer);
         }
-        const current = propsRef.current;
         (map.getSource('stops') as GeoJSONSource | undefined)?.setData(
           stopsToGeoJson(current.stops, current.selectedStopId),
         );
@@ -108,7 +118,7 @@ export function RouteMap(props: RouteMapProps) {
         if (map.getLayer('building-3d')) {
           map.setLayoutProperty('building-3d', 'visibility', is3d ? 'visible' : 'none');
         }
-        setLoadedGeneration(generation);
+        map.once('idle', () => setLoadedGeneration(generation));
         setMapError(null);
         current.onMapError(null);
       } catch {
@@ -212,6 +222,8 @@ export function RouteMap(props: RouteMapProps) {
       <div
         ref={containerRef}
         data-testid="route-map"
+        data-map-ready={loadedGeneration === generation ? 'true' : 'false'}
+        aria-busy={loadedGeneration !== generation}
         className="route-map"
         style={{ touchAction: canDraw ? 'none' : 'pan-x pan-y' }}
         onPointerDown={handlePointerDown}

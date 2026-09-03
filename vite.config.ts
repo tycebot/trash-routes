@@ -5,6 +5,10 @@ import { VitePWA } from 'vite-plugin-pwa'
 
 export default defineConfig({
   base: './',
+  optimizeDeps: {
+    // MapLibre v6's ESM worker must not be rewritten by Vite's dependency optimizer.
+    exclude: ['maplibre-gl'],
+  },
   plugins: [
     react(),
     tailwindcss(),

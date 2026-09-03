@@ -7,6 +7,7 @@ const mocks = vi.hoisted(() => ({ constructor: vi.fn() }));
 vi.mock('maplibre-gl', () => ({
   Map: mocks.constructor,
   NavigationControl: class NavigationControl {},
+  setWorkerUrl: vi.fn(),
 }));
 
 import { RouteMap } from './RouteMap';
@@ -26,6 +27,7 @@ function createFakeMap() {
     unproject: vi.fn(([x, y]: [number, number]) => ({ lng: -121.28 + x / 10000, lat: 38.13 + y / 10000 })),
     dragPan: { disable: vi.fn(), enable: vi.fn() },
     remove: vi.fn(),
+    once: vi.fn((_event: string, handler: () => void) => handler()),
     on: vi.fn((event: string, layerOrHandler: unknown, maybeHandler?: (...args: unknown[]) => void) => {
       const handler = (typeof layerOrHandler === 'function' ? layerOrHandler : maybeHandler) as
         ((...args: unknown[]) => void) | undefined;
