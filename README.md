@@ -1,63 +1,90 @@
-# Trash Route Planner
+# Route Review
 
-A web app for planning and visualizing trash collection routes. Built with React + Vite + Leaflet + Tailwind CSS.
+Route Review is a light, map-first application for reviewing fixed trash-collection stops and tracing replacement route geometry. It runs entirely in the browser, persists data locally, and requires no application backend or paid map key.
 
-## Quick Start
-
-```bash
-npm install
-npm run dev          # Development server
-npm run build        # Production build → dist/
-```
-
-## Running the production build
-
-The `dist/` folder is a self-contained static site. Serve it from anywhere:
+## Local development
 
 ```bash
-# Quick local test
-npx serve dist
-
-# Or any HTTP server
-python -m http.server -d dist
+npm ci
+npm run dev
 ```
 
-## iPad Setup
+Quality and production commands:
 
-Open the URL in Safari on iPad. For a native app feel:
-1. Tap the Share button
-2. Tap "Add to Home Screen"
-3. Opens full-screen with no browser chrome
-
-The viewport meta tags are configured for iPad touch interaction.
-
-## Customizing Data
-
-Replace the sample stops in `src/data/sampleStops.ts`:
-
-```typescript
-export const sampleStops: TrashStop[] = [
-  { id: 's1', name: 'Your Stop Name', lat: 30.2672, lng: -97.7431 },
-  // ... more stops
-];
+```bash
+npm run lint
+npm test
+npm run build
+npm run test:e2e
 ```
 
-The `id` must be unique. `name` is displayed in the UI. `lat`/`lng` place the marker on the map.
+The production build is the portable `dist/` directory. Serve it from any ordinary HTTP server:
 
-## Features
+```bash
+python3 -m http.server -d dist
+```
 
-- **View Mode** — See preconfigured stops as numbered markers with the route highlighted in amber
-- **Draw Mode** — Tap the map to add new stops; stops appear in blue with route lines. Tap × to remove.
-- **Edit Mode** — Drag markers to reposition stops. Right-click a marker to move it to the front of the route.
-- **Export/Import** — Share routes as JSON files
-- **Reset** — Restore the default route (only available after making changes)
-- **Stats Bar** — Shows total stops and route distance in miles at the bottom
+Then open <http://localhost:8000>.
 
-## Tech Stack
+## Review modes
 
-- React 19 + TypeScript
-- Vite 8
-- Leaflet + React Leaflet (OpenStreetMap tiles)
-- Tailwind CSS v4
-- localStorage for persistence
-- No backend required
+- **View** displays the saved route and lets you select any fixed stop for its name, sequence, and coordinates.
+- **Draw** hides the saved route while you trace a complete replacement with a finger, Apple Pencil, mouse, or trackpad. It never changes stops or their sequence.
+- **Edit** keeps the saved route faintly visible while you redraw it. The original remains unchanged until you choose Save; Cancel restores it immediately.
+
+Draw and Edit offer whole-stroke Undo, Clear, Cancel, and Save. Route mileage is calculated from saved route geometry, not by connecting stop coordinates.
+
+## Local data, import, and export
+
+The current schema-v1 `RouteDocument` is validated before it is loaded or imported and is stored in browser `localStorage`. Actions → Export downloads the document as JSON. Actions → Import accepts that same schema. An invalid import identifies the failing field and leaves the current valid document untouched. Reset restores the checked-in Lodi demonstration.
+
+## Lodi demonstration data
+
+The demo contains exactly 100 named public points of interest in and around Lodi, California. Private homes were excluded.
+
+- Source: OpenStreetMap contributors
+- Copyright and license: <https://www.openstreetmap.org/copyright>
+- Retrieval date: **2026-09-03**
+- Reproducible query: [`data/lodi-overpass-query.txt`](data/lodi-overpass-query.txt)
+- Checked-in source snapshot: [`data/lodi-osm-source.json`](data/lodi-osm-source.json)
+- Deterministic transform: [`scripts/build-lodi-fixture.mjs`](scripts/build-lodi-fixture.mjs)
+
+The base map uses key-free [OpenFreeMap](https://openfreemap.org/) vector tiles and OpenStreetMap data. No paid map API key is required.
+
+## Install on iPad
+
+1. Publish or serve the HTTPS production build.
+2. Open Route Review in Safari.
+3. Tap **Share**.
+4. Tap **Add to Home Screen**.
+
+The PWA uses standalone display metadata, a service worker, safe-area layout, and iPad-sized icons. **iPadOS cannot run Windows `.exe` files.** Use the PWA on iPad.
+
+## GitHub Pages publication
+
+The repository includes [`.github/workflows/pages.yml`](.github/workflows/pages.yml), which builds and deploys `dist/` through GitHub Pages using relative, project-path-safe assets.
+
+This checkout currently has no GitHub remote. An engineer must first choose the GitHub repository and its visibility, push these commits, and configure Pages to use **GitHub Actions**. Publishing is intentionally not performed by local verification.
+
+## Windows download
+
+The same frontend is wrapped by a thin Tauri 2 configuration. [`.github/workflows/windows-release.yml`](.github/workflows/windows-release.yml) runs on `windows-latest` for tags matching `v*` and attaches the generated NSIS `.exe` installer to a draft GitHub Release.
+
+After publishing the repository:
+
+1. Push a version tag such as `v0.1.0`.
+2. Let the Windows Release workflow complete.
+3. Review/publish the draft GitHub Release.
+4. Download its NSIS `.exe` installer.
+
+End users do not need Rust. Rust and Windows packaging tools run only on the GitHub Actions Windows runner. A Windows executable is not produced by local Linux verification.
+
+## Verification scope
+
+Automated tests cover schema validation, deterministic fixture invariants, drawing geometry processing, mileage, persistence/import behavior, map layer contracts, mode transitions, 2D/3D state, and Chromium/iPad-WebKit walkthroughs. The live OpenFreeMap smoke is opt-in:
+
+```bash
+RUN_LIVE_MAP=1 npm run test:e2e -- --grep "live OpenFreeMap"
+```
+
+Map availability still depends on network access to OpenFreeMap. Import and export remain available when WebGL or map tiles are unavailable.
