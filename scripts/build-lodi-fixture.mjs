@@ -11,14 +11,6 @@ const EXCLUDED_OSM_IDS = new Set([
   'node-5370762797', // Lodi Boat House
 ]);
 
-const DEMO_ROUTE_COORDINATES = [
-  [-121.2930, 38.1450], [-121.2820, 38.1450], [-121.2700, 38.1450], [-121.2570, 38.1450],
-  [-121.2520, 38.1370], [-121.2640, 38.1370], [-121.2780, 38.1370], [-121.2900, 38.1370],
-  [-121.2900, 38.1280], [-121.2780, 38.1280], [-121.2640, 38.1280], [-121.2520, 38.1280],
-  [-121.2520, 38.1180], [-121.2650, 38.1180], [-121.2790, 38.1180], [-121.2910, 38.1180],
-  [-121.2930, 38.1280], [-121.2930, 38.1450],
-];
-
 const keyFor = (element) => `${element.type}-${element.id}`;
 const normalizeName = (name) => name.trim().replace(/\s+/g, ' ');
 const coordinateOf = (element) => element.type === 'node'
@@ -54,7 +46,19 @@ if (selected.length !== 100) {
   throw new Error(`expected 100 public POIs, found ${selected.length}`);
 }
 
-const stops = selected.map(({ element, name, lat, lng }, index) => ({
+const proximity = (a, b) => {
+  const latitudeScale = Math.cos(((a.lat + b.lat) / 2) * Math.PI / 180);
+  return ((a.lng - b.lng) * latitudeScale) ** 2 + (a.lat - b.lat) ** 2;
+};
+const remaining = selected.slice(1);
+const ordered = [selected[0]];
+while (remaining.length > 0) {
+  const previous = ordered.at(-1);
+  remaining.sort((a, b) => proximity(previous, a) - proximity(previous, b) || keyFor(a.element).localeCompare(keyFor(b.element)));
+  ordered.push(remaining.shift());
+}
+
+const stops = ordered.map(({ element, name, lat, lng }, index) => ({
   id: keyFor(element),
   name,
   lat,
@@ -67,7 +71,7 @@ const routeDocument = {
   routeId: 'lodi-demo',
   routeName: 'Lodi Route Review',
   stops,
-  route: { coordinates: DEMO_ROUTE_COORDINATES },
+  route: { coordinates: stops.map((stop) => [stop.lng, stop.lat]) },
 };
 
 process.stdout.write(`${JSON.stringify(routeDocument, null, 2)}\n`);
