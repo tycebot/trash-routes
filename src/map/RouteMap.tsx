@@ -4,7 +4,6 @@ import type { GeoJSONSource, Map as MapLibreMap, MapLayerMouseEvent } from 'mapl
 import 'maplibre-gl/dist/maplibre-gl.css';
 import mapLibreWorkerUrl from 'maplibre-gl/dist/maplibre-gl-worker.mjs?worker&url';
 import type { RouteGeometry, RouteMode, TrashStop } from '../domain/routeDocument';
-import type { ScreenGeoPoint } from '../domain/routeGeometry';
 import { routeLayerDefinitions, routeToGeoJson, type RouteLayerKind } from './RouteLayer';
 import { STOP_LAYER_DEFINITIONS, stopsToGeoJson } from './StopLayer';
 
@@ -13,6 +12,7 @@ export type MapError = 'unsupported' | 'initialization' | 'style' | null;
 
 export interface RouteMapProps {
   stops: TrashStop[];
+  displayOrder: string[];
   selectedStopId: string | null;
   savedRoute: RouteGeometry | null;
   referenceRoute: RouteGeometry | null;
@@ -21,9 +21,9 @@ export interface RouteMapProps {
   presentation: MapPresentation;
   drawingActive: boolean;
   onSelectStop(id: string): void;
-  onStrokeStart(point: ScreenGeoPoint): void;
-  onStrokePoint(point: ScreenGeoPoint): void;
-  onStrokeEnd(point: ScreenGeoPoint): void;
+  onSequenceStart(): void;
+  onStopContact(id: string): void;
+  onSequenceEnd(): void;
   onMapError(error: MapError): void;
 }
 
@@ -96,13 +96,13 @@ export function RouteMap(props: RouteMapProps) {
           for (const layer of routeLayerDefinitions(kind)) if (!map.getLayer(layer.id)) map.addLayer(layer);
         }
         if (!map.getSource('stops')) {
-          map.addSource('stops', { type: 'geojson', data: stopsToGeoJson(current.stops, current.selectedStopId) });
+          map.addSource('stops', { type: 'geojson', data: stopsToGeoJson(current.stops, current.displayOrder, current.selectedStopId) });
         }
         for (const layer of Object.values(STOP_LAYER_DEFINITIONS)) {
           if (!map.getLayer(layer.id)) map.addLayer(layer);
         }
         (map.getSource('stops') as GeoJSONSource | undefined)?.setData(
-          stopsToGeoJson(current.stops, current.selectedStopId),
+          stopsToGeoJson(current.stops, current.displayOrder, current.selectedStopId),
         );
         for (const [kind, route] of [
           ['saved', current.savedRoute],
@@ -113,7 +113,7 @@ export function RouteMap(props: RouteMapProps) {
         }
         const is3d = current.presentation === '3d';
         map.easeTo(is3d
-          ? { pitch: 55, bearing: -12, duration: 500 }
+          ? { pitch: 55, bearing: -12, zoom: Math.max(map.getZoom(), 15), duration: 700 }
           : { pitch: 0, bearing: 0, duration: 500 });
         if (map.getLayer('building-3d')) {
           map.setLayoutProperty('building-3d', 'visibility', is3d ? 'visible' : 'none');
@@ -144,7 +144,7 @@ export function RouteMap(props: RouteMapProps) {
     const map = mapRef.current;
     if (!map || loadedGeneration !== generation) return;
     const sourceData = {
-      stops: stopsToGeoJson(props.stops, props.selectedStopId),
+      stops: stopsToGeoJson(props.stops, props.displayOrder, props.selectedStopId),
       saved: routeToGeoJson(props.savedRoute),
       reference: routeToGeoJson(props.referenceRoute),
       draft: routeToGeoJson(props.draftRoute),
@@ -153,14 +153,14 @@ export function RouteMap(props: RouteMapProps) {
     for (const kind of ROUTE_KINDS) {
       (map.getSource(`${kind}-route`) as GeoJSONSource | undefined)?.setData(sourceData[kind]);
     }
-  }, [generation, loadedGeneration, props.stops, props.selectedStopId, props.savedRoute, props.referenceRoute, props.draftRoute]);
+  }, [generation, loadedGeneration, props.stops, props.displayOrder, props.selectedStopId, props.savedRoute, props.referenceRoute, props.draftRoute]);
 
   useEffect(() => {
     const map = mapRef.current;
     if (!map || loadedGeneration !== generation) return;
     const is3d = props.presentation === '3d';
     map.easeTo(is3d
-      ? { pitch: 55, bearing: -12, duration: 500 }
+      ? { pitch: 55, bearing: -12, zoom: Math.max(map.getZoom(), 15), duration: 700 }
       : { pitch: 0, bearing: 0, duration: 500 });
     if (map.getLayer('building-3d')) {
       map.setLayoutProperty('building-3d', 'visibility', is3d ? 'visible' : 'none');
@@ -173,35 +173,49 @@ export function RouteMap(props: RouteMapProps) {
     mapRef.current?.dragPan.enable();
   }, [props.drawingActive, props.mode]);
 
-  const pointFromEvent = (event: ReactPointerEvent<HTMLDivElement>): ScreenGeoPoint | null => {
+  const stopAtPoint = (event: ReactPointerEvent<HTMLDivElement>): string | null => {
     const map = mapRef.current;
-    if (!map) return null;
+    if (!map || loadedGeneration !== generation) return null;
     const rect = event.currentTarget.getBoundingClientRect();
     const x = event.clientX - rect.left;
     const y = event.clientY - rect.top;
-    const geographic = map.unproject([x, y]);
-    return { x, y, lng: geographic.lng, lat: geographic.lat, time: event.timeStamp };
+    const radius = 16;
+    const features = map.queryRenderedFeatures(
+      [[x - radius, y - radius], [x + radius, y + radius]],
+      { layers: ['stop-point'] },
+    );
+    return features
+      .map((feature) => {
+        const id = feature.properties?.id;
+        if (id === undefined || feature.geometry.type !== 'Point') return null;
+        const [lng, lat] = feature.geometry.coordinates as [number, number];
+        const projected = map.project([lng, lat]);
+        return { id: String(id), distance: Math.hypot(projected.x - x, projected.y - y) };
+      })
+      .filter((candidate): candidate is { id: string; distance: number } => candidate !== null)
+      .sort((left, right) => left.distance - right.distance)[0]?.id ?? null;
   };
 
   const canDraw = props.drawingActive && (props.mode === 'draw' || props.mode === 'edit');
   const handlePointerDown = (event: ReactPointerEvent<HTMLDivElement>) => {
     if (!canDraw || activePointerRef.current !== null) return;
-    const point = pointFromEvent(event);
-    if (!point) return;
     activePointerRef.current = event.pointerId;
     event.currentTarget.setPointerCapture?.(event.pointerId);
     mapRef.current?.dragPan.disable();
-    props.onStrokeStart(point);
+    props.onSequenceStart();
+    const stopId = stopAtPoint(event);
+    if (stopId) props.onStopContact(stopId);
   };
   const handlePointerMove = (event: ReactPointerEvent<HTMLDivElement>) => {
     if (activePointerRef.current !== event.pointerId) return;
-    const point = pointFromEvent(event);
-    if (point) props.onStrokePoint(point);
+    const stopId = stopAtPoint(event);
+    if (stopId) props.onStopContact(stopId);
   };
   const finishPointer = (event: ReactPointerEvent<HTMLDivElement>) => {
     if (activePointerRef.current !== event.pointerId) return;
-    const point = pointFromEvent(event);
-    if (point) props.onStrokeEnd(point);
+    const stopId = stopAtPoint(event);
+    if (stopId) props.onStopContact(stopId);
+    props.onSequenceEnd();
     activePointerRef.current = null;
     event.currentTarget.releasePointerCapture?.(event.pointerId);
     mapRef.current?.dragPan.enable();

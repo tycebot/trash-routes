@@ -24,7 +24,12 @@ function createFakeMap() {
     setPaintProperty: vi.fn(),
     setLayoutProperty: vi.fn(),
     easeTo: vi.fn(),
-    unproject: vi.fn(([x, y]: [number, number]) => ({ lng: -121.28 + x / 10000, lat: 38.13 + y / 10000 })),
+    getZoom: vi.fn(() => 12),
+    queryRenderedFeatures: vi.fn(() => [{
+      properties: { id: 'a' },
+      geometry: { type: 'Point', coordinates: [-121.27, 38.13] },
+    }]),
+    project: vi.fn(() => ({ x: 10, y: 20 })),
     dragPan: { disable: vi.fn(), enable: vi.fn() },
     remove: vi.fn(),
     once: vi.fn((_event: string, handler: () => void) => handler()),
@@ -41,11 +46,12 @@ function createFakeMap() {
 }
 
 const originalStops = [
-  { id: 'a', name: 'City Hall', lat: 38.13, lng: -121.27, sequence: 1 },
+  { id: 'a', name: 'City Hall', lat: 38.13, lng: -121.27 },
 ];
 
 const props: RouteMapProps = {
   stops: originalStops,
+  displayOrder: ['a'],
   selectedStopId: null,
   savedRoute: { coordinates: [[-121.28, 38.13], [-121.27, 38.14]] },
   referenceRoute: null,
@@ -54,9 +60,9 @@ const props: RouteMapProps = {
   presentation: '2d',
   drawingActive: false,
   onSelectStop: vi.fn(),
-  onStrokeStart: vi.fn(),
-  onStrokePoint: vi.fn(),
-  onStrokeEnd: vi.fn(),
+  onSequenceStart: vi.fn(),
+  onStopContact: vi.fn(),
+  onSequenceEnd: vi.fn(),
   onMapError: vi.fn(),
 };
 
@@ -70,22 +76,40 @@ it('changes pitch/bearing and building visibility for 3D', () => {
   mocks.constructor.mockImplementation(function FakeMapConstructor() { return map; });
   render(<RouteMap {...props} presentation="3d" />);
   act(() => map.emit('load'));
-  expect(map.easeTo).toHaveBeenCalledWith(expect.objectContaining({ pitch: 55, bearing: -12 }));
+  expect(map.easeTo).toHaveBeenCalledWith(expect.objectContaining({ pitch: 55, bearing: -12, zoom: 15 }));
   expect(map.setLayoutProperty).toHaveBeenCalledWith('building-3d', 'visibility', 'visible');
 });
 
-it('captures drawing pointers without moving stops', () => {
+it('contacts stops during a tap or drag without moving them', () => {
   const map = createFakeMap();
   mocks.constructor.mockImplementation(function FakeMapConstructor() { return map; });
-  const onStrokePoint = vi.fn();
-  render(<RouteMap {...props} mode="draw" drawingActive onStrokePoint={onStrokePoint} />);
+  const onStopContact = vi.fn();
+  const onSequenceStart = vi.fn();
+  const onSequenceEnd = vi.fn();
+  render(<RouteMap {...props} mode="draw" drawingActive onStopContact={onStopContact} onSequenceStart={onSequenceStart} onSequenceEnd={onSequenceEnd} />);
   act(() => map.emit('load'));
   const element = screen.getByTestId('route-map');
   fireEvent.pointerDown(element, { pointerId: 7, clientX: 10, clientY: 20 });
   fireEvent.pointerMove(element, { pointerId: 7, clientX: 20, clientY: 30 });
-  expect(onStrokePoint).toHaveBeenCalledWith(expect.objectContaining({ x: 20, y: 30 }));
+  fireEvent.pointerUp(element, { pointerId: 7, clientX: 20, clientY: 30 });
+  expect(onSequenceStart).toHaveBeenCalledOnce();
+  expect(onStopContact).toHaveBeenCalledWith('a');
+  expect(onStopContact).toHaveBeenCalledTimes(3);
+  expect(onSequenceEnd).toHaveBeenCalledOnce();
   expect(props.stops).toEqual(originalStops);
   expect(map.dragPan.disable).toHaveBeenCalled();
+  expect(map.dragPan.enable).toHaveBeenCalled();
+});
+
+it('does not contact a stop when no rendered stop is within the hit radius', () => {
+  const map = createFakeMap();
+  map.queryRenderedFeatures.mockReturnValue([]);
+  mocks.constructor.mockImplementation(function FakeMapConstructor() { return map; });
+  const onStopContact = vi.fn();
+  render(<RouteMap {...props} mode="draw" drawingActive onStopContact={onStopContact} />);
+  act(() => map.emit('load'));
+  fireEvent.pointerDown(screen.getByTestId('route-map'), { pointerId: 7, clientX: 10, clientY: 20 });
+  expect(onStopContact).not.toHaveBeenCalled();
 });
 
 it('shows a clear unsupported-browser message', () => {
