@@ -1,6 +1,6 @@
 # Route Review
 
-Route Review is a light, map-first application for reviewing fixed trash-collection stops and tracing replacement route geometry. It runs entirely in the browser, persists data locally, and requires no application backend or paid map key.
+Route Review is an iPad-first PWA for presenting fixed trash-collection stops one route day at a time. Select a route, select its day, then review or sequence stops on a map. It runs entirely in the browser, persists data locally, and requires no application backend or paid map key.
 
 ## Local development
 
@@ -26,21 +26,25 @@ python3 -m http.server -d dist
 
 Then open <http://localhost:8000>.
 
-## Review modes
+## Route workflow and modes
 
-- **View** displays the saved route and lets you select any fixed stop for its name, sequence, and coordinates.
-- **Draw** hides the saved route while you trace a complete replacement with a finger, Apple Pencil, mouse, or trackpad. It never changes stops or their sequence.
-- **Edit** keeps the saved route faintly visible while you redraw it. The original remains unchanged until you choose Save; Cancel restores it immediately.
+1. Select a route/area.
+2. Select one route day within it.
+3. Work with only that day’s stops and line.
 
-Draw and Edit offer whole-stroke Undo, Clear, Cancel, and Save. Route mileage is calculated from saved route geometry, not by connecting stop coordinates.
+- **View** displays the saved stop order and highlighted straight-segment line. Select a stop to see its name, sequence, and coordinates.
+- **Draw** starts an empty order. Tap stops or drag across them with a finger, Apple Pencil, mouse, or trackpad; each new stop is added once and the line snaps between stops.
+- **Edit** keeps the saved line faintly visible while you redraw the order using the same stop gesture. It preserves stop membership; Save replaces the order and Cancel restores it.
+
+A complete sequence must include every fixed stop before Save is enabled. Draw and Edit offer Undo, Clear, Cancel, and Save. Route mileage is calculated from the saved straight-segment stop order.
 
 ## Local data, import, and export
 
-The current schema-v1 `RouteDocument` is validated before it is loaded or imported and is stored in browser `localStorage`. Actions → Export downloads the document as JSON. Actions → Import accepts that same schema. An invalid import identifies the failing field and leaves the current valid document untouched. Reset restores the checked-in Lodi demonstration.
+The schema-v2 `RouteDocument` contains routes, route days, fixed stops, and ordered stop IDs. It is validated before loading or importing and is stored in browser `localStorage`; existing schema-v1 local data is migrated on first load. Actions → Export downloads the document as JSON. Actions → Import accepts the validated schema. An invalid import identifies the failing field and leaves the current valid document untouched. Reset restores the checked-in Lodi demonstration.
 
 ## Lodi demonstration data
 
-The demo contains exactly 100 named public points of interest in and around Lodi, California. Private homes were excluded.
+The demo contains one Lodi route with five route days and exactly 100 named public points of interest in and around Lodi, California. Private homes were excluded.
 
 - Source: OpenStreetMap contributors
 - Copyright and license: <https://www.openstreetmap.org/copyright>
@@ -81,7 +85,7 @@ End users do not need Rust. Rust and Windows packaging tools run only on the Git
 
 ## Verification scope
 
-Automated tests cover schema validation, deterministic fixture invariants, drawing geometry processing, mileage, persistence/import behavior, map layer contracts, mode transitions, 2D/3D state, and Chromium/iPad-WebKit walkthroughs. The live OpenFreeMap smoke is opt-in:
+Automated tests cover schema validation and migration, deterministic fixture invariants, stop-order geometry, tap/drag sequencing, mileage, persistence/import behavior, map layer contracts, route/day selection, mode transitions, 2D/3D state, PWA metadata, and Chromium/iPad-WebKit walkthroughs. The live OpenFreeMap smoke is opt-in:
 
 ```bash
 RUN_LIVE_MAP=1 npm run test:e2e -- --grep "live OpenFreeMap"

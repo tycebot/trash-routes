@@ -10,6 +10,11 @@ describe('production PWA', () => {
     await access('dist/manifest.webmanifest');
     await access('dist/sw.js');
     const manifest = JSON.parse(await readFile('dist/manifest.webmanifest', 'utf8'));
-    expect(manifest).toMatchObject({ name: 'Route Review', display: 'standalone' });
+    expect(manifest).toMatchObject({
+      name: 'Route Review',
+      display: 'standalone',
+      start_url: './',
+      scope: './',
+    });
   });
 });
