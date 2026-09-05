@@ -1,12 +1,15 @@
 import { LODI_ROUTE } from '../data/lodiRoute';
 import {
   cloneRouteDocument,
+  migrateRouteDocument,
   parseRouteDocument,
+  RouteDocumentError,
   type RouteDocument,
-  type RouteGeometry,
+  type RouteDay,
 } from '../domain/routeDocument';
 
-const STORAGE_KEY = 'trash-routes-route-document-v1';
+const STORAGE_KEY = 'trash-routes-route-document-v2';
+const LEGACY_STORAGE_KEY = 'trash-routes-route-document-v1';
 
 export interface StorageAdapter {
   getItem(key: string): string | null;
@@ -22,6 +25,14 @@ export interface RouteStoreSnapshot {
   saveStatus: SaveStatus;
 }
 
+const dayFor = (document: RouteDocument, routeId: string, dayId: string): RouteDay => {
+  const route = document.routes.find((candidate) => candidate.id === routeId);
+  if (!route) throw new RouteDocumentError('routeId', 'must reference a route in this document');
+  const day = route.days.find((candidate) => candidate.id === dayId);
+  if (!day) throw new RouteDocumentError('dayId', 'must reference a day in this route');
+  return day;
+};
+
 export class RouteStore {
   private document: RouteDocument;
   private saveStatus: SaveStatus = 'saved';
@@ -32,10 +43,19 @@ export class RouteStore {
     this.storage = storage;
     this.document = cloneRouteDocument(fallback);
     try {
-      const saved = storage.getItem(STORAGE_KEY);
-      if (saved !== null) this.document = parseRouteDocument(JSON.parse(saved));
+      const savedV2 = storage.getItem(STORAGE_KEY);
+      const saved = savedV2 ?? storage.getItem(LEGACY_STORAGE_KEY);
+      if (saved !== null) {
+        const parsed: unknown = JSON.parse(saved);
+        this.document = typeof parsed === 'object' && parsed !== null && 'schemaVersion' in parsed &&
+          parsed.schemaVersion === 1
+          ? migrateRouteDocument(parsed)
+          : parseRouteDocument(parsed);
+        if (savedV2 === null) this.persistAndNotify();
+      }
     } catch {
       this.document = cloneRouteDocument(fallback);
+      this.saveStatus = 'saved';
     }
   }
 
@@ -48,18 +68,22 @@ export class RouteStore {
     return () => this.listeners.delete(listener);
   }
 
-  replaceRoute(route: RouteGeometry): void {
-    this.document = parseRouteDocument({
-      ...cloneRouteDocument(this.document),
-      route: { coordinates: route.coordinates.map(([lng, lat]) => [lng, lat]) },
-    });
+  replaceDayOrder(routeId: string, dayId: string, stopOrder: string[]): void {
+    const next = cloneRouteDocument(this.document);
+    const day = dayFor(next, routeId, dayId);
+    day.stopOrder = [...stopOrder];
+    this.document = parseRouteDocument(next);
     this.persistAndNotify();
   }
 
   importJson(json: string): ImportResult {
     let imported: RouteDocument;
     try {
-      imported = parseRouteDocument(JSON.parse(json));
+      const parsed: unknown = JSON.parse(json);
+      imported = typeof parsed === 'object' && parsed !== null && 'schemaVersion' in parsed &&
+        parsed.schemaVersion === 1
+        ? migrateRouteDocument(parsed)
+        : parseRouteDocument(parsed);
     } catch (error) {
       return { ok: false, error: error instanceof Error ? error.message : 'document: invalid JSON' };
     }
