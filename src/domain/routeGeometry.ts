@@ -1,4 +1,22 @@
-import type { RouteGeometry } from './routeDocument';
+import type { RouteGeometry, TrashStop } from './routeDocument';
+
+export function stopOrderToGeometry(stops: TrashStop[], stopOrder: string[]): RouteGeometry | null {
+  if (stops.length < 2 || stopOrder.length !== stops.length) return null;
+  const stopsById = new Map(stops.map((stop) => [stop.id, stop]));
+  const seen = new Set<string>();
+  const coordinates: Array<[number, number]> = [];
+  for (const id of stopOrder) {
+    if (seen.has(id)) return null;
+    const stop = stopsById.get(id);
+    if (!stop) return null;
+    seen.add(id);
+    coordinates.push([stop.lng, stop.lat]);
+  }
+  if (seen.size !== stops.length || !coordinates.some(([lng, lat]) => lng !== coordinates[0][0] || lat !== coordinates[0][1])) {
+    return null;
+  }
+  return { coordinates };
+}
 
 export interface ScreenGeoPoint {
   x: number;

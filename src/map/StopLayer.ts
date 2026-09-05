@@ -5,26 +5,33 @@ import type { TrashStop } from '../domain/routeDocument';
 interface StopProperties {
   id: string;
   name: string;
-  sequence: number;
+  sequence: number | null;
   selected: boolean;
+  configured: boolean;
 }
 
 export function stopsToGeoJson(
   stops: TrashStop[],
+  stopOrder: string[],
   selectedStopId: string | null,
 ): FeatureCollection<Point, StopProperties> {
+  const sequenceById = new Map(stopOrder.map((id, index) => [id, index + 1]));
   return {
     type: 'FeatureCollection',
-    features: stops.map((stop) => ({
-      type: 'Feature',
-      geometry: { type: 'Point', coordinates: [stop.lng, stop.lat] },
-      properties: {
-        id: stop.id,
-        name: stop.name,
-        sequence: stop.sequence,
-        selected: stop.id === selectedStopId,
-      },
-    })),
+    features: stops.map((stop) => {
+      const sequence = sequenceById.get(stop.id) ?? null;
+      return {
+        type: 'Feature',
+        geometry: { type: 'Point', coordinates: [stop.lng, stop.lat] },
+        properties: {
+          id: stop.id,
+          name: stop.name,
+          sequence,
+          selected: stop.id === selectedStopId,
+          configured: sequence !== null,
+        },
+      };
+    }),
   };
 }
 
@@ -59,11 +66,11 @@ const label: SymbolLayerSpecification = {
   source: 'stops',
   minzoom: 13,
   layout: {
-    'text-field': ['to-string', ['get', 'sequence']],
+    'text-field': ['case', ['get', 'configured'], ['to-string', ['get', 'sequence']], ''],
     'text-size': 11,
     'text-font': ['Noto Sans Bold'],
     'text-allow-overlap': false,
-    'symbol-sort-key': ['get', 'sequence'],
+    'symbol-sort-key': ['coalesce', ['get', 'sequence'], 9999],
   },
   paint: {
     'text-color': '#24262b',

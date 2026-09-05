@@ -1,31 +1,24 @@
 import { describe, expect, it } from 'vitest';
-import { processDrawnPoints, routeMiles } from './routeGeometry';
+import { routeMiles, stopOrderToGeometry } from './routeGeometry';
 
-const point = (x: number, y: number, lng: number, lat: number, time: number) =>
-  ({ x, y, lng, lat, time });
+const stops = [
+  { id: 'a', name: 'A', lat: 38.13, lng: -121.28 },
+  { id: 'b', name: 'B', lat: 38.14, lng: -121.27 },
+  { id: 'c', name: 'C', lat: 38.15, lng: -121.26 },
+];
 
-describe('processDrawnPoints', () => {
-  it('throttles, filters, smooths, simplifies, and preserves endpoints', () => {
-    const input = [
-      point(0, 0, -121.2800, 38.1300, 0),
-      point(1, 1, -121.2799, 38.1301, 4),
-      point(8, 0, -121.2790, 38.1300, 20),
-      point(16, 8, -121.2780, 38.1310, 40),
-      point(24, 8, -121.2770, 38.1310, 60),
-    ];
-    const route = processDrawnPoints(input, {
-      throttleMs: 16,
-      minimumScreenDistancePx: 4,
-      smoothingWindow: 3,
-      simplifyTolerancePx: 1.5,
+describe('stopOrderToGeometry', () => {
+  it('creates a line in the requested stop order', () => {
+    expect(stopOrderToGeometry(stops, ['c', 'a', 'b'])).toEqual({
+      coordinates: [[-121.26, 38.15], [-121.28, 38.13], [-121.27, 38.14]],
     });
-    expect(route?.coordinates[0]).toEqual([-121.28, 38.13]);
-    expect(route?.coordinates.at(-1)).toEqual([-121.277, 38.131]);
-    expect(route!.coordinates.length).toBeLessThan(input.length);
   });
 
-  it('rejects fewer than two distinct coordinates', () => {
-    expect(processDrawnPoints([point(0, 0, -121.28, 38.13, 0)])).toBeNull();
+  it('returns null for an empty, incomplete, duplicate, or unknown order', () => {
+    expect(stopOrderToGeometry([], [])).toBeNull();
+    expect(stopOrderToGeometry(stops, ['a'])).toBeNull();
+    expect(stopOrderToGeometry(stops, ['a', 'a', 'b'])).toBeNull();
+    expect(stopOrderToGeometry(stops, ['a', 'b', 'missing'])).toBeNull();
   });
 });
 
