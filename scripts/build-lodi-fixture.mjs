@@ -58,20 +58,29 @@ while (remaining.length > 0) {
   ordered.push(remaining.shift());
 }
 
-const stops = ordered.map(({ element, name, lat, lng }, index) => ({
-  id: keyFor(element),
-  name,
-  lat,
-  lng,
-  sequence: index + 1,
-}));
+const dayNames = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
+const days = dayNames.map((name, dayIndex) => {
+  const dayStops = ordered.slice(dayIndex * 20, (dayIndex + 1) * 20).map(({ element, name: stopName, lat, lng }) => ({
+    id: keyFor(element),
+    name: stopName,
+    lat,
+    lng,
+  }));
+  return {
+    id: `lodi-demo-${name.toLocaleLowerCase('en-US')}`,
+    name,
+    stops: dayStops,
+    stopOrder: dayStops.map((stop) => stop.id),
+  };
+});
 
 const routeDocument = {
-  schemaVersion: 1,
-  routeId: 'lodi-demo',
-  routeName: 'Lodi Route Review',
-  stops,
-  route: { coordinates: stops.map((stop) => [stop.lng, stop.lat]) },
+  schemaVersion: 2,
+  routes: [{
+    id: 'lodi-demo',
+    name: 'Lodi Demo Route',
+    days,
+  }],
 };
 
 process.stdout.write(`${JSON.stringify(routeDocument, null, 2)}\n`);
