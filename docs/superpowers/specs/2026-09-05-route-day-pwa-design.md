@@ -67,7 +67,7 @@ RouteDocument
 
 `stopOrder` contains each stop ID at most once. It is the source of truth for numbering and line construction. The highlighted line is derived by mapping the ordered IDs to stop coordinates; no independently editable geometry is stored.
 
-A day may have a null/empty `stopOrder` when it has fixed points but no configured sequence yet. The View screen then shows points and an instruction to use Draw.
+A day may have an empty `stopOrder` when it has fixed points but no configured sequence yet. The View screen then shows points and an instruction to use Draw. A saved sequence must contain every fixed stop exactly once.
 
 The checked-in Lodi fixture will contain one route with several named days and a deterministic distribution of the 100 source POIs. The source attribution, retrieval metadata, query, and snapshot remain checked in.
 
@@ -104,7 +104,8 @@ The initial demo intentionally has one route so the hierarchy is demonstrated wi
 - Use sufficiently large hit regions for finger and Apple Pencil input.
 - Map panning is disabled for the active sequencing gesture and restored afterward.
 - Provide Undo, Clear, Cancel, and Save.
-- Save is disabled until at least two distinct stops are selected.
+- Save is disabled until every fixed stop has been selected exactly once.
+- The working sequence must contain every fixed stop before it can be saved.
 - Save replaces only the selected day’s order and persists it locally.
 
 ### Edit mode
@@ -149,7 +150,7 @@ Keep the existing uncommitted changes in `src/map/RouteMap.tsx` and `src/map/Rou
 - A fresh build emits an installable PWA with relative paths, manifest, icons, and service worker.
 - GitHub Pages deployment succeeds under a project subpath.
 - Route selection followed by day selection opens only that day’s points and line.
-- Draw supports both taps and drag-through sequencing, ignores duplicates, and persists on Save.
+- Draw supports both taps and drag-through sequencing, ignores duplicates, requires every fixed stop before Save, and persists on Save.
 - Edit redraws the order using the same gesture, keeps membership unchanged, and correctly handles Save/Cancel.
 - View derives numbering and line geometry from the saved order.
 - Local storage, import validation, reset, and map-error behavior retain existing guarantees.
