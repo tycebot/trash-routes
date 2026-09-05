@@ -1,7 +1,24 @@
 import { describe, expect, it } from 'vitest';
-import { parseRouteDocument, RouteDocumentError } from './routeDocument';
+import { migrateRouteDocument, orderedStops, parseRouteDocument, RouteDocumentError } from './routeDocument';
 
-const valid = {
+const validV2 = {
+  schemaVersion: 2,
+  routes: [{
+    id: 'lodi-demo',
+    name: 'Lodi Demo Route',
+    days: [{
+      id: 'monday',
+      name: 'Monday',
+      stops: [
+        { id: 'a', name: 'Stop A', lat: 38.13, lng: -121.28 },
+        { id: 'b', name: 'Stop B', lat: 38.14, lng: -121.27 },
+      ],
+      stopOrder: ['b', 'a'],
+    }],
+  }],
+};
+
+const validV1 = {
   schemaVersion: 1,
   routeId: 'lodi-demo',
   routeName: 'Lodi Route Review',
@@ -13,18 +30,49 @@ const valid = {
 };
 
 describe('parseRouteDocument', () => {
-  it('returns an isolated schema-v1 document', () => {
-    const parsed = parseRouteDocument(valid);
-    expect(parsed).toEqual(valid);
-    expect(parsed).not.toBe(valid);
+  it('parses one route containing multiple days and ordered stop IDs', () => {
+    const document = parseRouteDocument(validV2);
+    expect(document.routes[0].days[0].stopOrder).toEqual(['b', 'a']);
+    expect(document).not.toBe(validV2);
+  });
+
+  it('allows an empty order for a day that has not been configured', () => {
+    const document = parseRouteDocument({
+      ...validV2,
+      routes: [{ ...validV2.routes[0], days: [{ ...validV2.routes[0].days[0], stopOrder: [] }] }],
+    });
+    expect(document.routes[0].days[0].stopOrder).toEqual([]);
+  });
+
+  it('migrates a legacy document into one route and one day', () => {
+    const migrated = migrateRouteDocument(validV1);
+    expect(migrated).toMatchObject({
+      schemaVersion: 2,
+      routes: [{
+        id: 'lodi-demo',
+        name: 'Lodi Route Review',
+        days: [{ id: 'lodi-demo-day-1', name: 'Route day', stopOrder: ['osm-node-1', 'osm-node-2'] }],
+      }],
+    });
+    expect((migrated as typeof validV2).routes[0].days[0].stops[0]).toEqual({
+      id: 'osm-node-1', name: 'Lodi City Hall', lat: 38.1342, lng: -121.2722,
+    });
+  });
+
+  it('returns stops in the configured order', () => {
+    const document = parseRouteDocument(validV2);
+    expect(orderedStops(document.routes[0].days[0]).map((stop) => stop.id)).toEqual(['b', 'a']);
   });
 
   it.each([
-    [{ ...valid, schemaVersion: 2 }, 'schemaVersion'],
-    [{ ...valid, stops: [{ ...valid.stops[0], lat: 91 }] }, 'stops[0].lat'],
-    [{ ...valid, stops: [valid.stops[0], { ...valid.stops[1], id: valid.stops[0].id }] }, 'stops[1].id'],
-    [{ ...valid, stops: [valid.stops[0], { ...valid.stops[1], sequence: 3 }] }, 'stops[1].sequence'],
-    [{ ...valid, route: { coordinates: [[-121.27, 38.13]] } }, 'route.coordinates'],
+    [{ ...validV2, schemaVersion: 1 }, 'schemaVersion'],
+    [{ ...validV2, routes: [{ ...validV2.routes[0], id: ' ' }] }, 'routes[0].id'],
+    [{ ...validV2, routes: [{ ...validV2.routes[0], days: [validV2.routes[0].days[0], validV2.routes[0].days[0]] }] }, 'days[1].id'],
+    [{ ...validV2, routes: [{ ...validV2.routes[0], days: [{ ...validV2.routes[0].days[0], stops: [validV2.routes[0].days[0].stops[0], validV2.routes[0].days[0].stops[0]] }] }] }, 'stops[1].id'],
+    [{ ...validV2, routes: [{ ...validV2.routes[0], days: [{ ...validV2.routes[0].days[0], stopOrder: ['b', 'b'] }] }] }, 'stopOrder[1]'],
+    [{ ...validV2, routes: [{ ...validV2.routes[0], days: [{ ...validV2.routes[0].days[0], stopOrder: ['missing', 'a'] }] }] }, 'stopOrder[0]'],
+    [{ ...validV2, routes: [{ ...validV2.routes[0], days: [{ ...validV2.routes[0].days[0], stops: [{ ...validV2.routes[0].days[0].stops[0], lat: 91 }] }] }] }, 'stops[0].lat'],
+    [{ ...validV2, routes: [{ ...validV2.routes[0], days: [{ ...validV2.routes[0].days[0], stopOrder: ['a'] }] }] }, 'stopOrder'],
   ])('rejects invalid input at %s', (input, field) => {
     expect(() => parseRouteDocument(input)).toThrow(RouteDocumentError);
     expect(() => parseRouteDocument(input)).toThrow(field);
