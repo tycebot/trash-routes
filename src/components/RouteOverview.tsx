@@ -1,17 +1,19 @@
 import type { ChangeEvent } from 'react';
-import type { DrawingSnapshot } from '../domain/DrawingController';
+import type { StopSequenceSnapshot } from '../domain/StopSequenceController';
 import type { RouteMode, TrashStop } from '../domain/routeDocument';
 import type { MapError } from '../map/RouteMap';
 
 interface RouteOverviewProps {
   routeName: string;
+  dayName: string;
   stopCount: number;
   mode: RouteMode;
   selectedStop: TrashStop | null;
-  drawing: DrawingSnapshot;
+  selectedSequence: number | null;
+  drawing: StopSequenceSnapshot;
   importError: string | null;
   mapError: MapError;
-  onStartDrawing(): void;
+  onStartSequencing(): void;
   onUndo(): void;
   onClear(): void;
   onCancel(): void;
@@ -32,31 +34,31 @@ export function RouteOverview(props: RouteOverviewProps) {
     <aside className="route-overview" aria-label="Route overview">
       {props.drawing.active ? (
         <>
-          <p className="eyebrow">{props.mode === 'edit' ? 'Redrawing route' : 'Drawing route'}</p>
-          <h2>Trace one continuous route</h2>
-          <p className="muted">Stops stay fixed. Use a finger, Pencil, mouse, or trackpad.</p>
+          <p className="eyebrow">{props.mode === 'edit' ? 'Reordering route' : 'Creating route order'}</p>
+          <h2>{props.drawing.sequence.length} of {props.stopCount} stops sequenced</h2>
+          <p className="muted">Tap stops or drag across them. Each stop is added once in contact order.</p>
           {props.drawing.validationMessage && <p className="validation-message">{props.drawing.validationMessage}</p>}
           <div className="action-grid">
-            <button type="button" onClick={props.onUndo} disabled={!props.drawing.canUndo}>Undo stroke</button>
-            <button type="button" onClick={props.onClear}>Clear drawing</button>
-            <button type="button" onClick={props.onCancel}>Cancel drawing</button>
+            <button type="button" onClick={props.onUndo} disabled={!props.drawing.canUndo}>Undo stop</button>
+            <button type="button" onClick={props.onClear} disabled={!props.drawing.sequence.length}>Clear order</button>
+            <button type="button" onClick={props.onCancel}>Cancel</button>
             <button type="button" className="primary" onClick={props.onSave} disabled={!props.drawing.canSave}>Save route</button>
           </div>
         </>
       ) : props.selectedStop ? (
         <>
-          <p className="eyebrow">Stop {props.selectedStop.sequence} of {props.stopCount}</p>
+          <p className="eyebrow">{props.selectedSequence ? `Stop ${props.selectedSequence} of ${props.stopCount}` : 'Unsequenced stop'}</p>
           <h2>{props.selectedStop.name}</h2>
           <p className="coordinates">{props.selectedStop.lat.toFixed(4)}, {props.selectedStop.lng.toFixed(4)}</p>
         </>
       ) : (
         <>
-          <p className="eyebrow">Route overview</p>
-          <h2>{props.routeName}</h2>
-          <p className="muted">{props.stopCount} fixed public stops</p>
+          <p className="eyebrow">{props.routeName}</p>
+          <h2>{props.dayName}</h2>
+          <p className="muted">{props.stopCount} fixed stops</p>
           {props.mode !== 'view' && (
-            <button type="button" className="primary wide" onClick={props.onStartDrawing}>
-              {props.mode === 'edit' ? 'Redraw' : 'Start drawing'}
+            <button type="button" className="primary wide" onClick={props.onStartSequencing}>
+              {props.mode === 'edit' ? 'Start new order' : 'Start sequencing'}
             </button>
           )}
         </>

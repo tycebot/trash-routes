@@ -1,3 +1,9 @@
+export type RouteMode = 'view' | 'draw' | 'edit';
+
+export interface RouteGeometry {
+  coordinates: Array<[longitude: number, latitude: number]>;
+}
+
 export interface TrashStop {
   id: string;
   name: string;

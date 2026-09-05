@@ -54,7 +54,7 @@ button:disabled { cursor: not-allowed; opacity: 0.45; }
 .brand-block { display: grid; min-width: 0; gap: 0.1rem; }
 .brand-block strong { font-size: 1.05rem; }
 .brand-block span { max-width: 24rem; overflow: hidden; color: var(--muted); font-size: 0.78rem; text-overflow: ellipsis; white-space: nowrap; }
-.top-controls { display: flex; align-items: center; gap: 0.5rem; }
+.top-controls { display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; }
 .segmented { display: flex; padding: 2px; border: 1px solid var(--line); border-radius: 12px; background: #efeee9; }
 .segmented button { border: 0; background: transparent; border-radius: 9px; }
 .segmented button[aria-pressed="true"] { background: #fff; color: var(--indigo); box-shadow: 0 1px 4px rgba(36, 38, 43, 0.12); font-weight: 700; }
@@ -105,6 +105,22 @@ button:disabled { cursor: not-allowed; opacity: 0.45; }
 .map-error { position: absolute; z-index: 3; right: 0.75rem; bottom: 0.75rem; border: 1px solid #f0c8c2; border-radius: 12px; }
 .map-message { width: 100%; height: 100%; text-align: center; }
 .status-bar { display: flex; justify-content: space-between; gap: 1rem; min-height: 32px; padding: 0.4rem 0.8rem; border-top: 1px solid var(--line); background: var(--surface); color: var(--muted); font-size: 0.78rem; font-variant-numeric: tabular-nums; }
+.selection-shell { width: 100vw; height: 100dvh; overflow: auto; background: #f7f5ef; padding: max(2rem, env(safe-area-inset-top)) max(1rem, env(safe-area-inset-right)) max(2rem, env(safe-area-inset-bottom)) max(1rem, env(safe-area-inset-left)); }
+.selection-screen { width: min(100%, 48rem); margin: 0 auto; padding: 2rem 0; }
+.selection-header { margin-bottom: 1.5rem; }
+.selection-header h1 { margin: 0.2rem 0 0.35rem; color: var(--text); font-size: clamp(1.8rem, 5vw, 2.6rem); }
+.selection-cards { display: grid; gap: 0.75rem; }
+.selection-card { display: flex; align-items: center; justify-content: space-between; width: 100%; min-height: 76px; padding: 1rem 1.1rem; text-align: left; }
+.selection-card > span:first-child { display: grid; gap: 0.3rem; }
+.selection-card strong { font-size: 1rem; }
+.selection-card small { color: var(--muted); font-size: 0.82rem; }
+.selection-arrow { color: var(--indigo); font-size: 1.8rem; line-height: 1; }
+.back-button { margin-bottom: 1.25rem; border: 0; background: transparent; color: var(--indigo); font-weight: 700; }
+.install-help { position: relative; }
+.install-help summary { display: flex; align-items: center; min-height: 44px; padding: 0.55rem 0.75rem; border: 1px solid var(--line); border-radius: 10px; background: #fffefa; color: var(--text); cursor: pointer; white-space: nowrap; }
+.install-help-content { position: absolute; z-index: 8; top: calc(100% + 0.45rem); right: 0; width: min(21rem, calc(100vw - 2rem)); padding: 1rem; border: 1px solid var(--line); border-radius: 12px; background: #fffefa; box-shadow: 0 12px 32px rgba(36, 38, 43, 0.16); }
+.install-help-content ol { margin: 0.65rem 0; padding-left: 1.2rem; }
+.install-help-content li { margin: 0.35rem 0; }
 .maplibregl-ctrl-group { border-radius: 12px; overflow: hidden; box-shadow: 0 2px 10px rgba(36, 38, 43, 0.18); }
 .maplibregl-ctrl button { min-width: 44px; min-height: 44px; }
 

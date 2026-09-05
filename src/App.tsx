@@ -1,11 +1,13 @@
 import { useEffect, useState } from 'react';
+import { DaySelector } from './components/DaySelector';
 import { RouteOverview } from './components/RouteOverview';
+import { RouteSelector } from './components/RouteSelector';
 import { StatusBar } from './components/StatusBar';
 import { TopBar } from './components/TopBar';
 import { LODI_ROUTE } from './data/lodiRoute';
-import { DrawingController, type DrawingSnapshot } from './domain/DrawingController';
+import { StopSequenceController, type StopSequenceSnapshot } from './domain/StopSequenceController';
 import type { RouteMode } from './domain/routeDocument';
-import { routeMiles, type ScreenGeoPoint } from './domain/routeGeometry';
+import { routeMiles, stopOrderToGeometry } from './domain/routeGeometry';
 import { RouteMap, type MapError, type MapPresentation } from './map/RouteMap';
 import { RouteStore, type StorageAdapter } from './store/RouteStore';
 
@@ -22,41 +24,75 @@ export interface RouteReviewAppProps {
 
 export function RouteReviewApp({ store = browserRouteStore }: RouteReviewAppProps) {
   const [snapshot, setSnapshot] = useState(() => store.getSnapshot());
+  const [selectedRouteId, setSelectedRouteId] = useState<string | null>(null);
+  const [selectedDayId, setSelectedDayId] = useState<string | null>(null);
   const [mode, setMode] = useState<RouteMode>('view');
   const [presentation, setPresentation] = useState<MapPresentation>('2d');
   const [selectedStopId, setSelectedStopId] = useState<string | null>(null);
   const [importError, setImportError] = useState<string | null>(null);
   const [mapError, setMapError] = useState<MapError>(null);
-  const [controller] = useState(() => new DrawingController());
-  const [drawing, setDrawing] = useState<DrawingSnapshot>(() => controller.snapshot());
+  const [controller] = useState(() => new StopSequenceController());
+  const [drawing, setDrawing] = useState<StopSequenceSnapshot>(() => controller.snapshot());
 
   useEffect(() => store.subscribe(() => setSnapshot(store.getSnapshot())), [store]);
 
-  const updateDrawing = (next: DrawingSnapshot) => setDrawing(next);
+  const route = snapshot.document.routes.find((candidate) => candidate.id === selectedRouteId) ?? null;
+  const day = route?.days.find((candidate) => candidate.id === selectedDayId) ?? null;
+
   const changeMode = (nextMode: RouteMode) => {
-    updateDrawing(controller.cancel());
+    setDrawing(controller.cancel());
     setSelectedStopId(null);
     setMode(nextMode);
   };
-  const startDrawing = () => {
+  const selectRoute = (routeId: string) => {
+    setDrawing(controller.cancel());
+    setSelectedRouteId(routeId);
+    setSelectedDayId(null);
     setSelectedStopId(null);
-    updateDrawing(controller.start());
+    setMode('view');
   };
-  const strokeStart = (point: ScreenGeoPoint) => updateDrawing(controller.beginStroke(point));
-  const strokePoint = (point: ScreenGeoPoint) => updateDrawing(controller.appendPoint(point));
-  const strokeEnd = (point: ScreenGeoPoint) => updateDrawing(controller.endStroke(point));
-  const saveDrawing = () => {
-    if (!drawing.geometry) return;
-    if (snapshot.document.route && !window.confirm('Replace the saved route?')) return;
-    store.replaceRoute(drawing.geometry);
-    updateDrawing(controller.cancel());
+  const selectDay = (dayId: string) => {
+    setDrawing(controller.cancel());
+    setSelectedDayId(dayId);
+    setSelectedStopId(null);
+    setMode('view');
+  };
+  const returnToRoutes = () => {
+    setDrawing(controller.cancel());
+    setSelectedRouteId(null);
+    setSelectedDayId(null);
+    setSelectedStopId(null);
+    setMode('view');
+  };
+  const returnToDays = () => {
+    setDrawing(controller.cancel());
+    setSelectedDayId(null);
+    setSelectedStopId(null);
+    setMode('view');
+  };
+  const startSequencing = () => {
+    if (!day) return;
+    setSelectedStopId(null);
+    setDrawing(controller.start(mode === 'edit' ? 'edit' : 'draw', day.stops.map((stop) => stop.id)));
+  };
+  const sequenceStart = () => setDrawing(controller.beginPointer());
+  const stopContact = (stopId: string) => setDrawing(controller.contactStop(stopId));
+  const sequenceEnd = () => setDrawing(controller.endPointer());
+  const saveSequence = () => {
+    if (!route || !day || !drawing.canSave) return;
+    if (day.stopOrder.length > 0 && !window.confirm('Replace the saved route order?')) return;
+    store.replaceDayOrder(route.id, day.id, drawing.sequence);
+    setDrawing(controller.cancel());
+    setSelectedStopId(null);
     setMode('view');
   };
   const importFile = async (file: File) => {
     const result = store.importJson(await file.text());
     setImportError(result.ok ? null : result.error);
     if (result.ok) {
-      updateDrawing(controller.cancel());
+      setDrawing(controller.cancel());
+      setSelectedRouteId(null);
+      setSelectedDayId(null);
       setSelectedStopId(null);
       setMode('view');
     }
@@ -66,37 +102,50 @@ export function RouteReviewApp({ store = browserRouteStore }: RouteReviewAppProp
     const url = URL.createObjectURL(blob);
     const link = window.document.createElement('a');
     link.href = url;
-    link.download = `route-review-${snapshot.document.routeId}.json`;
+    link.download = 'route-review.json';
     link.click();
     URL.revokeObjectURL(url);
   };
   const reset = () => {
-    if (!window.confirm('Reset to the Lodi demonstration route?')) return;
+    if (!window.confirm('Reset to the Lodi demonstration routes?')) return;
     store.reset();
-    updateDrawing(controller.cancel());
+    setDrawing(controller.cancel());
+    setSelectedRouteId(null);
+    setSelectedDayId(null);
     setSelectedStopId(null);
     setImportError(null);
     setMode('view');
   };
 
-  const { document, saveStatus } = snapshot;
-  const selectedStop = document.stops.find((stop) => stop.id === selectedStopId) ?? null;
-  const savedRoute = mode === 'draw' ? null : document.route;
-  const referenceRoute = mode === 'edit' && drawing.active ? document.route : null;
-  const draftRoute = drawing.active ? drawing.geometry : null;
+  if (!route) {
+    return <div className="selection-shell"><RouteSelector routes={snapshot.document.routes} onSelectRoute={selectRoute} /></div>;
+  }
+  if (!day) {
+    return <div className="selection-shell"><DaySelector route={route} onSelectDay={selectDay} onBack={returnToRoutes} /></div>;
+  }
+
+  const displayOrder = drawing.active ? drawing.sequence : day.stopOrder;
+  const savedRoute = mode === 'edit' && drawing.active ? null : stopOrderToGeometry(day.stops, day.stopOrder);
+  const referenceRoute = mode === 'edit' && drawing.active ? stopOrderToGeometry(day.stops, day.stopOrder) : null;
+  const draftRoute = drawing.active ? stopOrderToGeometry(day.stops, drawing.sequence) : null;
+  const selectedStop = day.stops.find((stop) => stop.id === selectedStopId) ?? null;
+  const selectedSequence = selectedStop ? displayOrder.indexOf(selectedStop.id) + 1 || null : null;
 
   return (
     <div className="app-shell">
       <TopBar
-        routeName={document.routeName}
+        routeName={route.name}
+        dayName={day.name}
         mode={mode}
         presentation={presentation}
         onModeChange={changeMode}
         onPresentationChange={setPresentation}
+        onChangeSelection={returnToDays}
       />
       <main className="map-stage">
         <RouteMap
-          stops={document.stops}
+          stops={day.stops}
+          displayOrder={displayOrder}
           selectedStopId={selectedStopId}
           savedRoute={savedRoute}
           referenceRoute={referenceRoute}
@@ -105,30 +154,32 @@ export function RouteReviewApp({ store = browserRouteStore }: RouteReviewAppProp
           presentation={presentation}
           drawingActive={drawing.active}
           onSelectStop={setSelectedStopId}
-          onStrokeStart={strokeStart}
-          onStrokePoint={strokePoint}
-          onStrokeEnd={strokeEnd}
+          onSequenceStart={sequenceStart}
+          onStopContact={stopContact}
+          onSequenceEnd={sequenceEnd}
           onMapError={setMapError}
         />
         <RouteOverview
-          routeName={document.routeName}
-          stopCount={document.stops.length}
+          routeName={route.name}
+          dayName={day.name}
+          stopCount={day.stops.length}
           mode={mode}
           selectedStop={selectedStop}
+          selectedSequence={selectedSequence}
           drawing={drawing}
           importError={importError}
           mapError={mapError}
-          onStartDrawing={startDrawing}
-          onUndo={() => updateDrawing(controller.undo())}
-          onClear={() => updateDrawing(controller.clear())}
-          onCancel={() => updateDrawing(controller.cancel())}
-          onSave={saveDrawing}
+          onStartSequencing={startSequencing}
+          onUndo={() => setDrawing(controller.undo())}
+          onClear={() => setDrawing(controller.clear())}
+          onCancel={() => setDrawing(controller.cancel())}
+          onSave={saveSequence}
           onImport={importFile}
           onExport={exportRoute}
           onReset={reset}
         />
       </main>
-      <StatusBar stopCount={document.stops.length} miles={routeMiles(document.route)} saveStatus={saveStatus} />
+      <StatusBar stopCount={day.stops.length} miles={routeMiles(savedRoute)} saveStatus={snapshot.saveStatus} />
     </div>
   );
 }
