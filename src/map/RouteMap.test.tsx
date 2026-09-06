@@ -9,6 +9,9 @@ vi.mock('maplibre-gl', () => ({
   NavigationControl: class NavigationControl {},
   setWorkerUrl: vi.fn(),
 }));
+vi.mock('./LeafletRouteMap', () => ({
+  LeafletRouteMap: () => <div data-testid="fallback-route-map">Compatibility map · 2D</div>,
+}));
 
 import { RouteMap } from './RouteMap';
 
@@ -127,9 +130,9 @@ it('does not contact a stop when no rendered stop is within the hit radius', () 
   expect(props.onSequenceStart).not.toHaveBeenCalled();
 });
 
-it('shows a clear unsupported-browser message', () => {
+it('renders the compatibility map when WebGL is unavailable', async () => {
   vi.mocked(HTMLCanvasElement.prototype.getContext).mockReturnValue(null);
   render(<RouteMap {...props} />);
-  expect(screen.getByText(/WebGL is unavailable/)).toBeVisible();
-  expect(props.onMapError).toHaveBeenCalledWith('unsupported');
+  expect(await screen.findByTestId('fallback-route-map')).toBeVisible();
+  expect(screen.getByText('Compatibility map · 2D')).toBeVisible();
 });

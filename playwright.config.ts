@@ -11,7 +11,15 @@ export default defineConfig({
     reuseExistingServer: !process.env.CI,
   },
   projects: [
-    { name: 'chromium-desktop', use: { ...devices['Desktop Chrome'] } },
-    { name: 'webkit-ipad', use: { ...devices['iPad Pro 11'] } },
+    { name: 'chromium-desktop', grepInvert: /without WebGL/, use: { ...devices['Desktop Chrome'] } },
+    { name: 'webkit-ipad', grepInvert: /without WebGL/, use: { ...devices['iPad Pro 11'] } },
+    {
+      name: 'chromium-no-webgl',
+      grep: /without WebGL/,
+      use: {
+        ...devices['Desktop Chrome'],
+        launchOptions: { args: ['--disable-webgl', '--disable-gpu'] },
+      },
+    },
   ],
 });

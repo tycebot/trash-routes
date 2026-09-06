@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, type PointerEvent as ReactPointerEvent } from 'react';
+import { lazy, Suspense, useEffect, useRef, useState, type PointerEvent as ReactPointerEvent } from 'react';
 import * as maplibregl from 'maplibre-gl';
 import type { GeoJSONSource, Map as MapLibreMap, MapLayerMouseEvent } from 'maplibre-gl';
 import 'maplibre-gl/dist/maplibre-gl.css';
@@ -29,6 +29,7 @@ export interface RouteMapProps {
 
 maplibregl.setWorkerUrl(mapLibreWorkerUrl);
 
+const LeafletRouteMap = lazy(() => import('./LeafletRouteMap').then((module) => ({ default: module.LeafletRouteMap })));
 const ROUTE_KINDS: RouteLayerKind[] = ['saved', 'reference', 'draft'];
 
 function frameStops(map: MapLibreMap, stops: TrashStop[]): void {
@@ -61,9 +62,10 @@ export function RouteMap(props: RouteMapProps) {
   const mapRef = useRef<MapLibreMap | null>(null);
   const activePointerRef = useRef<number | null>(null);
   const propsRef = useRef(props);
+  const [webglAvailable] = useState(mapSupported);
   const [generation, setGeneration] = useState(0);
   const [loadedGeneration, setLoadedGeneration] = useState(-1);
-  const [mapError, setMapError] = useState<MapError>(() => mapSupported() ? null : 'unsupported');
+  const [mapError, setMapError] = useState<MapError>(null);
 
   useEffect(() => {
     propsRef.current = props;
@@ -75,10 +77,7 @@ export function RouteMap(props: RouteMapProps) {
   };
 
   useEffect(() => {
-    if (!mapSupported()) {
-      propsRef.current.onMapError('unsupported');
-      return;
-    }
+    if (!webglAvailable) return;
     const container = containerRef.current;
     if (!container) return;
 
@@ -155,7 +154,7 @@ export function RouteMap(props: RouteMapProps) {
       map.remove();
       if (mapRef.current === map) mapRef.current = null;
     };
-  }, [generation]);
+  }, [generation, webglAvailable]);
 
   useEffect(() => {
     const map = mapRef.current;
@@ -245,8 +244,12 @@ export function RouteMap(props: RouteMapProps) {
     setGeneration((value) => value + 1);
   };
 
-  if (mapError === 'unsupported') {
-    return <div className="map-message" role="alert">WebGL is unavailable in this browser. Route map rendering is not supported.</div>;
+  if (!webglAvailable) {
+    return (
+      <Suspense fallback={<div className="map-message">Loading compatibility map…</div>}>
+        <LeafletRouteMap {...props} />
+      </Suspense>
+    );
   }
 
   return (

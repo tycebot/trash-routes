@@ -53,7 +53,7 @@ The demo contains one Lodi route with five route days. Every day uses 100 named 
 - Checked-in source snapshot: [`data/lodi-osm-source.json`](data/lodi-osm-source.json)
 - Deterministic transform: [`scripts/build-lodi-fixture.mjs`](scripts/build-lodi-fixture.mjs)
 
-The base map uses key-free [OpenFreeMap](https://openfreemap.org/) vector tiles and OpenStreetMap data. No paid map API key is required.
+The default map uses key-free [OpenFreeMap](https://openfreemap.org/) vector tiles and OpenStreetMap data. If WebGL or GPU acceleration is unavailable, the app automatically loads a Leaflet raster/SVG compatibility map backed by OpenStreetMap tiles. No paid map API key is required.
 
 ## Install on iPad
 

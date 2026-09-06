@@ -65,6 +65,30 @@ test('navigates route/day selection and exposes iPad install guidance', async ({
   await expect(page.getByText('Add to Home Screen')).toBeVisible();
 });
 
+test('uses the raster compatibility map without WebGL', async ({ page }) => {
+  await page.goto('./');
+  await page.getByRole('button', { name: /Lodi Demo Route/ }).click();
+  await page.getByRole('button', { name: /Monday/ }).click();
+  await expect(page.locator('[data-map-engine="leaflet"]')).toBeVisible();
+  await expect(page.getByText('Compatibility map · 2D')).toBeVisible();
+  await expect(page.getByText('100 stops')).toBeVisible();
+  expect(await page.locator('.leaflet-interactive').count()).toBeGreaterThanOrEqual(100);
+  await page.getByRole('button', { name: 'Edit' }).click();
+  await page.getByRole('button', { name: 'Start new order' }).click();
+  await expect(page.getByText('Select all 100 stops before saving.')).toBeVisible();
+
+  const map = page.getByTestId('route-map');
+  const box = await map.boundingBox();
+  if (!box) throw new Error('compatibility map has no layout box');
+  const pane = page.locator('.leaflet-map-pane');
+  const beforePan = await pane.getAttribute('style');
+  await page.mouse.move(box.x + box.width * 0.8, box.y + box.height * 0.8);
+  await page.mouse.down();
+  await page.mouse.move(box.x + box.width * 0.7, box.y + box.height * 0.7, { steps: 8 });
+  await page.mouse.up();
+  await expect(pane).not.toHaveAttribute('style', beforePan ?? '');
+});
+
 test('supports map controls, 2D/3D state, and PWA metadata', async ({ page, browserName }) => {
   await openMonday(page);
   await expect(page.getByTestId('route-map')).toHaveAttribute('data-map-ready', 'true');

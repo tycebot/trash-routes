@@ -1,5 +1,5 @@
 // @vitest-environment node
-import { access, readFile } from 'node:fs/promises';
+import { access, readFile, readdir } from 'node:fs/promises';
 import { describe, expect, it } from 'vitest';
 
 describe('production PWA', () => {
@@ -16,5 +16,10 @@ describe('production PWA', () => {
       start_url: './',
       scope: './',
     });
+  });
+
+  it('loads the non-WebGL map as a separate compatibility chunk', async () => {
+    const assets = await readdir('dist/assets');
+    expect(assets.some((name) => name.startsWith('LeafletRouteMap-') && name.endsWith('.js'))).toBe(true);
   });
 });
