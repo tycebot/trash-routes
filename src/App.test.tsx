@@ -82,6 +82,7 @@ it('draws a complete order from contacted stops and saves only the selected day'
   await openWorkspace(user);
   await user.click(screen.getByRole('button', { name: 'Draw' }));
   await user.click(screen.getByRole('button', { name: 'Start sequencing' }));
+  expect(screen.getByText(/Drag empty map space to pan/)).toBeVisible();
   act(() => {
     mapMock.props!.onSequenceStart();
     mapMock.props!.onStopContact('b');

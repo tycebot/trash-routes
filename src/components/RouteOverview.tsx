@@ -39,7 +39,7 @@ export function RouteOverview(props: RouteOverviewProps) {
         <>
           <p className="eyebrow">{props.mode === 'edit' ? 'Reordering route' : 'Creating route order'}</p>
           <h2>{props.drawing.sequence.length} of {props.stopCount} stops sequenced</h2>
-          <p className="muted">Tap stops or drag across them. Each stop is added once in contact order.</p>
+          <p className="muted">Tap stops or drag across them to set the order. Drag empty map space to pan.</p>
           {props.drawing.validationMessage && <p className="validation-message">{props.drawing.validationMessage}</p>}
           <div className="action-grid">
             <button type="button" onClick={props.onUndo} disabled={!props.drawing.canUndo}>Undo stop</button>

@@ -123,6 +123,8 @@ it('does not contact a stop when no rendered stop is within the hit radius', () 
   act(() => map.emit('load'));
   fireEvent.pointerDown(screen.getByTestId('route-map'), { pointerId: 7, clientX: 10, clientY: 20 });
   expect(onStopContact).not.toHaveBeenCalled();
+  expect(map.dragPan.disable).not.toHaveBeenCalled();
+  expect(props.onSequenceStart).not.toHaveBeenCalled();
 });
 
 it('shows a clear unsupported-browser message', () => {

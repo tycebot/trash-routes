@@ -216,12 +216,13 @@ export function RouteMap(props: RouteMapProps) {
   const canDraw = props.drawingActive && (props.mode === 'draw' || props.mode === 'edit');
   const handlePointerDown = (event: ReactPointerEvent<HTMLDivElement>) => {
     if (!canDraw || activePointerRef.current !== null) return;
+    const stopId = stopAtPoint(event);
+    if (!stopId) return;
     activePointerRef.current = event.pointerId;
     event.currentTarget.setPointerCapture?.(event.pointerId);
     mapRef.current?.dragPan.disable();
     props.onSequenceStart();
-    const stopId = stopAtPoint(event);
-    if (stopId) props.onStopContact(stopId);
+    props.onStopContact(stopId);
   };
   const handlePointerMove = (event: ReactPointerEvent<HTMLDivElement>) => {
     if (activePointerRef.current !== event.pointerId) return;
