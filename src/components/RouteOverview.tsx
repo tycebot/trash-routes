@@ -7,6 +7,9 @@ interface RouteOverviewProps {
   routeName: string;
   dayName: string;
   stopCount: number;
+  miles: number;
+  firstStop: TrashStop | null;
+  lastStop: TrashStop | null;
   mode: RouteMode;
   selectedStop: TrashStop | null;
   selectedSequence: number | null;
@@ -55,7 +58,17 @@ export function RouteOverview(props: RouteOverviewProps) {
         <>
           <p className="eyebrow">{props.routeName}</p>
           <h2>{props.dayName}</h2>
-          <p className="muted">{props.stopCount} fixed stops</p>
+          <p className="route-summary-title">Route at a glance</p>
+          <div className="route-summary-stats" aria-label="Route summary">
+            <div><strong>{props.stopCount}</strong><span>Stops</span></div>
+            <div><strong>{props.miles.toFixed(1)}</strong><span>Miles</span></div>
+          </div>
+          {props.firstStop && props.lastStop && (
+            <div className="route-endpoints">
+              <div><span className="endpoint-dot start" aria-hidden="true" /><span><small>Start</small><strong>{props.firstStop.name}</strong></span></div>
+              <div><span className="endpoint-dot finish" aria-hidden="true" /><span><small>Finish</small><strong>{props.lastStop.name}</strong></span></div>
+            </div>
+          )}
           {props.mode !== 'view' && (
             <button type="button" className="primary wide" onClick={props.onStartSequencing}>
               {props.mode === 'edit' ? 'Start new order' : 'Start sequencing'}

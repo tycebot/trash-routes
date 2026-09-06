@@ -56,11 +56,23 @@ it('selects a route then a day before showing its workspace', async () => {
   const user = userEvent.setup();
   render(<RouteReviewApp store={createStore()} />);
   expect(screen.getByRole('heading', { name: 'Routes' })).toBeVisible();
+  expect(screen.getByText('1 route day · 2 stops per day')).toBeVisible();
   await user.click(screen.getByRole('button', { name: /Demo Route/ }));
   expect(screen.getByRole('heading', { name: 'Route days' })).toBeVisible();
   await user.click(screen.getByRole('button', { name: /Monday/ }));
   expect(screen.getByTestId('route-map')).toBeVisible();
   expect(screen.getByText(/Demo Route · Monday/)).toBeVisible();
+});
+
+it('summarizes the route start, finish, stop count, and distance at a glance', async () => {
+  const user = userEvent.setup();
+  render(<RouteReviewApp store={createStore()} />);
+  await openWorkspace(user);
+  expect(screen.getByText('Route at a glance')).toBeVisible();
+  expect(screen.getByText('City Hall')).toBeVisible();
+  expect(screen.getByText('Library')).toBeVisible();
+  expect(screen.getByText('2 stops')).toBeVisible();
+  expect(screen.getByText(/\d+\.\d mi/)).toBeVisible();
 });
 
 it('draws a complete order from contacted stops and saves only the selected day', async () => {

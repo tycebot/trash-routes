@@ -27,17 +27,29 @@ async function openMonday(page: Page) {
 
 test('selects one route day and exposes its workspace modes', async ({ page }) => {
   await openMonday(page);
-  await expect(page.getByText('20 stops')).toBeVisible();
+  await expect(page.getByText('100 stops')).toBeVisible();
   await expect(page.getByRole('button', { name: 'View' })).toHaveAttribute('aria-pressed', 'true');
 
   await page.getByRole('button', { name: 'Draw' }).click();
   await page.getByRole('button', { name: 'Start sequencing' }).click();
   await expect(page.getByRole('button', { name: 'Save route' })).toBeDisabled();
-  await expect(page.getByText('Select all 20 stops before saving.')).toBeVisible();
+  await expect(page.getByText('Select all 100 stops before saving.')).toBeVisible();
 
   await page.getByRole('button', { name: 'Cancel' }).click();
   await page.getByRole('button', { name: 'Edit' }).click();
   await expect(page.getByRole('button', { name: 'Start new order' })).toBeVisible();
+});
+
+test('uses a persistent summary beside the map on laptop screens', async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name !== 'chromium-desktop', 'Desktop responsive layout only.');
+  await openMonday(page);
+  const summary = await page.locator('.route-overview').boundingBox();
+  const map = await page.locator('.route-map-frame').boundingBox();
+  if (!summary || !map) throw new Error('workspace layout boxes are unavailable');
+  expect(summary.x + summary.width).toBeLessThanOrEqual(map.x + 1);
+  await expect(page.getByText('Route at a glance')).toBeVisible();
+  await expect(page.getByText('Start')).toBeVisible();
+  await expect(page.getByText('Finish')).toBeVisible();
 });
 
 test('navigates route/day selection and exposes iPad install guidance', async ({ page }) => {

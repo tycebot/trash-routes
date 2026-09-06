@@ -34,11 +34,14 @@ for (const element of source.elements ?? []) {
   candidates.push({ element, name, lat, lng });
 }
 
+const proximity = (a, b) => {
+  const latitudeScale = Math.cos(((a.lat + b.lat) / 2) * Math.PI / 180);
+  return ((a.lng - b.lng) * latitudeScale) ** 2 + (a.lat - b.lat) ** 2;
+};
+const lodiCenter = { lat: 38.1342, lng: -121.2722 };
 candidates.sort((a, b) =>
-  b.lat - a.lat ||
-  a.lng - b.lng ||
-  a.element.type.localeCompare(b.element.type) ||
-  Number(a.element.id) - Number(b.element.id),
+  proximity(lodiCenter, a) - proximity(lodiCenter, b) ||
+  keyFor(a.element).localeCompare(keyFor(b.element)),
 );
 
 const selected = candidates.slice(0, 100);
@@ -46,10 +49,6 @@ if (selected.length !== 100) {
   throw new Error(`expected 100 public POIs, found ${selected.length}`);
 }
 
-const proximity = (a, b) => {
-  const latitudeScale = Math.cos(((a.lat + b.lat) / 2) * Math.PI / 180);
-  return ((a.lng - b.lng) * latitudeScale) ** 2 + (a.lat - b.lat) ** 2;
-};
 const remaining = selected.slice(1);
 const ordered = [selected[0]];
 while (remaining.length > 0) {
@@ -58,21 +57,27 @@ while (remaining.length > 0) {
   ordered.push(remaining.shift());
 }
 
+const stops = ordered.map(({ element, name, lat, lng }) => ({
+  id: keyFor(element),
+  name,
+  lat,
+  lng,
+}));
+const rotate = (items, offset) => [...items.slice(offset), ...items.slice(0, offset)];
+const dailyOrders = [
+  stops,
+  [...stops].reverse(),
+  rotate(stops, 20),
+  [...rotate(stops, 40)].reverse(),
+  rotate(stops, 60),
+];
 const dayNames = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
-const days = dayNames.map((name, dayIndex) => {
-  const dayStops = ordered.slice(dayIndex * 20, (dayIndex + 1) * 20).map(({ element, name: stopName, lat, lng }) => ({
-    id: keyFor(element),
-    name: stopName,
-    lat,
-    lng,
-  }));
-  return {
-    id: `lodi-demo-${name.toLocaleLowerCase('en-US')}`,
-    name,
-    stops: dayStops,
-    stopOrder: dayStops.map((stop) => stop.id),
-  };
-});
+const days = dayNames.map((name, dayIndex) => ({
+  id: `lodi-demo-${name.toLocaleLowerCase('en-US')}`,
+  name,
+  stops,
+  stopOrder: dailyOrders[dayIndex].map((stop) => stop.id),
+}));
 
 const routeDocument = {
   schemaVersion: 2,

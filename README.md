@@ -44,7 +44,7 @@ The schema-v2 `RouteDocument` contains routes, route days, fixed stops, and orde
 
 ## Lodi demonstration data
 
-The demo contains one Lodi route with five route days and exactly 100 named public points of interest in and around Lodi, California. Private homes were excluded.
+The demo contains one Lodi route with five route days. Every day uses 100 named public points of interest near central Lodi, California, with a distinct compact demonstration order. Private homes were excluded.
 
 - Source: OpenStreetMap contributors
 - Copyright and license: <https://www.openstreetmap.org/copyright>
@@ -85,7 +85,7 @@ End users do not need Rust. Rust and Windows packaging tools run only on the Git
 
 ## Verification scope
 
-Automated tests cover schema validation and migration, deterministic fixture invariants, stop-order geometry, tap/drag sequencing, mileage, persistence/import behavior, map layer contracts, route/day selection, mode transitions, 2D/3D state, PWA metadata, and Chromium/iPad-WebKit walkthroughs. The live OpenFreeMap smoke is opt-in:
+Automated tests cover schema validation and migration, deterministic 100-stop-per-day fixture invariants, compact stop-order geometry, tap/drag sequencing, mileage, persistence/import behavior, map layer contracts, responsive desktop layout, route/day selection, mode transitions, 2D/3D state, PWA metadata, and Chromium/iPad-WebKit walkthroughs. The live OpenFreeMap smoke is opt-in:
 
 ```bash
 RUN_LIVE_MAP=1 npm run test:e2e -- --grep "live OpenFreeMap"

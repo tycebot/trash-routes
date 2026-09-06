@@ -35,6 +35,16 @@ describe('RouteStore', () => {
     expect(store.getSnapshot().document.routes[0].days[0].stopOrder).toEqual(['a', 'b']);
   });
 
+  it('upgrades the obsolete 20-stop-per-day Lodi demo to the current fixture', () => {
+    const oldDemo = structuredClone(LODI_ROUTE);
+    for (const day of oldDemo.routes[0].days) {
+      day.stops = day.stops.slice(0, 20);
+      day.stopOrder = day.stops.map((stop) => stop.id);
+    }
+    const store = new RouteStore(memoryStorage(JSON.stringify(oldDemo)), LODI_ROUTE);
+    expect(store.getSnapshot().document.routes[0].days.every((day) => day.stops.length === 100)).toBe(true);
+  });
+
   it('does not overwrite valid state after invalid import', () => {
     const store = new RouteStore(memoryStorage(), LODI_ROUTE);
     const before = store.getSnapshot().document;

@@ -31,6 +31,22 @@ maplibregl.setWorkerUrl(mapLibreWorkerUrl);
 
 const ROUTE_KINDS: RouteLayerKind[] = ['saved', 'reference', 'draft'];
 
+function frameStops(map: MapLibreMap, stops: TrashStop[]): void {
+  if (stops.length < 2) return;
+  const lngs = stops.map((stop) => stop.lng);
+  const lats = stops.map((stop) => stop.lat);
+  const bounds: [[number, number], [number, number]] = [
+    [Math.min(...lngs), Math.min(...lats)],
+    [Math.max(...lngs), Math.max(...lats)],
+  ];
+  const padding = window.innerWidth >= 1280
+    ? { top: 56, right: 56, bottom: 56, left: 56 }
+    : window.innerWidth > 720
+      ? { top: 56, right: 56, bottom: 56, left: 380 }
+      : { top: 220, right: 40, bottom: 56, left: 40 };
+  map.fitBounds(bounds, { padding, maxZoom: 14, duration: 0 });
+}
+
 function mapSupported(): boolean {
   try {
     const canvas = document.createElement('canvas');
@@ -111,6 +127,7 @@ export function RouteMap(props: RouteMapProps) {
         ] as const) {
           (map.getSource(`${kind}-route`) as GeoJSONSource | undefined)?.setData(routeToGeoJson(route));
         }
+        frameStops(map, current.stops);
         const is3d = current.presentation === '3d';
         map.easeTo(is3d
           ? { pitch: 55, bearing: -12, zoom: Math.max(map.getZoom(), 15), duration: 700 }

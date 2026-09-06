@@ -25,6 +25,12 @@ export interface RouteStoreSnapshot {
   saveStatus: SaveStatus;
 }
 
+const isObsoleteLodiDemo = (document: RouteDocument): boolean =>
+  document.routes.length === 1 &&
+  document.routes[0].id === 'lodi-demo' &&
+  document.routes[0].days.length === 5 &&
+  document.routes[0].days.every((day) => day.stops.length === 20);
+
 const dayFor = (document: RouteDocument, routeId: string, dayId: string): RouteDay => {
   const route = document.routes.find((candidate) => candidate.id === routeId);
   if (!route) throw new RouteDocumentError('routeId', 'must reference a route in this document');
@@ -47,11 +53,13 @@ export class RouteStore {
       const saved = savedV2 ?? storage.getItem(LEGACY_STORAGE_KEY);
       if (saved !== null) {
         const parsed: unknown = JSON.parse(saved);
-        this.document = typeof parsed === 'object' && parsed !== null && 'schemaVersion' in parsed &&
+        const loaded = typeof parsed === 'object' && parsed !== null && 'schemaVersion' in parsed &&
           parsed.schemaVersion === 1
           ? migrateRouteDocument(parsed)
           : parseRouteDocument(parsed);
-        if (savedV2 === null) this.persistAndNotify();
+        const obsoleteDemo = isObsoleteLodiDemo(loaded);
+        this.document = obsoleteDemo ? cloneRouteDocument(fallback) : loaded;
+        if (savedV2 === null || obsoleteDemo) this.persistAndNotify();
       }
     } catch {
       this.document = cloneRouteDocument(fallback);

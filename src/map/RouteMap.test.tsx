@@ -25,6 +25,7 @@ function createFakeMap() {
     setLayoutProperty: vi.fn(),
     easeTo: vi.fn(),
     getZoom: vi.fn(() => 12),
+    fitBounds: vi.fn(),
     queryRenderedFeatures: vi.fn(() => [{
       properties: { id: 'a' },
       geometry: { type: 'Point', coordinates: [-121.27, 38.13] },
@@ -47,11 +48,12 @@ function createFakeMap() {
 
 const originalStops = [
   { id: 'a', name: 'City Hall', lat: 38.13, lng: -121.27 },
+  { id: 'b', name: 'Library', lat: 38.14, lng: -121.28 },
 ];
 
 const props: RouteMapProps = {
   stops: originalStops,
-  displayOrder: ['a'],
+  displayOrder: ['a', 'b'],
   selectedStopId: null,
   savedRoute: { coordinates: [[-121.28, 38.13], [-121.27, 38.14]] },
   referenceRoute: null,
@@ -78,6 +80,17 @@ it('changes pitch/bearing and building visibility for 3D', () => {
   act(() => map.emit('load'));
   expect(map.easeTo).toHaveBeenCalledWith(expect.objectContaining({ pitch: 55, bearing: -12, zoom: 15 }));
   expect(map.setLayoutProperty).toHaveBeenCalledWith('building-3d', 'visibility', 'visible');
+});
+
+it('frames every stop when the selected route day loads', () => {
+  const map = createFakeMap();
+  mocks.constructor.mockImplementation(function FakeMapConstructor() { return map; });
+  render(<RouteMap {...props} />);
+  act(() => map.emit('load'));
+  expect(map.fitBounds).toHaveBeenCalledWith(
+    [[-121.28, 38.13], [-121.27, 38.14]],
+    expect.objectContaining({ maxZoom: 14, duration: 0 }),
+  );
 });
 
 it('contacts stops during a tap or drag without moving them', () => {

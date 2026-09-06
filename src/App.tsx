@@ -125,11 +125,15 @@ export function RouteReviewApp({ store = browserRouteStore }: RouteReviewAppProp
   }
 
   const displayOrder = drawing.active ? drawing.sequence : day.stopOrder;
-  const savedRoute = mode === 'edit' && drawing.active ? null : stopOrderToGeometry(day.stops, day.stopOrder);
-  const referenceRoute = mode === 'edit' && drawing.active ? stopOrderToGeometry(day.stops, day.stopOrder) : null;
+  const savedGeometry = stopOrderToGeometry(day.stops, day.stopOrder);
+  const savedRoute = mode === 'edit' && drawing.active ? null : savedGeometry;
+  const referenceRoute = mode === 'edit' && drawing.active ? savedGeometry : null;
   const draftRoute = drawing.active ? stopOrderToGeometry(day.stops, drawing.sequence) : null;
   const selectedStop = day.stops.find((stop) => stop.id === selectedStopId) ?? null;
   const selectedSequence = selectedStop ? displayOrder.indexOf(selectedStop.id) + 1 || null : null;
+  const firstStop = day.stops.find((stop) => stop.id === day.stopOrder[0]) ?? null;
+  const lastStop = day.stops.find((stop) => stop.id === day.stopOrder.at(-1)) ?? null;
+  const savedMiles = routeMiles(savedGeometry);
 
   return (
     <div className="app-shell">
@@ -163,6 +167,9 @@ export function RouteReviewApp({ store = browserRouteStore }: RouteReviewAppProp
           routeName={route.name}
           dayName={day.name}
           stopCount={day.stops.length}
+          miles={savedMiles}
+          firstStop={firstStop}
+          lastStop={lastStop}
           mode={mode}
           selectedStop={selectedStop}
           selectedSequence={selectedSequence}
@@ -179,7 +186,7 @@ export function RouteReviewApp({ store = browserRouteStore }: RouteReviewAppProp
           onReset={reset}
         />
       </main>
-      <StatusBar stopCount={day.stops.length} miles={routeMiles(savedRoute)} saveStatus={snapshot.saveStatus} />
+      <StatusBar stopCount={day.stops.length} miles={savedMiles} saveStatus={snapshot.saveStatus} />
     </div>
   );
 }

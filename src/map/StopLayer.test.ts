@@ -9,15 +9,18 @@ const stops = [
 it('projects configured sequence numbers and keeps unconfigured stops unlabeled', () => {
   const data = stopsToGeoJson(stops, ['b', 'a'], 'a');
   expect(data.features.map((feature) => feature.properties)).toEqual([
-    { id: 'a', name: 'City Hall', sequence: 2, selected: true, configured: true },
-    { id: 'b', name: 'Library', sequence: 1, selected: false, configured: true },
+    { id: 'a', name: 'City Hall', sequence: 2, selected: true, configured: true, endpoint: 'finish', endpointLabel: 'FINISH' },
+    { id: 'b', name: 'Library', sequence: 1, selected: false, configured: true, endpoint: 'start', endpointLabel: 'START' },
   ]);
   expect(STOP_LAYER_DEFINITIONS.point.minzoom).toBe(0);
   expect(STOP_LAYER_DEFINITIONS.label.minzoom).toBe(13);
+  expect(STOP_LAYER_DEFINITIONS.endpoint.minzoom).toBe(0);
   expect(STOP_LAYER_DEFINITIONS.label.layout?.['symbol-sort-key']).toEqual(['coalesce', ['get', 'sequence'], 9999]);
 });
 
 it('does not label stops while a day has no configured order', () => {
   const data = stopsToGeoJson(stops, [], null);
-  expect(data.features.every((feature) => feature.properties.configured === false)).toBe(true);
+  expect(data.features.every((feature) =>
+    feature.properties.configured === false && feature.properties.endpoint === 'none',
+  )).toBe(true);
 });

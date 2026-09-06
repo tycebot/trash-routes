@@ -14,7 +14,13 @@ describe('stopOrderToGeometry', () => {
     });
   });
 
-  it('returns null for an empty, incomplete, duplicate, or unknown order', () => {
+  it('creates a live preview after two stops even when more stops remain', () => {
+    expect(stopOrderToGeometry(stops, ['a', 'b'])).toEqual({
+      coordinates: [[-121.28, 38.13], [-121.27, 38.14]],
+    });
+  });
+
+  it('returns null for fewer than two stops, duplicates, or unknown IDs', () => {
     expect(stopOrderToGeometry([], [])).toBeNull();
     expect(stopOrderToGeometry(stops, ['a'])).toBeNull();
     expect(stopOrderToGeometry(stops, ['a', 'a', 'b'])).toBeNull();
