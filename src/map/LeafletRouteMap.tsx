@@ -50,7 +50,7 @@ export function LeafletRouteMap(props: LeafletRouteMapProps) {
     const container = containerRef.current;
     if (!container) return;
     const map = L.map(container, { zoomControl: true, attributionControl: true }).setView([38.1342, -121.2722], 13);
-    const tiles = L.tileLayer(TILE_URL, { maxZoom: 19, attribution: TILE_ATTRIBUTION }).addTo(map);
+    const tiles = L.tileLayer(TILE_URL, { maxZoom: 19, attribution: TILE_ATTRIBUTION, detectRetina: true }).addTo(map);
     layersRef.current = L.layerGroup().addTo(map);
     mapRef.current = map;
     propsRef.current.onMapError(null);

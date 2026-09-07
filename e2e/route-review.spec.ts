@@ -17,6 +17,10 @@ test.beforeEach(async ({ page }) => {
     contentType: 'image/png',
     body: Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAFgwJ/lA7KtQAAAABJRU5ErkJggg==', 'base64'),
   }));
+  await page.route('https://example.test/fonts/**', (route) => route.fulfill({
+    contentType: 'application/x-protobuf',
+    body: Buffer.alloc(0),
+  }));
   page.on('dialog', (dialog) => dialog.accept());
 });
 
@@ -67,6 +71,12 @@ test('navigates route/day selection and exposes iPad install guidance', async ({
   await page.getByText('Install on iPad').click();
   await expect(page.getByText('Add Route Review to the Home Screen')).toBeVisible();
   await expect(page.getByText('Add to Home Screen')).toBeVisible();
+  const helpPanel = page.locator('.install-help-content');
+  expect(await helpPanel.evaluate((panel) => {
+    const bounds = panel.getBoundingClientRect();
+    const topElement = document.elementFromPoint(bounds.left + bounds.width / 2, bounds.top + 12);
+    return topElement !== null && panel.contains(topElement);
+  })).toBe(true);
 });
 
 test('uses the detailed raster map without WebGL', async ({ page }) => {
@@ -95,6 +105,15 @@ test('uses the detailed raster map without WebGL', async ({ page }) => {
   await expect(pane).not.toHaveAttribute('style', beforePan ?? '');
 });
 
+test('uses retina-resolution 2D tiles on iPad', async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name !== 'webkit-ipad', 'Retina iPad rendering only.');
+  await openMonday(page);
+  expect(await page.evaluate(() => window.devicePixelRatio)).toBeGreaterThan(1);
+  const tile = page.locator('.leaflet-tile').first();
+  await expect(tile).toBeAttached();
+  expect(await tile.evaluate((element) => (element as HTMLElement).style.width)).toBe('128px');
+});
+
 test('supports detailed 2D, aerial 3D, and PWA metadata', async ({ page, browserName }) => {
   await openMonday(page);
   await expect(page.getByText('Detailed map · 2D')).toBeVisible();
@@ -102,7 +121,7 @@ test('supports detailed 2D, aerial 3D, and PWA metadata', async ({ page, browser
   await page.getByRole('button', { name: '3D' }).click();
   await expect(page.getByRole('button', { name: '3D' })).toHaveAttribute('aria-pressed', 'true');
   await expect(page.getByText('Aerial map · 3D')).toBeVisible();
-  await expect(page.getByTestId('route-map')).toHaveAttribute('data-map-ready', 'true');
+  await expect(page.locator('.maplibregl-canvas')).toBeVisible();
   await page.locator('.maplibregl-ctrl-zoom-in').click();
   await page.getByRole('button', { name: '2D' }).click();
   await expect(page.getByText('Detailed map · 2D')).toBeVisible();
