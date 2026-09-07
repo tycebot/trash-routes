@@ -24,8 +24,8 @@ function frameStops(map: LeafletMap, stops: TrashStop[]): void {
   const desktop = window.innerWidth >= 1280;
   const tablet = window.innerWidth > 720 && !desktop;
   map.fitBounds(bounds, {
-    paddingTopLeft: desktop ? [56, 56] : tablet ? [380, 56] : [40, 220],
-    paddingBottomRight: desktop ? [56, 56] : [56, 56],
+    paddingTopLeft: desktop ? [56, 56] : tablet ? [56, 56] : [40, 40],
+    paddingBottomRight: desktop ? [56, 56] : tablet ? [56, 120] : [40, 120],
     maxZoom: 14,
     animate: false,
   });

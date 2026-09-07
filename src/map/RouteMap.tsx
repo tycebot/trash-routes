@@ -75,8 +75,8 @@ function frameStops(map: MapLibreMap, stops: TrashStop[]): void {
   const padding = window.innerWidth >= 1280
     ? { top: 56, right: 56, bottom: 56, left: 56 }
     : window.innerWidth > 720
-      ? { top: 56, right: 56, bottom: 56, left: 380 }
-      : { top: 220, right: 40, bottom: 56, left: 40 };
+      ? { top: 56, right: 56, bottom: 120, left: 56 }
+      : { top: 40, right: 40, bottom: 120, left: 40 };
   map.fitBounds(bounds, { padding, maxZoom: 14, duration: 0 });
 }
 

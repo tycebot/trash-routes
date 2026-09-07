@@ -35,7 +35,7 @@ async function openMonday(page: Page) {
 
 test('selects one route day and exposes its workspace modes', async ({ page }) => {
   await openMonday(page);
-  await expect(page.getByText('100 stops')).toBeVisible();
+  await expect(page.getByText('100 stops', { exact: true })).toBeVisible();
   await expect(page.getByRole('button', { name: 'View' })).toHaveAttribute('aria-pressed', 'true');
 
   await page.getByRole('button', { name: 'Draw' }).click();
@@ -58,6 +58,24 @@ test('uses a persistent summary beside the map on laptop screens', async ({ page
   await expect(page.getByText('Route at a glance')).toBeVisible();
   await expect(page.getByText('Start', { exact: true })).toBeVisible();
   await expect(page.getByText('Finish', { exact: true })).toBeVisible();
+});
+
+test('uses a stable collapsible route sheet on iPad', async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name !== 'webkit-ipad', 'iPad bottom-sheet layout only.');
+  await openMonday(page);
+  const toggle = page.getByRole('button', { name: /Route info/ });
+  await expect(toggle).toHaveAttribute('aria-expanded', 'false');
+  await expect(page.getByText('Route at a glance')).toBeHidden();
+  const sheet = page.locator('.route-overview');
+  expect(await sheet.evaluate((element) => getComputedStyle(element).backdropFilter)).toBe('none');
+
+  await toggle.click();
+  await expect(toggle).toHaveAttribute('aria-expanded', 'true');
+  await expect(page.getByText('Route at a glance')).toBeVisible();
+  await toggle.click();
+  await page.getByRole('button', { name: 'Draw' }).click();
+  await expect(toggle).toHaveAttribute('aria-expanded', 'true');
+  await expect(page.getByRole('button', { name: 'Start sequencing' })).toBeVisible();
 });
 
 test('navigates route/day selection and exposes iPad install guidance', async ({ page }) => {
@@ -87,7 +105,7 @@ test('uses the detailed raster map without WebGL', async ({ page }) => {
   await expect(page.getByText('Detailed map · 2D')).toBeVisible();
   await page.getByRole('button', { name: '3D' }).click();
   await expect(page.getByText('3D requires WebGL · showing 2D')).toBeVisible();
-  await expect(page.getByText('100 stops')).toBeVisible();
+  await expect(page.getByText('100 stops', { exact: true })).toBeVisible();
   expect(await page.locator('.leaflet-interactive').count()).toBeGreaterThanOrEqual(100);
   await page.getByRole('button', { name: 'Edit' }).click();
   await page.getByRole('button', { name: 'Start new order' }).click();
