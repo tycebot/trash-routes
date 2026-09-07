@@ -31,7 +31,11 @@ function frameStops(map: LeafletMap, stops: TrashStop[]): void {
   });
 }
 
-export function LeafletRouteMap(props: RouteMapProps) {
+interface LeafletRouteMapProps extends RouteMapProps {
+  webglUnavailable?: boolean;
+}
+
+export function LeafletRouteMap(props: LeafletRouteMapProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const mapRef = useRef<LeafletMap | null>(null);
   const layersRef = useRef<LayerGroup | null>(null);
@@ -152,7 +156,9 @@ export function LeafletRouteMap(props: RouteMapProps) {
 
   return (
     <div className="route-map-frame fallback-route-map" data-testid="fallback-route-map" data-map-engine="leaflet">
-      <div className="compatibility-badge">Compatibility map · 2D</div>
+      <div className="compatibility-badge">
+        {props.webglUnavailable ? '3D requires WebGL · showing 2D' : 'Detailed map · 2D'}
+      </div>
       <div
         ref={containerRef}
         className="leaflet-route-map"

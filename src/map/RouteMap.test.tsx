@@ -10,7 +10,11 @@ vi.mock('maplibre-gl', () => ({
   setWorkerUrl: vi.fn(),
 }));
 vi.mock('./LeafletRouteMap', () => ({
-  LeafletRouteMap: () => <div data-testid="fallback-route-map">Compatibility map · 2D</div>,
+  LeafletRouteMap: ({ webglUnavailable }: { webglUnavailable?: boolean }) => (
+    <div data-testid="fallback-route-map">
+      {webglUnavailable ? '3D requires WebGL · showing 2D' : 'Detailed map · 2D'}
+    </div>
+  ),
 }));
 
 import { RouteMap } from './RouteMap';
@@ -24,6 +28,8 @@ function createFakeMap() {
     addLayer: vi.fn(),
     getSource: vi.fn((id: string) => sources.get(id)),
     getLayer: vi.fn((id: string) => id === 'building-3d' ? { id } : undefined),
+    getStyle: vi.fn(() => ({ layers: [{ id: 'land', type: 'fill' }, { id: 'first-label', type: 'symbol' }] })),
+    moveLayer: vi.fn(),
     setPaintProperty: vi.fn(),
     setLayoutProperty: vi.fn(),
     easeTo: vi.fn(),
@@ -76,19 +82,36 @@ beforeEach(() => {
   vi.spyOn(HTMLCanvasElement.prototype, 'getContext').mockReturnValue({} as RenderingContext);
 });
 
-it('changes pitch/bearing and building visibility for 3D', () => {
+it('uses the detailed Leaflet map for 2D even when WebGL is available', async () => {
+  render(<RouteMap {...props} presentation="2d" />);
+  expect(await screen.findByTestId('fallback-route-map')).toHaveTextContent('Detailed map · 2D');
+  expect(mocks.constructor).not.toHaveBeenCalled();
+});
+
+it('configures an aerial perspective and visible buildings for 3D', () => {
   const map = createFakeMap();
   mocks.constructor.mockImplementation(function FakeMapConstructor() { return map; });
   render(<RouteMap {...props} presentation="3d" />);
   act(() => map.emit('load'));
-  expect(map.easeTo).toHaveBeenCalledWith(expect.objectContaining({ pitch: 55, bearing: -12, zoom: 15 }));
+  expect(map.addSource).toHaveBeenCalledWith('usgs-aerial', expect.objectContaining({
+    type: 'raster',
+    maxzoom: 16,
+    tiles: ['https://basemap.nationalmap.gov/arcgis/rest/services/USGSImageryOnly/MapServer/tile/{z}/{y}/{x}'],
+  }));
+  expect(map.addLayer).toHaveBeenCalledWith(expect.objectContaining({
+    id: 'usgs-aerial-layer',
+    type: 'raster',
+    source: 'usgs-aerial',
+  }), 'first-label');
+  expect(map.moveLayer).toHaveBeenCalledWith('building-3d', 'first-label');
+  expect(map.easeTo).toHaveBeenCalledWith(expect.objectContaining({ pitch: 62, bearing: -20, zoom: 15.5 }));
   expect(map.setLayoutProperty).toHaveBeenCalledWith('building-3d', 'visibility', 'visible');
 });
 
 it('frames every stop when the selected route day loads', () => {
   const map = createFakeMap();
   mocks.constructor.mockImplementation(function FakeMapConstructor() { return map; });
-  render(<RouteMap {...props} />);
+  render(<RouteMap {...props} presentation="3d" />);
   act(() => map.emit('load'));
   expect(map.fitBounds).toHaveBeenCalledWith(
     [[-121.28, 38.13], [-121.27, 38.14]],
@@ -102,7 +125,7 @@ it('contacts stops during a tap or drag without moving them', () => {
   const onStopContact = vi.fn();
   const onSequenceStart = vi.fn();
   const onSequenceEnd = vi.fn();
-  render(<RouteMap {...props} mode="draw" drawingActive onStopContact={onStopContact} onSequenceStart={onSequenceStart} onSequenceEnd={onSequenceEnd} />);
+  render(<RouteMap {...props} presentation="3d" mode="draw" drawingActive onStopContact={onStopContact} onSequenceStart={onSequenceStart} onSequenceEnd={onSequenceEnd} />);
   act(() => map.emit('load'));
   const element = screen.getByTestId('route-map');
   fireEvent.pointerDown(element, { pointerId: 7, clientX: 10, clientY: 20 });
@@ -122,7 +145,7 @@ it('does not contact a stop when no rendered stop is within the hit radius', () 
   map.queryRenderedFeatures.mockReturnValue([]);
   mocks.constructor.mockImplementation(function FakeMapConstructor() { return map; });
   const onStopContact = vi.fn();
-  render(<RouteMap {...props} mode="draw" drawingActive onStopContact={onStopContact} />);
+  render(<RouteMap {...props} presentation="3d" mode="draw" drawingActive onStopContact={onStopContact} />);
   act(() => map.emit('load'));
   fireEvent.pointerDown(screen.getByTestId('route-map'), { pointerId: 7, clientX: 10, clientY: 20 });
   expect(onStopContact).not.toHaveBeenCalled();
@@ -130,9 +153,9 @@ it('does not contact a stop when no rendered stop is within the hit radius', () 
   expect(props.onSequenceStart).not.toHaveBeenCalled();
 });
 
-it('renders the compatibility map when WebGL is unavailable', async () => {
+it('keeps the detailed map and explains when 3D lacks WebGL', async () => {
   vi.mocked(HTMLCanvasElement.prototype.getContext).mockReturnValue(null);
-  render(<RouteMap {...props} />);
+  render(<RouteMap {...props} presentation="3d" />);
   expect(await screen.findByTestId('fallback-route-map')).toBeVisible();
-  expect(screen.getByText('Compatibility map · 2D')).toBeVisible();
+  expect(screen.getByText('3D requires WebGL · showing 2D')).toBeVisible();
 });

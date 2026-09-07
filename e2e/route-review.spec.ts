@@ -13,6 +13,10 @@ test.beforeEach(async ({ page }) => {
     contentType: 'application/json',
     body: JSON.stringify(testStyle),
   }));
+  await page.route('https://basemap.nationalmap.gov/**', (route) => route.fulfill({
+    contentType: 'image/png',
+    body: Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAFgwJ/lA7KtQAAAABJRU5ErkJggg==', 'base64'),
+  }));
   page.on('dialog', (dialog) => dialog.accept());
 });
 
@@ -48,8 +52,8 @@ test('uses a persistent summary beside the map on laptop screens', async ({ page
   if (!summary || !map) throw new Error('workspace layout boxes are unavailable');
   expect(summary.x + summary.width).toBeLessThanOrEqual(map.x + 1);
   await expect(page.getByText('Route at a glance')).toBeVisible();
-  await expect(page.getByText('Start')).toBeVisible();
-  await expect(page.getByText('Finish')).toBeVisible();
+  await expect(page.getByText('Start', { exact: true })).toBeVisible();
+  await expect(page.getByText('Finish', { exact: true })).toBeVisible();
 });
 
 test('navigates route/day selection and exposes iPad install guidance', async ({ page }) => {
@@ -65,12 +69,14 @@ test('navigates route/day selection and exposes iPad install guidance', async ({
   await expect(page.getByText('Add to Home Screen')).toBeVisible();
 });
 
-test('uses the raster compatibility map without WebGL', async ({ page }) => {
+test('uses the detailed raster map without WebGL', async ({ page }) => {
   await page.goto('./');
   await page.getByRole('button', { name: /Lodi Demo Route/ }).click();
   await page.getByRole('button', { name: /Monday/ }).click();
   await expect(page.locator('[data-map-engine="leaflet"]')).toBeVisible();
-  await expect(page.getByText('Compatibility map · 2D')).toBeVisible();
+  await expect(page.getByText('Detailed map · 2D')).toBeVisible();
+  await page.getByRole('button', { name: '3D' }).click();
+  await expect(page.getByText('3D requires WebGL · showing 2D')).toBeVisible();
   await expect(page.getByText('100 stops')).toBeVisible();
   expect(await page.locator('.leaflet-interactive').count()).toBeGreaterThanOrEqual(100);
   await page.getByRole('button', { name: 'Edit' }).click();
@@ -89,13 +95,17 @@ test('uses the raster compatibility map without WebGL', async ({ page }) => {
   await expect(pane).not.toHaveAttribute('style', beforePan ?? '');
 });
 
-test('supports map controls, 2D/3D state, and PWA metadata', async ({ page, browserName }) => {
+test('supports detailed 2D, aerial 3D, and PWA metadata', async ({ page, browserName }) => {
   await openMonday(page);
-  await expect(page.getByTestId('route-map')).toHaveAttribute('data-map-ready', 'true');
-  await page.locator('.maplibregl-ctrl-zoom-in').click();
-  await page.locator('.maplibregl-ctrl-zoom-in').click();
+  await expect(page.getByText('Detailed map · 2D')).toBeVisible();
+  await page.locator('.leaflet-control-zoom-in').click();
   await page.getByRole('button', { name: '3D' }).click();
   await expect(page.getByRole('button', { name: '3D' })).toHaveAttribute('aria-pressed', 'true');
+  await expect(page.getByText('Aerial map · 3D')).toBeVisible();
+  await expect(page.getByTestId('route-map')).toHaveAttribute('data-map-ready', 'true');
+  await page.locator('.maplibregl-ctrl-zoom-in').click();
+  await page.getByRole('button', { name: '2D' }).click();
+  await expect(page.getByText('Detailed map · 2D')).toBeVisible();
 
   const manifestResponse = await page.request.get('./manifest.webmanifest');
   expect(manifestResponse.ok()).toBeTruthy();

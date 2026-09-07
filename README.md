@@ -53,7 +53,7 @@ The demo contains one Lodi route with five route days. Every day uses 100 named 
 - Checked-in source snapshot: [`data/lodi-osm-source.json`](data/lodi-osm-source.json)
 - Deterministic transform: [`scripts/build-lodi-fixture.mjs`](scripts/build-lodi-fixture.mjs)
 
-The default map uses key-free [OpenFreeMap](https://openfreemap.org/) vector tiles and OpenStreetMap data. If WebGL or GPU acceleration is unavailable, the app automatically loads a Leaflet raster/SVG compatibility map backed by OpenStreetMap tiles. No paid map API key is required.
+The default 2D map uses Leaflet with detailed OpenStreetMap raster tiles. The optional 3D view uses MapLibre, USGS aerial imagery, and OpenFreeMap/OpenStreetMap labels and building geometry. If WebGL or GPU acceleration is unavailable, the app stays in 2D and explains why. No paid map API key is required.
 
 ## Install on iPad
 
@@ -85,7 +85,7 @@ End users do not need Rust. Rust and Windows packaging tools run only on the Git
 
 ## Verification scope
 
-Automated tests cover schema validation and migration, deterministic 100-stop-per-day fixture invariants, compact stop-order geometry, tap/drag sequencing, mileage, persistence/import behavior, map layer contracts, responsive desktop layout, route/day selection, mode transitions, 2D/3D state, PWA metadata, and Chromium/iPad-WebKit walkthroughs. The live OpenFreeMap smoke is opt-in:
+Automated tests cover schema validation and migration, deterministic 100-stop-per-day fixture invariants, compact stop-order geometry, tap/drag sequencing, mileage, persistence/import behavior, map layer contracts, responsive desktop layout, route/day selection, detailed 2D/aerial 3D transitions, no-WebGL behavior, PWA metadata, and Chromium/iPad-WebKit walkthroughs. The live OpenFreeMap smoke is opt-in:
 
 ```bash
 RUN_LIVE_MAP=1 npm run test:e2e -- --grep "live OpenFreeMap"

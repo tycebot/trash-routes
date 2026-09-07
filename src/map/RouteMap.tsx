@@ -1,4 +1,4 @@
-import { lazy, Suspense, useEffect, useRef, useState, type PointerEvent as ReactPointerEvent } from 'react';
+import { lazy, Suspense, useEffect, useMemo, useRef, useState, type PointerEvent as ReactPointerEvent } from 'react';
 import * as maplibregl from 'maplibre-gl';
 import type { GeoJSONSource, Map as MapLibreMap, MapLayerMouseEvent } from 'maplibre-gl';
 import 'maplibre-gl/dist/maplibre-gl.css';
@@ -31,6 +31,38 @@ maplibregl.setWorkerUrl(mapLibreWorkerUrl);
 
 const LeafletRouteMap = lazy(() => import('./LeafletRouteMap').then((module) => ({ default: module.LeafletRouteMap })));
 const ROUTE_KINDS: RouteLayerKind[] = ['saved', 'reference', 'draft'];
+const USGS_IMAGERY_URL = 'https://basemap.nationalmap.gov/arcgis/rest/services/USGSImageryOnly/MapServer/tile/{z}/{y}/{x}';
+
+function addAerialPresentation(map: MapLibreMap): void {
+  if (!map.getSource('usgs-aerial')) {
+    map.addSource('usgs-aerial', {
+      type: 'raster',
+      tiles: [USGS_IMAGERY_URL],
+      tileSize: 256,
+      maxzoom: 16,
+      attribution: 'USDA, USGS The National Map: Orthoimagery',
+    });
+  }
+  const firstLabelId = map.getStyle().layers.find((layer) => layer.type === 'symbol')?.id;
+  if (!map.getLayer('usgs-aerial-layer')) {
+    map.addLayer({
+      id: 'usgs-aerial-layer',
+      type: 'raster',
+      source: 'usgs-aerial',
+      paint: {
+        'raster-brightness-min': 0.08,
+        'raster-brightness-max': 0.92,
+        'raster-contrast': 0.12,
+        'raster-saturation': 0.08,
+      },
+    }, firstLabelId);
+  }
+  if (map.getLayer('building-3d')) {
+    if (firstLabelId) map.moveLayer('building-3d', firstLabelId);
+    map.setPaintProperty('building-3d', 'fill-extrusion-color', '#d8d1c7');
+    map.setPaintProperty('building-3d', 'fill-extrusion-opacity', 0.72);
+  }
+}
 
 function frameStops(map: MapLibreMap, stops: TrashStop[]): void {
   if (stops.length < 2) return;
@@ -62,7 +94,7 @@ export function RouteMap(props: RouteMapProps) {
   const mapRef = useRef<MapLibreMap | null>(null);
   const activePointerRef = useRef<number | null>(null);
   const propsRef = useRef(props);
-  const [webglAvailable] = useState(mapSupported);
+  const webglAvailable = useMemo(() => props.presentation === '3d' ? mapSupported() : null, [props.presentation]);
   const [generation, setGeneration] = useState(0);
   const [loadedGeneration, setLoadedGeneration] = useState(-1);
   const [mapError, setMapError] = useState<MapError>(null);
@@ -77,7 +109,7 @@ export function RouteMap(props: RouteMapProps) {
   };
 
   useEffect(() => {
-    if (!webglAvailable) return;
+    if (webglAvailable !== true || props.presentation !== '3d') return;
     const container = containerRef.current;
     if (!container) return;
 
@@ -104,6 +136,7 @@ export function RouteMap(props: RouteMapProps) {
           reference: current.referenceRoute,
           draft: current.draftRoute,
         };
+        addAerialPresentation(map);
         if (map.getLayer('natural_earth')) map.setPaintProperty('natural_earth', 'raster-saturation', -0.15);
         for (const kind of ROUTE_KINDS) {
           const sourceId = `${kind}-route`;
@@ -127,12 +160,9 @@ export function RouteMap(props: RouteMapProps) {
           (map.getSource(`${kind}-route`) as GeoJSONSource | undefined)?.setData(routeToGeoJson(route));
         }
         frameStops(map, current.stops);
-        const is3d = current.presentation === '3d';
-        map.easeTo(is3d
-          ? { pitch: 55, bearing: -12, zoom: Math.max(map.getZoom(), 15), duration: 700 }
-          : { pitch: 0, bearing: 0, duration: 500 });
+        map.easeTo({ pitch: 62, bearing: -20, zoom: Math.max(map.getZoom(), 15.5), duration: 700 });
         if (map.getLayer('building-3d')) {
-          map.setLayoutProperty('building-3d', 'visibility', is3d ? 'visible' : 'none');
+          map.setLayoutProperty('building-3d', 'visibility', 'visible');
         }
         map.once('idle', () => setLoadedGeneration(generation));
         setMapError(null);
@@ -154,7 +184,7 @@ export function RouteMap(props: RouteMapProps) {
       map.remove();
       if (mapRef.current === map) mapRef.current = null;
     };
-  }, [generation, webglAvailable]);
+  }, [generation, props.presentation, webglAvailable]);
 
   useEffect(() => {
     const map = mapRef.current;
@@ -174,12 +204,9 @@ export function RouteMap(props: RouteMapProps) {
   useEffect(() => {
     const map = mapRef.current;
     if (!map || loadedGeneration !== generation) return;
-    const is3d = props.presentation === '3d';
-    map.easeTo(is3d
-      ? { pitch: 55, bearing: -12, zoom: Math.max(map.getZoom(), 15), duration: 700 }
-      : { pitch: 0, bearing: 0, duration: 500 });
+    map.easeTo({ pitch: 62, bearing: -20, zoom: Math.max(map.getZoom(), 15.5), duration: 700 });
     if (map.getLayer('building-3d')) {
-      map.setLayoutProperty('building-3d', 'visibility', is3d ? 'visible' : 'none');
+      map.setLayoutProperty('building-3d', 'visibility', 'visible');
     }
   }, [generation, loadedGeneration, props.presentation]);
 
@@ -244,16 +271,17 @@ export function RouteMap(props: RouteMapProps) {
     setGeneration((value) => value + 1);
   };
 
-  if (!webglAvailable) {
+  if (props.presentation === '2d' || webglAvailable !== true) {
     return (
-      <Suspense fallback={<div className="map-message">Loading compatibility map…</div>}>
-        <LeafletRouteMap {...props} />
+      <Suspense fallback={<div className="map-message">Loading detailed map…</div>}>
+        <LeafletRouteMap {...props} webglUnavailable={webglAvailable === false && props.presentation === '3d'} />
       </Suspense>
     );
   }
 
   return (
     <div className="route-map-frame">
+      <div className="compatibility-badge">Aerial map · 3D</div>
       <div
         ref={containerRef}
         data-testid="route-map"
