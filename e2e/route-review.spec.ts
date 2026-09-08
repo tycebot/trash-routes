@@ -60,6 +60,28 @@ test('uses a persistent summary beside the map on laptop screens', async ({ page
   await expect(page.getByText('Finish', { exact: true })).toBeVisible();
 });
 
+test('requests new tiles during iPad panning before release', async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name !== 'webkit-ipad', 'Mobile tile loading only.');
+  await openMonday(page);
+  const map = page.getByTestId('route-map');
+  const box = await map.boundingBox();
+  if (!box) throw new Error('Map has no layout');
+  // Inspect tile elements rather than late network requests from initial loading.
+  const tiles = page.locator('.leaflet-tile');
+  await expect(tiles.first()).toBeAttached();
+  const initialSources = await tiles.evaluateAll((elements) => elements.map((element) => (element as HTMLImageElement).src));
+  await page.mouse.move(box.x + box.width * 0.85, box.y + box.height * 0.35);
+  await page.mouse.down();
+  try {
+    await page.mouse.move(box.x + box.width * 0.1, box.y + box.height * 0.35, { steps: 30 });
+    await expect.poll(async () => tiles.evaluateAll((elements, initial) =>
+      elements.some((element) => !initial.includes((element as HTMLImageElement).src)), initialSources),
+    { timeout: 3000 }).toBe(true);
+  } finally {
+    await page.mouse.up();
+  }
+});
+
 test('uses a stable collapsible route sheet on iPad', async ({ page }, testInfo) => {
   test.skip(testInfo.project.name !== 'webkit-ipad', 'iPad bottom-sheet layout only.');
   await openMonday(page);
