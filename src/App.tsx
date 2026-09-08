@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { DaySelector } from './components/DaySelector';
 import { RouteOverview } from './components/RouteOverview';
 import { RouteSelector } from './components/RouteSelector';
@@ -38,6 +38,10 @@ export function RouteReviewApp({ store = browserRouteStore }: RouteReviewAppProp
 
   const route = snapshot.document.routes.find((candidate) => candidate.id === selectedRouteId) ?? null;
   const day = route?.days.find((candidate) => candidate.id === selectedDayId) ?? null;
+  const savedGeometry = useMemo(() => day ? stopOrderToGeometry(day.stops, day.stopOrder) : null, [day]);
+  const draftRoute = useMemo(() => day && drawing.active
+    ? stopOrderToGeometry(day.stops, drawing.sequence) : null, [day, drawing.active, drawing.sequence]);
+  const savedMiles = useMemo(() => routeMiles(savedGeometry), [savedGeometry]);
 
   const changeMode = (nextMode: RouteMode) => {
     setDrawing(controller.cancel());
@@ -125,15 +129,12 @@ export function RouteReviewApp({ store = browserRouteStore }: RouteReviewAppProp
   }
 
   const displayOrder = drawing.active ? drawing.sequence : day.stopOrder;
-  const savedGeometry = stopOrderToGeometry(day.stops, day.stopOrder);
   const savedRoute = mode === 'edit' && drawing.active ? null : savedGeometry;
   const referenceRoute = mode === 'edit' && drawing.active ? savedGeometry : null;
-  const draftRoute = drawing.active ? stopOrderToGeometry(day.stops, drawing.sequence) : null;
   const selectedStop = day.stops.find((stop) => stop.id === selectedStopId) ?? null;
   const selectedSequence = selectedStop ? displayOrder.indexOf(selectedStop.id) + 1 || null : null;
   const firstStop = day.stops.find((stop) => stop.id === day.stopOrder[0]) ?? null;
   const lastStop = day.stops.find((stop) => stop.id === day.stopOrder.at(-1)) ?? null;
-  const savedMiles = routeMiles(savedGeometry);
 
   return (
     <div className="app-shell">

@@ -57,6 +57,23 @@ function addAerialPresentation(map: MapLibreMap): void {
       },
     }, firstLabelId);
   }
+  // Keep the cached overview underneath; request finer NAIP imagery only nearby.
+  if (!map.getSource('usda-naip')) {
+    map.addSource('usda-naip', {
+      type: 'raster',
+      tiles: ['https://apps.geo.fpac.usda.gov/geo-imagery/rest/services/naip/conus_naip/ImageServer/exportImage?bbox={bbox-epsg-3857}&bboxSR=3857&imageSR=3857&size=512,512&format=jpg&f=image'],
+      tileSize: 512,
+      minzoom: 14,
+      maxzoom: 17,
+      bounds: [-125, 24, -66, 50],
+      attribution: 'USDA FPAC-BC GEO · NAIP aerial imagery',
+    });
+  }
+  if (!map.getLayer('usda-naip-layer')) {
+    map.addLayer({
+      id: 'usda-naip-layer', type: 'raster', source: 'usda-naip', minzoom: 15,
+    }, firstLabelId);
+  }
   if (map.getLayer('building-3d')) {
     map.setLayoutProperty('building-3d', 'visibility', 'none');
   }

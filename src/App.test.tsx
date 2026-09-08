@@ -64,6 +64,17 @@ it('selects a route then a day before showing its workspace', async () => {
   expect(screen.getByText(/Demo Route · Monday/)).toBeVisible();
 });
 
+it('does not rebuild saved route geometry for map status changes', async () => {
+  const user = userEvent.setup();
+  render(<RouteReviewApp store={createStore()} />);
+  await openWorkspace(user);
+  const geometry = mapMock.props!.savedRoute;
+  act(() => mapMock.props!.onMapError('style'));
+  expect(mapMock.props!.savedRoute).toBe(geometry);
+  act(() => mapMock.props!.onMapError(null));
+  expect(mapMock.props!.savedRoute).toBe(geometry);
+});
+
 it('summarizes the route start, finish, stop count, and distance at a glance', async () => {
   const user = userEvent.setup();
   render(<RouteReviewApp store={createStore()} />);

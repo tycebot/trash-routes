@@ -103,6 +103,14 @@ it('keeps aerial 3D tilted but hides raised buildings', () => {
     type: 'raster',
     source: 'usgs-aerial',
   }), 'first-label');
+  expect(map.addSource).toHaveBeenCalledWith('usda-naip', expect.objectContaining({
+    type: 'raster', tileSize: 512, maxzoom: 17,
+    tiles: [expect.stringContaining('bbox={bbox-epsg-3857}')],
+    attribution: expect.stringContaining('USDA'),
+  }));
+  expect(map.addLayer).toHaveBeenCalledWith(expect.objectContaining({
+    id: 'usda-naip-layer', source: 'usda-naip', minzoom: 15,
+  }), 'first-label');
   expect(map.moveLayer).not.toHaveBeenCalled();
   expect(map.easeTo).toHaveBeenCalledWith(expect.objectContaining({ pitch: 62, bearing: -20, zoom: 15.5 }));
   expect(map.setLayoutProperty).toHaveBeenCalledWith('building-3d', 'visibility', 'none');

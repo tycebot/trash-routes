@@ -17,6 +17,10 @@ test.beforeEach(async ({ page }) => {
     contentType: 'image/png',
     body: Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAFgwJ/lA7KtQAAAABJRU5ErkJggg==', 'base64'),
   }));
+  await page.route('https://apps.geo.fpac.usda.gov/geo-imagery/**', (route) => route.fulfill({
+    contentType: 'image/png',
+    body: Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAFgwJ/lA7KtQAAAABJRU5ErkJggg==', 'base64'),
+  }));
   await page.route('https://example.test/fonts/**', (route) => route.fulfill({
     contentType: 'application/x-protobuf',
     body: Buffer.alloc(0),
