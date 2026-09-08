@@ -145,6 +145,28 @@ test('uses the detailed raster map without WebGL', async ({ page }) => {
   await expect(pane).not.toHaveAttribute('style', beforePan ?? '');
 });
 
+test('allows three extra 2D zoom levels without requesting unsupported tiles', async ({ page }) => {
+  await openMonday(page);
+  const zoomIn = page.locator('.leaflet-control-zoom-in');
+  for (let step = 0; step < 12; step++) {
+    if (await zoomIn.getAttribute('aria-disabled') === 'true') break;
+    await zoomIn.click();
+    // Space user clicks past Leaflet's 250ms transition. Its animation class
+    // may already be removed when WebKit's click completes.
+    await page.waitForTimeout(350);
+    await expect(page.locator('.leaflet-zoom-anim')).toHaveCount(0);
+  }
+  await expect(zoomIn).toHaveAttribute('aria-disabled', 'true');
+  await expect.poll(() => page.locator('.leaflet-tile-container').evaluateAll((elements) =>
+    Math.max(...elements.map((element) => new DOMMatrix(getComputedStyle(element).transform).a)),
+  )).toBeGreaterThanOrEqual(8);
+  const levels = await page.locator('.leaflet-tile').evaluateAll((elements) => elements.map((element) =>
+    Number(new URL((element as HTMLImageElement).src).pathname.split('/')[1]),
+  ));
+  expect(levels.length).toBeGreaterThan(0);
+  expect(Math.max(...levels)).toBeLessThanOrEqual(19);
+});
+
 test('uses retina-resolution 2D tiles on iPad', async ({ page }, testInfo) => {
   test.skip(testInfo.project.name !== 'webkit-ipad', 'Retina iPad rendering only.');
   await openMonday(page);

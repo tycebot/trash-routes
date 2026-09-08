@@ -51,7 +51,10 @@ export function LeafletRouteMap(props: LeafletRouteMapProps) {
     if (!container) return;
     const map = L.map(container, { zoomControl: true, attributionControl: true }).setView([38.1342, -121.2722], 13);
     const tiles = L.tileLayer(TILE_URL, {
-      maxZoom: 19,
+      maxZoom: 22,
+      // OSM serves through z19. Retina uses a +1 URL zoom offset, so clamp
+      // its native map zoom to 18 while allowing three levels of enlargement.
+      maxNativeZoom: L.Browser.retina ? 18 : 19,
       attribution: TILE_ATTRIBUTION,
       detectRetina: true,
       // Mobile defaults wait for moveend, leaving newly exposed areas blank during long swipes.
