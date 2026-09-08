@@ -88,7 +88,7 @@ it('uses the detailed Leaflet map for 2D even when WebGL is available', async ()
   expect(mocks.constructor).not.toHaveBeenCalled();
 });
 
-it('configures an aerial perspective and visible buildings for 3D', () => {
+it('keeps aerial 3D tilted but hides raised buildings', () => {
   const map = createFakeMap();
   mocks.constructor.mockImplementation(function FakeMapConstructor() { return map; });
   render(<RouteMap {...props} presentation="3d" />);
@@ -103,9 +103,10 @@ it('configures an aerial perspective and visible buildings for 3D', () => {
     type: 'raster',
     source: 'usgs-aerial',
   }), 'first-label');
-  expect(map.moveLayer).toHaveBeenCalledWith('building-3d', 'first-label');
+  expect(map.moveLayer).not.toHaveBeenCalled();
   expect(map.easeTo).toHaveBeenCalledWith(expect.objectContaining({ pitch: 62, bearing: -20, zoom: 15.5 }));
-  expect(map.setLayoutProperty).toHaveBeenCalledWith('building-3d', 'visibility', 'visible');
+  expect(map.setLayoutProperty).toHaveBeenCalledWith('building-3d', 'visibility', 'none');
+  expect(map.setLayoutProperty).not.toHaveBeenCalledWith('building-3d', 'visibility', 'visible');
 });
 
 it('frames every stop when the selected route day loads', () => {

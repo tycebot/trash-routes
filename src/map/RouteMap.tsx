@@ -58,9 +58,7 @@ function addAerialPresentation(map: MapLibreMap): void {
     }, firstLabelId);
   }
   if (map.getLayer('building-3d')) {
-    if (firstLabelId) map.moveLayer('building-3d', firstLabelId);
-    map.setPaintProperty('building-3d', 'fill-extrusion-color', '#d8d1c7');
-    map.setPaintProperty('building-3d', 'fill-extrusion-opacity', 0.72);
+    map.setLayoutProperty('building-3d', 'visibility', 'none');
   }
 }
 
@@ -161,9 +159,7 @@ export function RouteMap(props: RouteMapProps) {
         }
         frameStops(map, current.stops);
         map.easeTo({ pitch: 62, bearing: -20, zoom: Math.max(map.getZoom(), 15.5), duration: 700 });
-        if (map.getLayer('building-3d')) {
-          map.setLayoutProperty('building-3d', 'visibility', 'visible');
-        }
+
         map.once('idle', () => setLoadedGeneration(generation));
         setMapError(null);
         current.onMapError(null);
@@ -205,9 +201,7 @@ export function RouteMap(props: RouteMapProps) {
     const map = mapRef.current;
     if (!map || loadedGeneration !== generation) return;
     map.easeTo({ pitch: 62, bearing: -20, zoom: Math.max(map.getZoom(), 15.5), duration: 700 });
-    if (map.getLayer('building-3d')) {
-      map.setLayoutProperty('building-3d', 'visibility', 'visible');
-    }
+
   }, [generation, loadedGeneration, props.presentation]);
 
   useEffect(() => {

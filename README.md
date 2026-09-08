@@ -53,7 +53,7 @@ The demo contains one Lodi route with five route days. Every day uses 100 named 
 - Checked-in source snapshot: [`data/lodi-osm-source.json`](data/lodi-osm-source.json)
 - Deterministic transform: [`scripts/build-lodi-fixture.mjs`](scripts/build-lodi-fixture.mjs)
 
-The default 2D map uses Leaflet with detailed OpenStreetMap raster tiles. The optional 3D view uses MapLibre, USGS aerial imagery, and OpenFreeMap/OpenStreetMap labels and building geometry. If WebGL or GPU acceleration is unavailable, the app stays in 2D and explains why. No paid map API key is required.
+The default 2D map uses Leaflet with detailed OpenStreetMap raster tiles. The optional 3D view uses MapLibre, USGS aerial imagery, and OpenFreeMap/OpenStreetMap labels. Raised buildings are hidden to keep routes unobstructed. If WebGL or GPU acceleration is unavailable, the app stays in 2D and explains why. No paid map API key is required.
 
 ## Install on iPad
 
